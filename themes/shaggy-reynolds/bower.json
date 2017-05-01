@@ -1,0 +1,28 @@
+{
+  "name": "kelbyone",
+  "authors": [
+    "Brandon Nourse <bnourse@kelbymediagroup.com>"
+  ],
+  "description": "CSS/JS vendor dependencies for kelbyone.com",
+  "main": "",
+  "license": "MIT",
+  "homepage": "http://kelbyone.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "webfontloader": "^1.6.26"
+  },
+  "devDependencies": {
+    "webfontloader": "^1.6.26",
+    "matchHeight": "matchheight#^0.7.0",
+    "jquery-accordion": "*",
+    "juxtapose": "^1.1.7"
+  }
+}
