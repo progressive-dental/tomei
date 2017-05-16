@@ -1,0 +1,13 @@
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+  .contact-list__item {
+    margin-bottom: 17px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }

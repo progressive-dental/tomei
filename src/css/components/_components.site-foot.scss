@@ -1,0 +1,122 @@
+.site-foot {
+  background-color: #14204B;
+  padding: 65px 0 0;
+  text-align: left;
+  font-size: 14px;
+  line-height: 19.6px;
+  font-weight: 400;
+  color: #fff;
+}
+
+  .site-foot__reviews {
+    width: 100%;
+    padding: 19px 0;
+    position: relative;
+    text-align: center;
+
+    a {
+      color: #fff;
+      position: relative;
+      font-size: 14px;
+      line-height: 19.6px;
+      letter-spacing: .29px;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        text-decoration: none;
+        color: #1A9CC3;
+      }
+    }
+  }
+
+  .site-foot__column {
+    padding-left: 20%;
+    margin-bottom: 50px;
+    @media(max-width: $screen-sm-max) {
+      padding: 0 80px;
+      
+    }
+
+    @media(max-width: $screen-xs-max) {
+      padding: 0 30px;
+    }
+  }
+
+  .site-foot__column--right {
+    margin-left: 0px;
+    padding-right: 20%;
+    width: 100%;
+    padding-left: 0;
+
+    @media(max-width: $screen-sm-max) {
+      padding: 0 80px;
+
+    }
+
+    @media(max-width: $screen-xs-max) {
+      padding: 0 30px;
+    }
+  }
+
+  .site-foot__column--center {
+    padding: 0 80px;
+    width: 100%;
+
+    @media(max-width: $screen-xs-max) {
+      padding: 0 30px;
+    }
+  }
+
+  .site-foot__header {
+    padding-bottom: 20px;
+    display: block;
+    border-bottom: 1px solid #2796C0;
+    margin-bottom: 25px;
+    font-size: 41px;
+    line-height: 58.24px;
+    letter-spacing: .16px;
+    font-weight: 300;
+  }
+
+
+  .site-foot__link {
+    color: #fff;
+    transition: .3s ease-in-out;
+    font-weight: 400;
+
+      &:hover {
+        text-decoration: none;
+        color: #1A9CC3;
+      }
+  }
+
+  .site-foot__link--phone {
+    margin-bottom: 24px;
+  }
+
+  .site-foot__list {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 25.2px;
+    display: inline-block;
+    width: 30%;
+
+    @media(max-width: $screen-lg-min) {
+      width: 48%;
+    }
+
+    @media(min-with: $screen-sm-min) and (max-width: $screen-sm-max) {
+      width: 30%;
+    }
+  }
+
+  .site-foot__item--header {
+    font-size: 16px;
+    line-height: 25.6px;
+    font-family: 'Lato';
+    font-weight: 700;
+    color: #2D90BD;
+    text-transform: uppercase;
+  }

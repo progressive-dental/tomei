@@ -96,28 +96,36 @@ function progressive_map_media() {
         ),
         array(
           'type' => 'textfield',
-          'heading' => __( 'External video URL.', 'progressive' ),
-          'param_name' => 'video_url',
+          'heading' => __( 'Video caption', 'progressive' ),
+          'param_name' => 'video_caption',
           'admin_label' => true,
           'dependency' => array(
             'element' => 'video_location',
-            'value' => array( 'external' ),
+            'value' => array( 'youtube', 'vimeo' ),
           ),
         ),
+
         array(
-          'type' => 'dropdown',
-          'heading' => __( 'External video type.', 'progressive' ),
-          'param_name' => 'video_type',
-          'admin_label' => true,
-          'value' => array(
-            'Select' => '',
-            'MP4' => 'video/mp4',
-            'WEBM' => 'video/webm',
-            'OGV' => 'video/ogg'
+          "type" => "dropdown",
+          "class" => "",
+          "heading" => "Caption font color",
+          'group' => 'Colors',
+          "param_name" => "caption_font_color",
+          "value" => array(
+            "Select Color" => "",
+            "Primary" => "text-primary",
+            "Secondary" => "text-secondary",
+            "Tertiary" => "text-tertiary",
+            "Light" => "text-light",
+            "Accent" => "text-accent",
+            "Hightlight" => "text-highlight",
+            "Custom 1" => "text-custom-one",
+            "Custom 2" => "text-custom-two",
+            "Custom 3" => "text-custom-three"
           ),
           'dependency' => array(
             'element' => 'video_location',
-            'value' => array( 'external', 'media_library' ),
+            'value' => array( 'youtube', 'vimeo' ),
           ),
         ),
         array(
@@ -128,7 +136,7 @@ function progressive_map_media() {
           'description' => __( 'Still image to show while the video is loading.', 'progressive' ),
           'dependency' => array(
             'element' => 'video_location',
-            'value' => array( 'external', 'media_library' ),
+            'value' => array( 'youtube', 'vimeo' ),
           ),
         ),
         
@@ -145,33 +153,45 @@ function pd_media_func( $atts, $content = null ) {
       'video_url' => '',
       'video_type' => '',
       'video_poster' => '',
+      'video_caption' => '',
       'youtube_id' => '',
-      'vimeo_id' => ''
+      'vimeo_id' => '',
+      'image_before' => '',
+      'image_after' => '',
+      'caption_font_color' => ''
   ), $atts ));
+
+  global $progressive;
+
   switch( $media ) {
     case 'image':
-      $html = '<img src="' . wp_get_attachment_url($image) . '" alt="' . wp_get_attachment_caption( $image ) . '">';
+      $attachemnt_alt = get_post_meta( $image, '_wp_attachment_image_alt', true);
+      $html = '
+        <div class="outline-image">
+          <img src="' . wp_get_attachment_url($image) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '">
+        </div>
+      ';
       break;
     case 'video':
-        if( $video_location == "external" ) {
-          $html = '
-            <div class="video" style="max-width: 100%; height: auto;">
-              <video class="video__content" autoplay muted>
-                <source src="' . $video_url . '" type="' . $video_type . '">
-              </video>
+      $attachemnt_alt = get_post_meta( $video_poster, '_wp_attachment_image_alt', true);
+        $html = '
+          <div class="video-box">
+            <div class="video-box__thumbnail">
+              <img src="' . wp_get_attachment_url($video_poster) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '" data-mh="videobox">
+              <a href="https://www.youtube.com/watch?v=' . $youtube_id . '" class="video-box__play"><i class="icon  icon--play"></i></a>
             </div>
-          ';
-        } elseif( $video_location == "youtube" ) {
-          $html = '
-            <div class="js-player" data-type="youtube" data-video-id="' . $youtube_id . '" data-plyr=\'\'></div>
-          ';
-        } elseif( $video_location == "vimeo" ) {
-          $html = '
-            <div class="video  video--youtube">
-              <iframe src="https://player.vimeo.com/video/' . $vimeo_id . '?rel=0&amp;showinfo=0&amp;autoplay=1&amp;background=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-          ';
-        }
+            <div class="video-box__caption  ' . ( !empty( $caption_font_color ) ? $caption_font_color : '' ) . '" data-mh="videobox">
+              <span class="video-box__copy">' . $video_caption . '</span></div>
+          </div>
+        ';
+      break;
+    case 'comparison':
+      $html = '
+        <div class="compare">
+          <img src="' . wp_get_attachment_url($image_before) . '">
+          <img src="' . wp_get_attachment_url($image_after) . '">
+        </div>
+      ';
       break;
   }
 

@@ -1,0 +1,37 @@
+.widget {
+  padding: 38px 30px;
+
+}
+.widget--large {
+  padding: 110px 55px;
+
+  @media(max-width: $screen-sm-max) {
+    padding: 38px 30px;
+  }
+}
+
+
+  .widget__contact {
+    a {
+      font-weight: 400;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+
+  .widget__headline {
+    font-size: 19px;
+    line-height: 24px;
+
+    @media(max-width: $screen-sm-max) {
+      text-align: center;
+
+      &:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/js/site.js"],"names":["WebFont","load","google","families"],"mappings":"AAAA,CAAC,YAAW;AACX;AACAA,SAAQC,IAAR,CAAa;AACZC,UAAQ;AACPC,aAAU,CAAC,UAAD;AADH;AADI,EAAb;AAKA,CAPA,EAAD","file":"site.js","sourcesContent":["!function() {\n\t// Web Font Loader\n\tWebFont.load({\n\t\tgoogle: {\n\t\t\tfamilies: ['Lato:700']\n\t\t}\n\t})\n}();"]}

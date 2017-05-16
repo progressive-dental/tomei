@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package road_runner
+ * @package shaggy_reynolds
  */
 
 get_header(); ?>

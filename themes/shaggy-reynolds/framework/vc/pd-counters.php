@@ -27,65 +27,63 @@ function progressive_map_counter() {
           ),
         ),
         array(
-          'type' => 'dropdown',
-          'heading' => __( 'Circle One Class', 'progressive' ),
-          'param_name' => 'circle_one_class',
-          'description' => __( 'Class name for the first circle. Handles the color.'),
-          'group' => __( 'Display Options', 'progressive' ),
-          'value' => array(
-            "Select type" => "",
-            "Primary" => "primary",
-            "Secondary" => "secondary",
-            "Tertiary" => "tertiary",
-            "Accent" => "accent",
-            "Accent Dark" => "accent-dark",
-            "Light" => "light",
-            "Tint" => "tint",
-            "Custom" => "custom",
+          'type' => 'textfield',
+          'heading' => __( 'Counter Text', 'progressive' ),
+          'param_name' => 'counter_text',
+          'description' => __( 'Description of counter.'),
+        ),
+        array(
+          "type" => "dropdown",
+          "class" => "",
+          "heading" => "Change Text color",
+          "param_name" => "counter_text_color",
+          "value" => array(
+            "" => "",
+            "Primary" => "text-primary",
+            "Secondary" => "text-secondary",
+            "Tertiary" => "text-tertiary",
+            "Light" => "text-light",
+            "Accent" => "text-accent",
+            "Hightlight" => "text-highlight",
+            "Custom 1" => "text-custom-one",
+            "Custom 2" => "text-custom-two",
+            "Custom 3" => "text-custom-three"
+          ),
+        ),
+        array(
+            'type' => 'dropdown',
+            'heading' => __( 'Text Location', 'progressive' ),
+            'param_name' => 'counter_text_location',
+            'value' => array(
+              'Default' => '',
+              'Left' => 'text-left',
+              "Center" => "text-center",
+              "Right" => "text-right",
+            ),
           ),
 
-        ),
         array(
           'type' => 'colorpicker',
-          'heading' => __( 'Circle One Custom Color', 'progressive' ),
-          'param_name' => 'circle_one_custom_color',
-          'description' => __( 'Custom color for the first circle.'),
+          'heading' => __( 'Circle bar color', 'progressive' ),
+          'param_name' => 'bar_color',
+          'description' => __( 'Color when the circle animates.'),
           'group' => __( 'Display Options', 'progressive' ),
-          'dependency' => array(
-            'element' => 'circle_one_class',
-            'value' => array( 'custom' ),
-          ),
         ),
         array(
-          'type' => 'dropdown',
-          'heading' => __( 'Circle Two Class', 'progressive' ),
-          'param_name' => 'circle_two_class',
-          'description' => __( 'Class name for the second circle. Handles the color.'),
-          'group' => __( 'Display Options', 'progressive' ),
-          'value' => array(
-            "Select type" => "",
-            "Primary" => "primary",
-            "Secondary" => "secondary",
-            "Tertiary" => "tertiary",
-            "Accent" => "accent",
-            "Accent Dark" => "accent-dark",
-            "Light" => "light",
-            "Tint" => "tint",
-            "Custom" => "custom",
-          ),
-
+          'type' => 'textfield',
+          'heading' => __( 'Circle bar width', 'progressive' ),
+          'param_name' => 'bar_width',
+          'description' => __( 'Width of the animatied circle.'),
+          'group' => __( 'Display Options', 'progressive' )
         ),
         array(
-          'type' => 'colorpicker',
-          'heading' => __( 'Circle Two Custom Color', 'progressive' ),
-          'param_name' => 'circle_two_custom_color',
-          'description' => __( 'Custom color for the second circle.'),
-          'group' => __( 'Display Options', 'progressive' ),
-          'dependency' => array(
-            'element' => 'circle_two_class',
-            'value' => array( 'custom' ),
-          ),
+          'type' => 'textfield',
+          'heading' => __( 'Counter Speed', 'progressive' ),
+          'param_name' => 'counter_speed',
+          'description' => __( 'Speed of javascript countTo plugin. ( Text )'),
+          'group' => __( 'Display Options', 'progressive' )
         ),
+        
       )
     ) );
   }
@@ -95,16 +93,24 @@ function pd_counter_func( $atts ) {
   extract(shortcode_atts(array(
       'type' => '',
       'count' => '',
-      'circle_one_class' => '',
-      'circle_two_class' => '',
-      'circle_one_custom_color' => '',
-      'circle_two_custom_color' => ''
+      'bar_color' => '',
+      'bar_width' => '',
+      'counter_speed' => '',
+      'counter_text' => '',
+      'counter_text_color' => '',
+      'counter_text_location' => ''
   ), $atts ));
 
+  $classes = array( 'counter__title', $counter_text_color, $counter_text_location );
+  $classes = implode( "  ", array_filter( $classes ) );
+
   ob_start(); ?>
-    <div class="counter" data-percent="<?php echo $count; ?>">
-      <div class="counter__inner"><span class="counter__count" data-from="0" data-to="<?php echo $count; ?>">0</span><?php echo ( $type == 'percent' ? '%' : '' ); ?></div>
+    <div class="counter" data-percent="<?php echo $count; ?>" data-bar-color="<?php echo $bar_color; ?>" data-bar-width="<?php echo $bar_width; ?>" data-speed="<?php echo $counter_speed; ?>" >
+      <div class="counter__content  text-primary">
+        <span class="counter__count" data-from="0" data-to="<?php echo $count; ?>">0</span><?php echo ( $type == 'percent' ? '%' : '' ); ?>
+      </div>
     </div>
+    <h3 class="<?php echo $classes; ?>"><?php echo $counter_text; ?></h3>
   <?php
   $output = ob_get_clean();
   return $output;

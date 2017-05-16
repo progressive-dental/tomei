@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package road_runner
+ * @package shaggy_reynolds
  */
 
 get_header(); ?>

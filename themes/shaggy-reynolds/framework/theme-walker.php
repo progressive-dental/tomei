@@ -63,9 +63,7 @@ class Wpse8170_Menu_Walker extends Walker_Nav_Menu {
     if($icon) {
       $item_output .= '</span>';
     }
-    if($hasDropdown) {
-      $item_output .= ' <span class="icon  icon--caret-down"></span>';
-    }
+
     $item_output .= '</a>';
     $item_output .= $args->after;
 
@@ -73,6 +71,7 @@ class Wpse8170_Menu_Walker extends Walker_Nav_Menu {
   }
 
   function start_lvl( &$output, $depth = 0, $args = array() ) {
+
     if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
       $t = '';
       $n = '';
@@ -80,8 +79,19 @@ class Wpse8170_Menu_Walker extends Walker_Nav_Menu {
       $t = "\t";
       $n = "\n";
     }
+    
     $indent = str_repeat( $t, $depth );
-    $output .= "{$n}{$indent}<ul class=\"site-nav__sub-menu\">{$n}";
+    if( $depth == 0 ) {
+      $output .= "{$n}{$indent}<div class=\"site-nav__dropdown\"><ul class=\"site-nav  site-nav--dropdown\">{$n}";
+    } else {
+      $output .= "{$n}{$indent}<div class=\"site-nav__dropdown\"><ul>{$n}";
+    }
+    
+  }
+
+  function end_lvl( &$output, $depth = 0, $args = array() ) {
+    $indent = str_repeat("\t", $depth);
+    $output .= "$indent</ul></div>\n";
   }
 
 }

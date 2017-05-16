@@ -1,0 +1,24 @@
+/*------------------------------------*\
+  #NAV-PRIMARY
+\*------------------------------------*/
+
+.c-nav-primary {
+}
+
+  .c-nav-primary__item {
+  }
+
+    .c-nav-primary__link {
+      display: inline-block;
+      padding-right: $nav-padding-horizontal;
+      padding-left:  $nav-padding-horizontal;
+      padding-top: $nav-padding-vertical;
+      padding-bottom: $nav-padding-vertical;
+      
+
+      &.is-active {
+        text-decoration: underline;
+        cursor: default;
+      }
+
+    }

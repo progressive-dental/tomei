@@ -25,7 +25,7 @@
         'opt_name' => 'progressive',
         'display_name' => 'Theme Options',
         'display_version' => '1.0.0',
-        'page_slug' => 'road_runner',
+        'page_slug' => 'shaggy_reynolds',
         'page_title' => 'Theme Options',
         'update_notice' => TRUE,
         'menu_type' => 'menu',
@@ -152,7 +152,6 @@
                 'title'     => 'Enable new patient number?',
                 'default'   => false,
             ),
-            
             array(
                 'id'       => 'top-new-patient-text',
                 'type'     => 'text',
@@ -231,11 +230,48 @@
                 'title'     => 'Logo',
             ),
             array(
+                'id'        => 'enable-new-patient-number',
+                'type'      => 'switch',
+                'title'     => 'Show New Patient Number?',
+                'default'   => false,
+            ),
+            array(
+                'id'        => 'enable-current-patient-number',
+                'type'      => 'switch',
+                'title'     => 'Show Current Patient Number?',
+                'default'   => false,
+            ),
+            array(
+                'id'        => 'enable-practice-address',
+                'type'      => 'switch',
+                'title'     => 'Show Practice address?',
+                'default'   => false,
+            ),
+            array(
+                'id'        => 'contact-us-link',
+                'type'      => 'select',
+                'data'      => 'pages',
+                'title'     => 'Contact us link?',
+                'default'   => false,
+            ),
+            array(
                 'id'        => 'social-list-section',
                 'type'      => 'section',
                 'title'     => 'Social Icons',
                 'subtitle'  => 'These options edit the social icons.',
                 'indent'    => true
+            ),
+            array(
+                'id'        => 'enable-google-reviews',
+                'type'      => 'switch',
+                'title'     => 'Enable Google Reviews?',
+                'default'   => false,
+            ),
+            array(
+                'id'        => 'google-reviews-link',
+                'type'      => 'text',
+                'title'     => 'Google Reviews URL',
+                'required' => array('enable-google-reviews','equals','1')
             ),
             array(
                 'id'        => 'enable-facebook',
@@ -248,6 +284,18 @@
                 'type'      => 'text',
                 'title'     => 'Facebook URL',
                 'required' => array('enable-facebook','equals','1')
+            ),
+            array(
+                'id'        => 'enable-google-plus',
+                'type'      => 'switch',
+                'title'     => 'Enable Google Plus?',
+                'default'   => false,
+            ),
+            array(
+                'id'        => 'gogle-plus-link',
+                'type'      => 'text',
+                'title'     => 'Google Plus URL',
+                'required' => array('enable-google-plus','equals','1')
             ),
             array(
                 'id'        => 'enable-twitter',
@@ -305,6 +353,58 @@
                 'type'      => 'media',
                 'title'     => 'Favicon',
             ),
+            array(
+                'id'        => 'location',
+                'type'      => 'text',
+                'title'     => 'Location',
+            ),
+
+
+    )
+    ) );
+
+    Redux::setSection( $opt_name, array(
+        'title'  => __( 'Location', 'progressive' ),
+        'id'     => 'location',
+        'desc'   => __( 'Location options for the office.', 'progressive' ),
+        'icon'   => 'el el-map-marker',
+        'fields' => array(
+            array(
+                'id'        => 'address-line-one',
+                'type'      => 'text',
+                'title'     => 'Address 1',
+            ),
+            array(
+                'id'        => 'address-line-two',
+                'type'      => 'text',
+                'title'     => 'Address 2',
+            ),
+            array(
+                'id'        => 'address-city',
+                'type'      => 'text',
+                'title'     => 'City',
+            ),
+            array(
+                'id'        => 'address-state',
+                'type'      => 'text',
+                'title'     => 'State',
+            ),
+            array(
+                'id'        => 'address-zip',
+                'type'      => 'text',
+                'title'     => 'Zip',
+            ),
+            array(
+                'id'        => 'current-patient-number',
+                'type'      => 'text',
+                'title'     => 'Current Patient Number',
+            ),
+            array(
+                'id'        => 'new-patient-number',
+                'type'      => 'text',
+                'title'     => 'New Patient Number',
+            ),
+
 
     )
     ) );

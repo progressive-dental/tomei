@@ -1,0 +1,143 @@
+/*------------------------------------*\
+  #BUTTONS
+\*------------------------------------*/
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7
+ * 7. Subtract the border size from the padding value so that buttons do not
+ *    grow larger as we add borders.
+ */
+.btn {
+  display: inline-block; /* [1] */
+  vertical-align: middle; /* [2] */
+  font: inherit; /* [3] */
+  text-align: center; /* [4] */
+  margin: 0; /* [4] */
+  cursor: pointer; /* [5] */
+  overflow: visible; /* [6] */
+  padding: $btn-padding-vertical - $btn-border-width $btn-padding-horizontal - $btn-border-width; /* [7] */
+  line-height: normal;
+  text-transform: uppercase;
+  transition: $global-transition;
+  border: 1px solid;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+
+  @if($btn-radius != 0) {
+    border-radius: $btn-radius;
+  }
+
+  @if($btn-min-width != 0) {
+    min-width: $btn-min-width;
+  }
+
+  @include hocus() {
+    text-decoration: none;
+  }
+
+  /**
+   * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
+   */
+  &::-moz-focus-inner {
+    border:  0;
+    padding: 0;
+  }
+}
+
+/* Style variants
+   ========================================================================== */
+
+.btn--primary {
+  background-color: $color-btn-background;
+  border-color: $color-btn-background;
+             color: $color-btn;
+  transition: $global-transition;
+
+
+  /*.t-red & {
+    background-color: $color-theme-red; // todo: introduce themes
+  } */
+
+}
+
+  .btn--default {
+    background-color: #fff;
+  }
+
+  .btn--outline-primary {
+    border-color: $color-primary;
+
+    @include hocus {
+      border-color: darken($color-primary, 9%);
+    }
+  }
+
+  .btn--outline-secondary {
+    border-color: $color-secondary;
+
+    @include hocus {
+      border-color: darken($color-secondary, 9%);
+    }
+  }
+
+  .btn--outline-accent {
+    border-color: $color-accent;
+    @include hocus {
+      border-color: darken($color-accent, 9%);
+    }
+  }
+
+.btn--small-pad {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.btn--secondary {
+  background-color: $color-secondary;
+             color: $color-white;
+  transition: all .3s;
+  border-color: $color-secondary;
+
+  @include hocus() {
+    background-color: $color-primary;
+    border-color: $color-white;
+  }
+}
+
+.btn--accent {
+  background-color: $color-accent;
+             color: $color-white;
+  transition: all .3s;
+
+  @include hocus() {
+    background-color: $color-secondary;
+  }
+}
+
+.btn--ghost {
+  background-color: transparent;
+
+  &.btn--primary {
+    color: $color-btn-background;
+  }
+
+  &:hover {
+    background-color: $color-btn-background-hover;
+    border-color: $color-btn-background-hover;
+    color: #fff;
+  }
+}
+
+.btn--small {
+  padding: 10px 56px;
+}
+
+.btn--view-more {
+  margin-top: 70px;
+}

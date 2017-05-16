@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package road_runner
+ * @package shaggy_reynolds
  */
 
 ?>
@@ -20,7 +20,7 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php road_runner_posted_on(); ?>
+			<?php shaggy_reynolds_posted_on(); ?>
 		</div>
 		<?php
 		endif; ?>
@@ -42,7 +42,7 @@
 	</div>
 
 	<footer class="entry-footer">
-		<?php road_runner_entry_footer(); ?>
+		<?php shaggy_reynolds_entry_footer(); ?>
 	</footer>
 </article>
  -->

@@ -12,11 +12,16 @@ require_once ( FRAMEWORK_ROOT . '/vc/pd-testimonial.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-sponsors.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-sponsor.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-masthead.php' );
+require_once ( FRAMEWORK_ROOT . '/vc/pd-masthead-tabs.php' );
+require_once ( FRAMEWORK_ROOT . '/vc/pd-masthead-tab.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-masthead-headline.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-parrallax-image-or-video-bg.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-staff-card.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-media.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-implant.php' );
+require_once ( FRAMEWORK_ROOT . '/vc/pd-fifty-fifty.php' );
+require_once ( FRAMEWORK_ROOT . '/vc/pd-block-list.php' );
+require_once ( FRAMEWORK_ROOT . '/vc/pd-block.php' );
 
 function progressive_integrate_VC() {
 
@@ -42,70 +47,108 @@ function progressive_integrate_VC() {
         'type' => 'dropdown',
         'heading' => 'Text align',
         'param_name' => 'align_text',
+        'group' => 'Extras',
         "value" => array(
           "Default" => "",
           "Center" => "text-center",
           "Left" => "text-left",
           "Right" => "text-right"
         )
-      )
+      ),
+      array(
+        'type' => 'dropdown',
+        'heading' => 'Font size?',
+        'description' => __( 'Change font size from default.', 'js_composer' ),
+        'param_name' => 'font_size',
+        'group' => 'Extras',
+        "value" => array(
+          "Default" => "",
+          "Large" => "text-large",
+        )
+      ),
+      array(
+        "type" => "dropdown",
+        "class" => "",
+        "heading" => "Change strong tag color?",
+        'group' => 'Extras',
+        "param_name" => "strong_tag_color",
+        "value" => array(
+          "" => "",
+          "Primary" => "text-primary",
+          "Secondary" => "text-secondary",
+          "Tertiary" => "text-tertiary",
+          "Light" => "text-light",
+          "Accent" => "text-accent",
+          "Hightlight" => "text-highlight",
+          "Custom 1" => "text-custom-one",
+          "Custom 2" => "text-custom-two",
+          "Custom 3" => "text-custom-three"
+        ),
+      ),
     );
 
     $btn_atts = array(
       array(
         'type' => 'dropdown',
+        'weight' => 1,
         'heading' => __( 'Color', 'js_composer' ),
-        'description' => __( 'Select button display color.', 'js_composer' ),
         'param_name' => 'color',
         // partly compatible with btn2, need to be converted shape+style from btn2 and btn1
         'value' => array(
           __( 'Select', 'js_composer' ) => '',
-          __( 'Primary', 'js_composer' ) => 'primary',
-          __( 'Secondary', 'js_composer' ) => 'secondary',
-          __( 'Tertiary', 'js_composer' ) => 'tertiary',
-          __( 'Accent', 'js_composer' ) => 'accent',
-          __( 'Accent Dark', 'js_composer' ) => 'accent-dark',
-          __( 'Light', 'js_composer' ) => 'light',
-          __( 'Tint', 'js_composer' ) => 'tint',
-          __( 'Default', 'js_composer' ) => 'default',
+          __( 'Primary', 'js_composer' ) => 'btn--primary',
+          __( 'Secondary', 'js_composer' ) => 'btn--secondary',
+          __( 'Tertiary', 'js_composer' ) => 'btn--tertiary',
+          __( 'Accent', 'js_composer' ) => 'btn--accent',
+          __( 'Light', 'js_composer' ) => 'btn--light',
+          __( 'Tint', 'js_composer' ) => 'btn--tint',
+          __( 'Custom 1', 'js_composer' ) => 'btn--custom-one',
+          __( 'Custom 2', 'js_composer' ) => 'btn--custom-two',
+          __( 'Custom 3', 'js_composer' ) => 'btn--custom-three',
+          __( 'Default', 'js_composer' ) => 'btn--default',
+        ),
+      ),
+      array(
+        'type' => 'dropdown',
+        'weight' => 1,
+        'heading' => __( 'Outline Color', 'js_composer' ),
+        'param_name' => 'outline_color',
+        // partly compatible with btn2, need to be converted shape+style from btn2 and btn1
+        'value' => array(
+          __( 'Select', 'js_composer' ) => '',
+          __( 'Primary', 'js_composer' ) => 'btn--outline-primary',
+          __( 'Secondary', 'js_composer' ) => 'btn--outline-secondary',
+          __( 'Tertiary', 'js_composer' ) => 'btn--outline-tertiary',
+          __( 'Accent', 'js_composer' ) => 'btn--outline-accent',
+          __( 'Light', 'js_composer' ) => 'btn--outline-light',
+          __( 'Tint', 'js_composer' ) => 'btn--outline-tint',
+          __( 'Custom 1', 'js_composer' ) => 'btn--outline-custom-one',
+          __( 'Custom 2', 'js_composer' ) => 'btn--outline-custom-two',
+          __( 'Custom 3', 'js_composer' ) => 'btn--outline-custom-three',
+          __( 'Default', 'js_composer' ) => 'btn--outline-default',
         ),
       ),
       array(
         'type' => 'dropdown',
         'heading' => __( 'Size', 'js_composer' ),
         'param_name' => 'size',
-        'description' => __( 'Select button display size.', 'js_composer' ),
-        'weight' => 1,
         // compatible with btn2, default md, but need to be converted from btn1 to btn2
-        'std' => 'medium',
+        'std' => '',
         'value' => array(
+          'Normal' => '',
           'Small' => 'small',
-          'Normal' => 'medium',
           'Large' => 'Large',
           'Full' => 'full',
         ),
       ),
       array(
-        'type' => 'dropdown',
-        'heading' => __( 'Ghost', 'js_composer' ),
-        'param_name' => 'ghost',
-        'description' => __( 'Select to ghost the button.', 'js_composer' ),
-        // compatible with btn2, default md, but need to be converted from btn1 to btn2
-        'std' => 'no',
+        'type' => 'checkbox',
+        'heading' => __( 'Enable video popup?', 'progressive' ),
+        'param_name' => 'enable_popup',
         'value' => array(
-          'No' => 'no',
-          'Yes' => 'yes',
+          "Yes" => "true"
         ),
       ),
-      array(
-        'type' => 'dropdown',
-        'heading' => __( 'Is this a popup video?', 'js_composer' ),
-        'param_name' => 'popup_video',
-        'value' => array(
-          'No' => '',
-          'Yes' => 'yes',
-        ),
-      )
     );
 
     vc_add_params( 'vc_row', $row_atts );
@@ -123,6 +166,26 @@ function progressive_integrate_VC() {
     vc_remove_param( 'vc_btn', 'outline_custom_hover_text' );
     vc_remove_param( 'vc_btn', 'gradient_text_color' );
     vc_remove_param( 'vc_btn', 'size' );
+    vc_remove_param( 'vc_btn', 'custom_onclick' );
+    vc_remove_param( 'vc_btn', 'shape' );
+    vc_remove_param( 'vc_btn', 'css_animation' );
+    vc_remove_param( 'vc_btn', 'add_icon' );
+    vc_remove_param( 'vc_btn', 'i_type' );
+    vc_remove_param( 'vc_btn', 'i_align' );
+    vc_remove_param( 'vc_btn', 'align' );
+    vc_remove_param( 'vc_btn', 'iconpicker' );
+    vc_remove_param( 'vc_btn', 'custom_onclick_code' );
+    vc_remove_param( 'vc_btn', 'button_block' );
+    vc_remove_param( 'vc_btn', 'title' );
+
+    vc_remove_param( 'vc_btn', 'i_icon_fontawesome' );
+    vc_remove_param( 'vc_btn', 'i_icon_pixelicons' );
+    vc_remove_param( 'vc_btn', 'i_icon_openiconic' );
+    vc_remove_param( 'vc_btn', 'i_icon_typicons' );
+    vc_remove_param( 'vc_btn', 'i_icon_entypo' );
+    vc_remove_param( 'vc_btn', 'i_icon_linecons' );
+    vc_remove_param( 'vc_btn', 'i_icon_monosocial' );
+    vc_remove_param( 'vc_btn', 'i_icon_material' );
 
 
     vc_remove_param( 'vc_section', 'video_bg' );

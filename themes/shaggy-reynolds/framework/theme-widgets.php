@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'widgets_init', 'road_runner_widgets_init' );
+add_action( 'widgets_init', 'shaggy_reynolds_widgets_init' );
 
 
 /**
@@ -8,7 +8,7 @@ add_action( 'widgets_init', 'road_runner_widgets_init' );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function road_runner_widgets_init() {
+function shaggy_reynolds_widgets_init() {
   register_sidebar( array(
     'name'          => esc_html__( 'Sidebar 1', 'road-runner' ),
     'id'            => 'sidebar-1',

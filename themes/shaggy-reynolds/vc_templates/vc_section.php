@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Shortcode class
  * @var $this WPBakeryShortCode_VC_Row
  */
-$el_class = $full_height = $parallax_speed_bg = $parallax_speed_video = $full_width = $flex_row = $columns_placement = $content_placement = $parallax = $parallax_image = $css = $el_id = $video_bg = $video_bg_url = $video_bg_parallax = $css_animation = $masthead = $bg_class = '';
+$el_class = $full_height = $parallax_speed_bg = $parallax_speed_video = $full_width = $flex_row = $columns_placement = $content_placement = $parallax = $parallax_image = $css = $el_id = $video_bg = $video_bg_url = $video_bg_parallax = $css_animation = $masthead = $text_location = $bg_class = $pattern_style = $pattern_bg_color = $pattern_bg_value = $enable_pattern = '';
 $disable_element = '';
 $masthead_class = '';
 $output = $after_output = '';
@@ -35,8 +35,8 @@ wp_enqueue_script( 'wpb_composer_front_js' );
 
 $el_class = $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-if( $masthead == 'yes') {
-	$masthead_class = 'masthead  masthead--' . $masthead;
+if( $bg_type == "pattern" ) {
+	$bg_class = 'section--pattern-bg';
 }
 $css_classes = array(
 	'section',
@@ -44,26 +44,12 @@ $css_classes = array(
 	$masthead_class,
 	$bg_class,
 	$padding,
+	$text_location,
 	vc_shortcode_custom_css_class( $css ),
 );
-if ( 'yes' === $disable_element ) {
-	if ( vc_is_page_editable() ) {
-		$css_classes[] = 'hidden-lg hidden-xs hidden-sm hidden-md';
-	} else {
-		return '';
-	}
-}
 
 if( 'yes' == $enable_overlay ) {
 	$css_classes[] = 'section--overlay';
-}
-
-if ( vc_shortcode_custom_css_has_property( $css, array(
-		'border',
-		'background',
-	) ) || $video_bg || $parallax
-) {
-	$css_classes[] = 'vc_section-has-fill';
 }
 
 
@@ -77,66 +63,9 @@ if( 'image' == $bg_type || 'video' == $bg_type) {
 if ( ! empty( $el_id ) ) {
 	$wrapper_attributes[] = 'id="' . esc_attr( $el_id ) . '"';
 }
-if ( ! empty( $full_width ) ) {
-	$wrapper_attributes[] = 'data-vc-full-width="true"';
-	$wrapper_attributes[] = 'data-vc-full-width-init="false"';
-	if ( 'stretch_row_content' === $full_width ) {
-		$wrapper_attributes[] = 'data-vc-stretch-content="true"';
-	}
-	$after_output .= '<div class="vc_row-full-width vc_clearfix"></div>';
-}
-
-if ( ! empty( $full_height ) ) {
-	$css_classes[] = 'vc_row-o-full-height';
-}
-
-if ( ! empty( $content_placement ) ) {
-	$flex_row = true;
-	$css_classes[] = 'vc_section-o-content-' . $content_placement;
-}
-
-if ( ! empty( $flex_row ) ) {
-	$css_classes[] = 'vc_section-flex';
-}
 
 $has_video_bg = ( ! empty( $video_bg ) && ! empty( $video_bg_url ) && vc_extract_youtube_id( $video_bg_url ) );
 
-$parallax_speed = $parallax_speed_bg;
-if ( $has_video_bg ) {
-	$parallax = $video_bg_parallax;
-	$parallax_speed = $parallax_speed_video;
-	$parallax_image = $video_bg_url;
-	$css_classes[] = 'section--video';
-	wp_enqueue_script( 'vc_youtube_iframe_api_js' );
-}
-
-if ( ! empty( $parallax ) ) {
-	wp_enqueue_script( 'vc_jquery_skrollr_js' );
-	$wrapper_attributes[] = 'data-vc-parallax="' . esc_attr( $parallax_speed ) . '"'; // parallax speed
-	$css_classes[] = 'vc_general vc_parallax vc_parallax-' . $parallax;
-	if ( false !== strpos( $parallax, 'fade' ) ) {
-		$css_classes[] = 'js-vc_parallax-o-fade';
-		$wrapper_attributes[] = 'data-vc-parallax-o-fade="on"';
-	} elseif ( false !== strpos( $parallax, 'fixed' ) ) {
-		$css_classes[] = 'js-vc_parallax-o-fixed';
-	}
-}
-
-if ( ! empty( $parallax_image ) ) {
-	if ( $has_video_bg ) {
-		$parallax_image_src = $parallax_image;
-	} else {
-		$parallax_image_id = preg_replace( '/[^\d]/', '', $parallax_image );
-		$parallax_image_src = wp_get_attachment_image_src( $parallax_image_id, 'full' );
-		if ( ! empty( $parallax_image_src[0] ) ) {
-			$parallax_image_src = $parallax_image_src[0];
-		}
-	}
-	$wrapper_attributes[] = 'data-vc-parallax-image="' . esc_attr( $parallax_image_src ) . '"';
-}
-if ( ! $parallax && $has_video_bg ) {
-	$wrapper_attributes[] = 'data-vc-video-bg="' . esc_attr( $video_bg_url ) . '"';
-}
 $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, implode( ' ', array_filter( array_unique( $css_classes ) ) ), $this->settings['base'], $atts ) );
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
@@ -145,6 +74,12 @@ if( $section_tag != "no") {
 } else {
 	$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
 }
+if( "true" == $enable_pattern ) {
+	if( $pattern_bg_value ) {
+		$pattern_style = 'style="background-color: ' . $pattern_bg_value . '";';
+	}
+	$output .= '<div class="section--pattern  ' . ( $pattern_bg_color != "custom" ? $pattern_bg_color : '' ) . '"' . ( $pattern_style != "" ? " " . $pattern_style : "" ) . '></div>';
+}
 if( 'image' == $bg_type ) {
 	$output .= '<div class="section__background--parallax  section__background" data-image="' . wp_get_attachment_url( $bg_image_new ) . '" style="background-image: url(' . wp_get_attachment_url( $bg_image_new ) . '"></div>';
 }
@@ -152,11 +87,9 @@ if( 'image' == $bg_type ) {
 if( $bg_type == "video") :
 $output .= '<div class="section__video-wrap"><video poster="" preload="auto" loop="" autoplay="" muted=""><source src="' . $video_url . '" type="video/mp4"></video></div>';
 endif;
-$output .= ( $masthead == 'yes' ? '<div class="masthead__container">' : '');
 $output .= '<div class="container">';
 $output .= wpb_js_remove_wpautop( $content );
 $output .= '</div>';
-$output .= ( $masthead == 'yes' ? '</div>' : '');
 if( $section_tag != "no") {
 	$output .= '</section>';
 } else {

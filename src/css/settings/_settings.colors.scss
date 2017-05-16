@@ -1,0 +1,68 @@
+///*----------------------------------*\
+//  #COLORS
+//\*----------------------------------*/
+
+// Set up a colour palette which allows us to theme the entire project from one
+// location.
+
+/**
+ * Colour palette. Grouped by purpose
+ *
+ * 1. Base Colors
+ * 2. Theme Colors
+ * 3. Text Colors
+ */
+$color-white: #fff;                   /* [1] */
+$color-light-gray: #ECECEC;           /* [1] */
+$color-gray: #696969;                 /* [1] */
+
+$color-accent: #9DBD59;               /* [2] */
+$color-primary: #101A44;              /* [2] */
+$color-secondary: #1A9CC3;            /* [2] */
+$color-tertiary: #DB7D3B;             /* [2] */
+$color-tint: #EEEEEE;                 /* [2] */
+$color-highlight: #DB7D3B;
+$color-custom-one: #266AAD;
+
+$color-text: $color-gray;             /* [3] */
+$color-headlines: $color-primary;     /* [3] */
+
+
+
+
+
+// Reassign literal variables to meaningful ones.
+
+// 1. Body colors
+$color-page-text:                       $color-text;
+$color-page-background:                 $color-white;
+
+// 2. Links
+$color-links:                           $color-primary;
+$color-links-hover:                     $color-tertiary;
+
+// 3. Page Head
+$color-page-head:                       transparent;
+$color-page-head-background:            $color-secondary;
+
+$color-masthead-background:             $color-primary;
+
+$color-btn:                             #fff;
+$color-btn-background:                  $color-primary;
+$color-btn-background-hover:            $color-tertiary;
+$color-btn-secondary:                   #fff;
+$color-btn-secondary-background:        $color-secondary;
+$color-btn-secondary-background-hover:  $color-tertiary;
+
+$color-page-foot:                       #fff;
+$color-page-foot-background:            $color-secondary;
+
+$color-card-background:                 $color-white;
+$color-card-border:                     #979797;
+
+$color-service-background:              $color-white;
+$color-service-border:                  #D0D1D1;
+$color-service-shadow:                  rgba(0,0,0,0.30);
+
+$color-play-button:                     $color-accent;
+

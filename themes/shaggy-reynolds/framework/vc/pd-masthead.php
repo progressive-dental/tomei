@@ -5,8 +5,8 @@
  * @package Carousel Anything for VC
  */
 
-if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly.
-}
+if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
+
 if ( ! class_exists( 'PD_Masthead' ) ) {
 
   /**
@@ -15,7 +15,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
   class PD_Masthead {
 
     /**
-     * Sets a unique identifier of each carousel.
+     * Sets a unique identifier of each Masthead.
      *
      * @var id
      */
@@ -38,30 +38,29 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
 
 
     /**
-     * Creates the carousel element inside VC.
+     * Creates the masthead element inside VC.
      *
      * @return  void
      * @since 1.0
      */
     public function create_masthead_shortcodes() {
       if ( ! function_exists( 'vc_map' ) ) {
-        return;
+        return; // Check if visual composer is active
       }
 
-      // $default_content = '[vc_row_inner][vc_column_inner width="1/1"][/vc_column_inner][/vc_row_inner]';
+      // set default content added when applied to page
       $default_content = '[vc_row_inner][vc_column_inner][/vc_column_inner][/vc_row_inner]';
-      // $default_content = '';
       if ( vc_is_frontend_editor() ) {
         $default_content = '';
       }
 
-      // Loads fixes that makes Carousel Anything possible.
+      // Loads fixes that makes masthead possible.
       masthead_row_fixes();
 
       vc_map( array(
         'name' => __( 'Page Masthead', 'progressive' ),
         'base' => 'pd_masthead',
-        'icon' => THEME_WEB_ROOT . '/assets/images/pd-logo.png',
+        'icon' => FRAMEWORK_WEB_ROOT . '/assets/images/icons/masthead.svg',
         'description' => __( 'A masthead for pages.', 'progressive' ),
         'category' => __( 'Content', 'progressive' ),
         'js_view' => 'VcColumnView',
@@ -81,20 +80,44 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'type' => 'dropdown',
             'heading' => __( 'Location', 'progressive' ),
             'param_name' => 'location',
-            'description' => __( 'Masthead page location on the site.'),
+            'description' => __( 'Text location for content inside masthead'),
             'admin_label' => true,
             'value' => array(
               'Select' => '',
               "Inner" => "inner",
-              "Home" => "home"
+              "Home" => "home",
             ),
+          ),
+          array(
+            'type' => 'dropdown',
+            'heading' => __( 'Text Location', 'progressive' ),
+            'param_name' => 'text_location',
+            'description' => __( 'Masthead page location on the site.'),
+            'admin_label' => true,
+            'value' => array(
+              'Default' => '',
+              'Left' => 'text-left',
+              "Center" => "text-center",
+              "Right" => "text-right",
+            ),
+          ),
+          array(
+            'type' => 'dropdown',
+            'heading' => __('Enable Overlay', 'upb_parallax'),
+            'param_name' => 'enable_overlay',
+            'admin_label' => true,
+            'value' => array(
+              'No' => 'no',
+              'Yes' => 'yes'
+            ),
+            'edit_field_class' => 'uvc-divider last-uvc-divider vc_column vc_col-sm-12',
           ),
           array(
             'type' => 'dropdown',
             'heading' => __( 'Type', 'progressive' ),
             'param_name' => 'type',
-            'description' => __( 'Masthead background type.'),
             'admin_label' => true,
+            'group' => 'Background',
             'std' => 'image',
             'value' => array(
               "Image" => "image",
@@ -107,7 +130,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'heading' => __( 'Video Location', 'progressive' ),
             'param_name' => 'video_location',
             'admin_label' => true,
-            'description' => __( 'Location of the video: youtube, vimeo, external url.'),
+            'group' => 'Background',
             'value' => array(
               'Select' => '',
               'Youtube' => 'youtube',
@@ -123,8 +146,8 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'type' => 'attach_image',
             'heading' => __( 'Poster Image', 'progressive' ),
             'param_name' => 'poster_image',
+            'group' => 'Background',
             'admin_label' => true,
-            'description' => __( 'Poster image for masthead video' ),
             'dependency' => array(
               'element' => 'type',
               'value' => array( 'video' ),
@@ -135,6 +158,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'heading' => __( 'Youtube Video ID', 'progressive' ),
             'param_name' => 'youtube_id',
             'admin_label' => true,
+            'group' => 'Background',
             'description' => __( 'Youtube video ID. The content after v= in the URL: v=MKXK8xwYDIA'),
             'dependency' => array(
               'element' => 'video_location',
@@ -147,6 +171,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'param_name' => 'vimeo_id',
             'admin_label' => true,
             'description' => __( 'Vimeo video ID'),
+            'group' => 'Background',
             'dependency' => array(
               'element' => 'video_location',
               'value' => array( 'vimeo' ),
@@ -157,6 +182,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'heading' => __( 'External video URL.', 'progressive' ),
             'param_name' => 'video_url',
             'admin_label' => true,
+            'group' => 'Background',
             'dependency' => array(
               'element' => 'video_location',
               'value' => array( 'external' ),
@@ -166,6 +192,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'type' => 'dropdown',
             'heading' => __( 'External video type.', 'progressive' ),
             'param_name' => 'video_type',
+            'group' => 'Background',
             'value' => array(
               'Select' => '',
               'MP4' => 'video/mp4',
@@ -183,6 +210,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'param_name' => 'background_image',
             'admin_label' => true,
             'description' => __( 'Background image for masthead'),
+            'group' => 'Background',
             'dependency' => array(
               'element' => 'type',
               'value' => array( 'image' ),
@@ -194,6 +222,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             'param_name' => 'background_image_location',
             'admin_label' => true,
             'description' => __( 'Background image location for masthead'),
+            'group' => 'Background',
             'dependency' => array(
               'element' => 'type',
               'value' => array( 'image' ),
@@ -213,20 +242,10 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
           ),
           array(
             'type' => 'dropdown',
-            'heading' => __('Enable Overlay', 'upb_parallax'),
-            'param_name' => 'enable_overlay',
-            'admin_label' => true,
-            'value' => array(
-              'No' => 'no',
-              'Yes' => 'yes'
-            ),
-            'edit_field_class' => 'uvc-divider last-uvc-divider vc_column vc_col-sm-12',
-          ),
-          array(
-            'type' => 'dropdown',
             'heading' => __( 'Background Color', 'progressive' ),
             'param_name' => 'background_color',
             'admin_label' => true,
+            'group' => 'Background',
             'description' => __( 'Background color for masthead'),
             'dependency' => array(
               'element' => 'type',
@@ -245,15 +264,55 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             ),
           ),
           array(
-          'type' => 'colorpicker',
-          'heading' => __( 'Custom Background Color', 'progressive' ),
-          'param_name' => 'background_color_custom',
-          'description' => __( 'Custom color for the masthead background.'),
-          'dependency' => array(
-            'element' => 'background_color',
-            'value' => array( 'custom' ),
+            'type' => 'colorpicker',
+            'heading' => __( 'Custom Background Color', 'progressive' ),
+            'param_name' => 'background_color_custom',
+            'description' => __( 'Custom color for the masthead background.'),
+            'group' => 'Background',
+            'dependency' => array(
+              'element' => 'background_color',
+              'value' => array( 'custom' ),
+            ),
           ),
-        ),
+          array(
+            'type' => 'checkbox',
+            'heading' => __( 'Enable Promo', 'progressive' ),
+            'param_name' => 'enable_promo',
+            'group' => 'Promo',
+            'value' => array(
+              "Yes" => "true"
+            ),
+          ),
+          array(
+            'type' => 'textfield',
+            'heading' => __( 'Promo Text', 'progressive' ),
+            'param_name' => 'promo_text',
+            'group' => 'Promo',
+            'dependency' => array(
+              'element' => 'enable_promo',
+              'value' => array( 'true' ),
+            ),
+          ),
+          array(
+            'type' => 'textfield',
+            'heading' => __( 'Promo Link Text', 'progressive' ),
+            'param_name' => 'promo_link_text',
+            'group' => 'Promo',
+            'dependency' => array(
+              'element' => 'enable_promo',
+              'value' => array( 'true' ),
+            ),
+          ),
+          array(
+            'type' => 'vc_link',
+            'heading' => __( 'Promo Link?', 'progressive' ),
+            'param_name' => 'promo_link',
+            'group' => 'Promo',
+            'dependency' => array(
+              'element' => 'enable_promo',
+              'value' => array( 'true' ),
+            ),
+          )
         ),
       ) );
     }
@@ -266,27 +325,9 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
      * @param string $content - Not needed in this plugin.
      * @return  string The rendered html
      * @since 1.0
-     <section class="masthead  masthead--inner  masthead--implants">
-      <div class="masthead__container">
-        <div class="container">
-          <i class="masthead__icon  icon  icon--37"></i>
-          <h1 class="masthead__title">Teeth in a Day</h1>
-          <a href="/contact-us" class="btn  btn--primary  btn--rounded">schedule an appointment</a>
-        </div>
-      </div>
-    </section>
-    <!--<div class="container">
-              <div class="row">
-                <div class="col-md-6  col-sm-10">
-                  <h1 class="masthead__title">Committed to Excellence in Periodontics and Dental Implants</h1>
-                  <a href="" class="btn  btn--primary  btn--rounded">Schedule an Appointment</a>
-                  <a href="" class="btn  btn--primary  btn--ghost  btn--rounded">Watch Video</a>
-                </div>
-              </div>
-            </div>-->
      */
     public function render_masthead_shortcodes( $atts, $content = null ) {
-
+      global $progressive;
       extract(shortcode_atts(array(
         'location' => '',
         'background_image' => '',
@@ -298,42 +339,52 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
         'video_url' => '',
         'video_type' => '',
         'enable_overlay' => '',
-        'video_location' => ''
+        'video_location' => '',
+        'text_location' => '',
+        'enable_promo' => '',
+        'promo_text' => '',
+        'promo_link' => '',
+        'promo_link_text' => ''
       ), $atts ));
 
-      if( $background_image )
+      $inline_css = '';
+      if( $background_image ) {
         $inline_css = 'style="background-image: url(' . wp_get_attachment_url( $background_image ) . '); background-position: ' . $background_image_location . ';"';
+      }
 
       $overlay = ( $enable_overlay == 'yes' ? '  masthead--overlay' : '' );
 
-      if( $poster_image && $type == 'video' && $video_location == 'youtube' )
+      if( $poster_image && $type == 'video' && $video_location == 'youtube' ) {
         $inline_css = 'style="background-image: url(' . wp_get_attachment_url( $poster_image ) . ');"';
+      }
 
       $ret = '';
-      $ret .= '
-        <section class="masthead  masthead--' . $location . $overlay . '" ' . ( $inline_css ? $inline_css : '' ) . '>';
+      $ret .= '<section class="masthead  masthead--' . $location . $overlay . '" ' . ( $inline_css ? $inline_css : '' ) . '>';
       if( $type == 'video' ) :
-
         $ret .= '
-
-      <div class="section__video-wrap">
-          <video poster="' . wp_get_attachment_url( $poster_image ) . '" preload="auto" loop="" autoplay="" muted="">
-              <source src="' . $video_url . '" type="video/mp4">
+          <div class="section__video-wrap">
+            <video poster="' . wp_get_attachment_url( $poster_image ) . '" preload="auto" loop="" autoplay="" muted="">
+              <source src="' . $video_url . '" type="' . $video_type . '">
             </video>
-            </div>
-      ';
+          </div>
+        ';
       endif;
 
-        $ret .= '
-          <div class="masthead__container">
-            <div class="container">
-            ';
-              $ret .= do_shortcode( $content );
-              $ret .= '
-            </div>
+      $ret .= '
+        <div class="masthead__content">
+          <div class="container">
+          ';
+            $ret .= do_shortcode( $content );
+            $ret .= '
           </div>
-        </section>
-      ';
+        </div>';
+
+      if( "true" == $enable_promo || $progressive['enable-promo'] == "yes" ) {
+        $ret .= '<div class="masthead__banner"><span>' . ( $enable_promo ? $promo_text : $progressive['promo-text'] ) . '</span><a href="' . ( $enable_promo ? $promo_link : $progressive['promo-link'] ) . '" class="masthead__link">' . ( $enable_promo ? $promo_link_text : $progressive['promo-link-text'] ) . '</a></div>';
+      }
+
+      $ret .= '</section>';
+
       return $ret;
     }
   }

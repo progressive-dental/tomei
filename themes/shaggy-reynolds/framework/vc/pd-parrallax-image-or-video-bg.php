@@ -11,6 +11,19 @@ function parallax_init() {
   if( function_exists('vc_add_params')) {
     $section_atts = array(
       array(
+        'type' => 'dropdown',
+        'heading' => __( 'Text Location', 'progressive' ),
+        'param_name' => 'text_location',
+        'description' => __( 'Change default text location for this section.'),
+        'admin_label' => true,
+        'value' => array(
+          'Default' => '',
+          'Left' => 'text-left',
+          "Center" => "text-center",
+          "Right" => "text-right",
+        ),
+      ),
+      array(
         "type" => "dropdown",
         "class" => "",
         "group" => $group_name,
@@ -22,6 +35,7 @@ function parallax_init() {
           "Small" => "section--small",
           "Large" => "section--large",
           "CTA" => "section--cta",
+          "No Padding Bottom" => "section--nobot",
           "None" => "section--nopad",
         )
       ),
@@ -48,7 +62,44 @@ function parallax_init() {
           __( "Image / Parallax", "progressive" ) => "image",
           __( "Youtube Video", "progressive" ) => "youtube",
           __( "Hosted Video", "progressive" ) => "video",
+          __( "Pattern BG", "progressive" ) => "pattern"
         ),
+        "group" => $group_name,
+      ),
+      array(
+        'type' => 'checkbox',
+        'heading' => __( 'Add pattern BG', 'progressive' ),
+        'param_name' => 'enable_pattern',
+        "group" => $group_name,
+        'value' => array(
+          "Yes" => "true"
+        ),
+      ),
+      array(
+        "type" => "dropdown",
+        "class" => "",
+        "group" => $group_name,
+        "heading" => "Pattern BG Color",
+        'admin_label' => true,
+        "param_name" => "pattern_bg_color",
+        "dependency" => array( "element" => "enable_pattern", "value" => array( "true" ) ),
+        "value" => array(
+          "Default" => "",
+          "Primary" => "bg-primary",
+          "Secondary" => "bg-secondary",
+          "Tertiary" => "bg-tertiary",
+          "Accent" => "bg-accent",
+          "Light" => "bg-light",
+          "Tint" => "bg-tint",
+          "Custom" => "bg-custom"
+        )
+      ),
+      array(
+        "type" => "colorpicker",
+        "class" => "",
+        "heading" => __( "Pattern Custom Background Color", "progressive" ),
+        "param_name" => "pattern_bg_value", 
+        "dependency" => array( "element" => "pattern_bg_color", "value" => array( "custom" ) ),
         "group" => $group_name,
       ),
       array(
@@ -61,13 +112,13 @@ function parallax_init() {
         "dependency" => array( "element" => "bg_type", "value" => array( "bg_color" ) ),
         "value" => array(
           "Default" => "",
-          "Primary" => "primary-bg",
-          "Secondary" => "secondary-bg",
-          "Tertiary" => "tertiary-bg",
-          "Accent" => "accent-bg",
-          "Light" => "light-bg",
-          "Tint" => "tint-bg",
-          "Custom" => "custom"
+          "Primary" => "bg-primary",
+          "Secondary" => "bg-secondary",
+          "Tertiary" => "bg-tertiary",
+          "Accent" => "bg-accent",
+          "Light" => "bg-light",
+          "Tint" => "bg-tint",
+          "Custom" => "bg-custom"
         )
       ),
       array(

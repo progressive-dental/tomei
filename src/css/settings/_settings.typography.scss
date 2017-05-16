@@ -1,0 +1,64 @@
+/*------------------------------------*\
+  #TYPOGRAPHY
+\*------------------------------------*/
+
+// Typography - others found in global settings
+$sans-serif-font-family:  'Proxima Nova';
+$serif-font-family:       'Georgia';
+$headings-font-family:    'Lato';
+$headings-small:          'Montserrat';
+$font-family-base:        $sans-serif-font-family;
+
+// Base typographical styles and baseline grid.
+$global-font-size:        19px !default;
+$global-line-height:      34px !default;
+$global-letter-spacing:   .32px !default;
+$global-font-weight:      400 !default;
+
+// Headings - Font Size
+$font-size-h1:  72px !default;
+$font-size-h2:  28px !default;
+$font-size-h3:  19px !default;
+$font-size-h4:  18px !default;
+$font-size-h5:  12px !default;
+$font-size-h6:  16px !default;
+
+// Headings - Line Height
+$h1-line-height: 60px !default;
+$h2-line-height: 39.2px !default;
+$h3-line-height: 34px !default;
+$h4-line-height: 22px !default;
+$h5-line-height: 12px !default;
+$h6-line-height: 17px !default;
+
+// Headings - Letter Spacing
+$h1-letter-spacing: 1.28px !default;
+$h2-letter-spacing: default !default;
+$h3-letter-spacing: default !default;
+$h4-letter-spacing: default !default;
+$h5-letter-spacing: default !default;
+$h6-letter-spacing: default !default;
+
+// Headings - Font Weight
+$h1-font-weight: bold !default;
+$h2-font-weight: bold !default;
+$h3-font-weight: bold !default;
+$h4-font-weight: bold !default;
+$h5-font-weight: normal !default;
+$h6-font-weight: normal !default;
+
+// Headings - Text Transform
+$h1-text-transform: default !default;
+$h2-text-transform: default !default;
+$h3-text-transform: default !default;
+$h4-text-transform: default !default;
+$h5-text-transform: default !default;
+$h6-text-transform: default !default;
+
+// Headings - Margin Bottom
+$h1-margin-bottom: 50px !default;
+$h2-margin-bottom: 30px !default;
+$h3-margin-bottom: 16px !default;
+$h4-margin-bottom: 17px !default;
+$h5-margin-bottom: default !default;
+$h6-margin-bottom: default !default;

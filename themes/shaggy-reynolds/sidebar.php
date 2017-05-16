@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package road_runner
+ * @package shaggy_reynolds
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

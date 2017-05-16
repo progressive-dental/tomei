@@ -1,0 +1,47 @@
+///*----------------------------------*\
+//  #CORE SETTINGS
+//\*----------------------------------*/
+
+
+// Padding - Use for both input fields and buttons to main size
+$padding-vertical: 19px;
+$padding-vertical--small: 10px;
+$padding-vertical--large: 15px;
+
+$padding-horizontal: 43px;
+$padding-horizontal--small: 23px;
+$padding-horizontal--large: 30px;
+
+// Butttons
+$btn-padding-vertical: $padding-vertical;
+$btn-padding-vertical--small: $padding-vertical--small;
+$btn-padding-vertical--large: $padding-vertical;
+$btn-padding-horizontal: $padding-horizontal;
+$btn-padding-horizontal--small: $padding-horizontal--small;
+$btn-padding-horizontal--large: $padding-horizontal;
+$btn-text-transform: capitalize;
+$btn-letter-spacing--small: -.64px;
+$btn-font-size: 16px;
+$btn-font-size--small: 16px;
+$btn-border-width: 1px;
+$btn-border-style: solid;
+$btn-radius: 0;
+$btn-min-width: 220px;
+$btn-font-weight: 900;
+
+// inputs
+$input-padding-vertical: $padding-vertical;
+$input-padding-horizontal: $padding-horizontal;
+$input-padding-vertical--small: $padding-vertical--small;
+$input-padding-horizontal--small: $padding-horizontal--small;
+$input-padding-vertical--large: $padding-vertical--large;
+$input-padding-horizontal--large: $padding-horizontal--large;
+$input-margin-bottom: 20px;
+$input-margin-bottom--small: 15px;
+$input-margin-bottom--large: 20px;
+$input-font-size--small: 13px;
+$input-font-size--large: $global-font-size;
+
+// navbar 
+$nav-padding-horizontal: 10px;
+$nav-padding-vertical: 26px;

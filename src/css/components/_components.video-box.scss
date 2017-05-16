@@ -1,0 +1,104 @@
+.video-box {
+  position: relative;
+  max-width: 555px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+
+  @media(max-width: $screen-sm-max) {
+    margin-top: 60px;
+  } 
+}
+
+.video-box--large {
+  max-width: 888px;
+  @media(max-width: $screen-sm-max) {
+    margin-top: 0;
+  } 
+}
+
+  .video-box__thumbnail {
+    position: relative;
+    z-index: 1;
+    margin-left: 60px;
+  }
+  .video-box__caption {
+    position: absolute;
+    left: 0;
+    top: 85px;
+    background: #FFFFFF;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.34);
+    width: calc(100% - 60px);
+    margin-right: 60px;
+    height: 100%;
+    padding: 25px;
+  }
+
+  .video-box__caption--large {
+    height: calc(100% + 20px);
+
+    @media(max-width: $screen-xs-max) {
+      height: 100%;
+    }
+  }
+
+  .video-box__copy {
+    @include display(flex);
+    @include align-items(flex-end);
+    height: 100%;
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 600;
+
+    @media(max-width: $screen-xs-max) {
+      display: none;
+    }
+  }
+
+   .video-box__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 142px;
+    width: 142px;
+    border-radius: 100%;
+    background-color: rgba(15,26,68,.80);
+    transition: background-color .3s ease-in-out;
+    color: #fff;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    font-size: 27px;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(15,26,68,1);
+      text-decoration: none;
+      outline: none;
+    }
+  }
+
+  .video-play {
+
+    height: 142px;
+    width: 142px;
+    border-radius: 100%;
+    background-color: rgba(15,26,68,.80);
+    transition: background-color .3s ease-in-out;
+    display: block;
+    color: #fff;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    font-size: 27px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(15,26,68,1);
+      text-decoration: none;
+      outline: none;
+    }
+  }

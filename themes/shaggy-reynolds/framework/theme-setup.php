@@ -1,11 +1,11 @@
 <?php
 
-add_action( 'after_setup_theme', 'road_runner_setup' );
-add_action( 'after_setup_theme', 'road_runner_content_width', 0 );
+add_action( 'after_setup_theme', 'shaggy_reynolds_setup' );
+add_action( 'after_setup_theme', 'shaggy_reynolds_content_width', 0 );
 add_action('after_setup_theme', 'remove_admin_bar');
-add_filter( 'upload_mimes', 'road_runner_mime_types', 10, 1 );
+add_filter( 'upload_mimes', 'shaggy_reynolds_mime_types', 10, 1 );
 
-if ( ! function_exists( 'road_runner_setup' ) ) :
+if ( ! function_exists( 'shaggy_reynolds_setup' ) ) :
   /**
    * Sets up theme defaults and registers support for various WordPress features.
    *
@@ -13,7 +13,7 @@ if ( ! function_exists( 'road_runner_setup' ) ) :
    * runs before the init hook. The init hook is too late for some features, such
    * as indicating support for post thumbnails.
    */
-  function road_runner_setup() {
+  function shaggy_reynolds_setup() {
     /*
      * Make theme available for translation.
      * Translations can be filed in the /languages/ directory.
@@ -62,8 +62,8 @@ endif;
  *
  * @global int $content_width
  */
-function road_runner_content_width() {
-  $GLOBALS['content_width'] = apply_filters( 'road_runner_content_width', 1200 );
+function shaggy_reynolds_content_width() {
+  $GLOBALS['content_width'] = apply_filters( 'shaggy_reynolds_content_width', 1200 );
 }
 
 /**
@@ -76,7 +76,7 @@ function remove_admin_bar() {
 /**
  * Allow support for SVG via media uploader.
  */
-function road_runner_mime_types( $mime_types ) {
+function shaggy_reynolds_mime_types( $mime_types ) {
   $mime_types[ 'svg' ] = 'image/svg+xml';
   $mime_types[ 'svgz' ] = 'image/svg+xml';
 
@@ -94,3 +94,21 @@ function my_filter_function_name( $content ) {
 }
 
 add_filter( 'content_save_pre', 'my_filter_function_name', 10, 1 );
+
+function atg_menu_classes($classes, $item, $args) {
+  if( $args->theme_location == 'footer-menu-1' || $args->theme_location == 'footer-menu-2' || $args->theme_location == 'footer-menu-3' ) {
+    $classes[] = 'site-foot__item';
+  }
+  return $classes;
+}
+add_filter('nav_menu_css_class','atg_menu_classes',1,3);
+
+add_filter( 'nav_menu_link_attributes', 'wpse156165_menu_add_class', 10, 3 );
+
+function wpse156165_menu_add_class( $atts, $item, $args ) {
+  if( $args->theme_location == 'footer-menu-1' || $args->theme_location == 'footer-menu-2' || $args->theme_location == 'footer-menu-3' ) {
+    $class = 'site-foot__link';
+    $atts['class'] = $class;
+  }
+  return $atts;
+}

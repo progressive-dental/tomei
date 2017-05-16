@@ -1,0 +1,44 @@
+.page-head {
+  height: 100px;
+  background-color: transparent;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+       -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+
+  -webkit-transition: all 300ms ease;
+     -moz-transition: all 300ms ease;
+      -ms-transition: all 300ms ease;
+       -o-transition: all 300ms ease;
+          transition: all 300ms ease;
+
+    background-color: #f9f9f9;
+
+
+  > .container {
+    max-width: 1500px;
+    width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+  }
+
+}
+  .page-head__logo {
+    width: 25%;
+    height: 100%;
+    background-color: #182744;
+    float: left;
+  }
+  .page-head__nav {
+    width: 75%;
+    height: 100%;
+    float: left;
+  }

@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @var $this WPBakeryShortCode_VC_Btn
  */
 $style = $shape = $color = $size = $custom_background = $custom_text = $align = $link = $title = $button_block = $el_class = $outline_custom_color = $outline_custom_hover_background = $outline_custom_hover_text = $add_icon = $i_align = $i_type = $i_icon_entypo = $i_icon_fontawesome = $i_icon_linecons = $i_icon_pixelicons = $i_icon_typicons = $css = $css_animation = '';
-$gradient_color_1 = $gradient_color_2 = $gradient_custom_color_1 = $gradient_custom_color_2 = $popup_video = $gradient_text_color = '';
+$gradient_color_1 = $gradient_color_2 = $gradient_custom_color_1 = $gradient_custom_color_2 = $popup_video = $outline_color = $gradient_text_color = '';
 $custom_onclick = $custom_onclick_code = '';
 $a_href = $a_title = $a_target = $a_rel = '';
 $styles = array();
@@ -91,55 +91,25 @@ if( $shape == "square" ) {
 	$shape == "min-rounded";
 }
 
-$btn_ghost = false;
-if( $ghost == "yes" ) {
-	$btn_ghost = "btn--ghost";
-}
 $button_classes = array(
 	'btn',
-	'btn--' . $size,
-	'btn--' . $shape,
-	'btn--' . $color,
-	$btn_ghost
+	$size,
+	$color,
+	$outline_color
 );
 
 if( !empty($popup_video) ) {
 	$button_classes[] = 'js-popup-video';
 }
 
-$button_html = $title;
+$button_html = $a_title;
 
-if ( '' === trim( $title ) ) {
+if ( '' === trim( $a_title ) ) {
 	$button_classes[] = 'vc_btn3-o-empty';
 	$button_html = '<span class="vc_btn3-placeholder">&nbsp;</span>';
 }
 if ( 'true' === $button_block && 'inline' !== $align ) {
 	$button_classes[] = 'vc_btn3-block';
-}
-if ( 'true' === $add_icon ) {
-	$button_classes[] = 'vc_btn3-icon-' . $i_align;
-	vc_icon_element_fonts_enqueue( $i_type );
-
-	if ( isset( ${'i_icon_' . $i_type} ) ) {
-		if ( 'pixelicons' === $i_type ) {
-			$icon_wrapper = true;
-		}
-		$icon_class = ${'i_icon_' . $i_type};
-	} else {
-		$icon_class = 'fa fa-adjust';
-	}
-
-	if ( $icon_wrapper ) {
-		$icon_html = '<i class="vc_btn3-icon"><span class="vc_btn3-icon-inner ' . esc_attr( $icon_class ) . '"></span></i>';
-	} else {
-		$icon_html = '<i class="vc_btn3-icon ' . esc_attr( $icon_class ) . '"></i>';
-	}
-
-	if ( 'left' === $i_align ) {
-		$button_html = $icon_html . ' ' . $button_html;
-	} else {
-		$button_html .= ' ' . $icon_html;
-	}
 }
 
 if ( 'custom' === $style ) {
