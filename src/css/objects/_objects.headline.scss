@@ -34,6 +34,12 @@
     }
   }
 
+  .section--trans-header & {
+    p {
+      color: #fff;
+    }
+  }
+
 
 }
 .headline__eyebrow {
@@ -52,16 +58,24 @@
   margin-bottom: 50px;
 
   .section--cta & {
-    margin-bottom: 40px;
     font-weight: 300;
     font-size: 42px;
     line-height: 50px;
     text-transform: inherit;
+
+    strong {
+      font-weight: 700;
+    }
   }
 
   &:only-child {
     margin-bottom: 75px;
+    .section--cta & {
+      margin-bottom: 40px;
+    }
   }
+
+
 }
 
 .headline_sub {

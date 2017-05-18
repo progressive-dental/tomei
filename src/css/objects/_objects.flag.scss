@@ -1,6 +1,10 @@
 .flag {
   display: table;
   width: 100%;
+
+  .section--trans-header & {
+    margin-bottom: 35px;
+  }
 }
 
 .flag__image,

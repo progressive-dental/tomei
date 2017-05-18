@@ -56,10 +56,8 @@
 
 .section--list {
   position: relative;
-      background-image: url(../images/patterns/cream-pixels/cream-pixels.png);
-      background-repeat: repeat;
-  background-blend-mode: color-burn;
-    border-top: 1px solid #979797;
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
     height: 100%;
     overflow: hidden;
     padding: 0 0 120px;
@@ -148,6 +146,10 @@ background: rgba(47,52,53,0.70);
     min-height: 643px; 
     overflow: hidden;
     color: #fff;
+
+    &.section--trans-header {
+      color: inherit;
+    }
   }
 
  

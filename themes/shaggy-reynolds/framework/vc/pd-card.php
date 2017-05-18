@@ -32,7 +32,7 @@ function progressive_map_card() {
           'group' => __( 'Header Content', 'progressive' ),
           'dependency' => array(
             'element' => 'media',
-            'value' => array( 'image' ),
+            'value' => array( 'image', 'video' ),
           ),
         ),
         array(
@@ -67,7 +67,6 @@ function progressive_map_card() {
             'Select' => '',
             'Youtube' => 'youtube',
             'Media Library' => 'media_library',
-            'External' => 'external'
           ),
           'dependency' => array(
             'element' => 'media',
@@ -98,39 +97,13 @@ function progressive_map_card() {
         ),
         array(
           'type' => 'textfield',
-          'heading' => __( 'External video URL.', 'progressive' ),
+          'heading' => __( 'Vimeo Video ID', 'progressive' ),
+          'param_name' => 'vimeo_id',
+          'description' => __( 'Vimeo video ID'),
           'group' => __( 'Header Content', 'progressive' ),
-          'param_name' => 'video_url',
           'dependency' => array(
             'element' => 'video_location',
-            'value' => array( 'external' ),
-          ),
-        ),
-        array(
-          'type' => 'dropdown',
-          'heading' => __( 'External video type.', 'progressive' ),
-          'group' => __( 'Header Content', 'progressive' ),
-          'param_name' => 'video_type',
-          'value' => array(
-            'Select' => '',
-            'MP4' => 'video/mp4',
-            'WEBM' => 'video/webm',
-            'OGV' => 'video/ogg'
-          ),
-          'dependency' => array(
-            'element' => 'video_location',
-            'value' => array( 'external', 'media_library' ),
-          ),
-        ),
-        array(
-          'type' => 'attach_image',
-          'heading' => __( 'Video Poster', 'progressive' ),
-          'group' => __( 'Header Content', 'progressive' ),
-          'param_name' => 'video_poster',
-          'description' => __( 'Still image to show while the video is loading.', 'progressive' ),
-          'dependency' => array(
-            'element' => 'video_location',
-            'value' => array( 'external', 'media_library' ),
+            'value' => array( 'youtube' ),
           ),
         ),
         array(
@@ -197,6 +170,8 @@ function pd_card_func( $atts, $content = null ) {
       'headline_tag' => '',
       'headline' => '',
       'media' => '',
+      'youtube_id' => '',
+      'vimeo_id' => ''
   ), $atts ));
   ob_start() ?>
   
@@ -227,23 +202,14 @@ function get_card_header( $type, $atts ) {
       ';
       break;
     case 'video':
+      $output = '<img src="' . wp_get_attachment_url( $atts['image'] ) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '" class="card__object">';
       switch ( $atts['video_location'] ) {
         case 'youtube':
-          $output = '<iframe class="card__object" src="https://www.youtube.com/embed/' . $atts['youtube_id']. '?rel=0&amp;showinfo=0&amp;" rel="0" showinfo="0" frameborder="0" allowfullscreen></iframe>';
+          $output .= '<a href="https://www.youtube.com/watch?v=' . $atts['youtube_id'] . '" class="card__play  js-play-video"><i class="icon  icon--play"></i></a>';
           break;
-        case 'media_library':
-          $output = '
-            <video id="video" class="card__object" poster="' . $atts['video_poster'] . '">
-              <source src="' . wp_get_attachment_url( $atts['video_attachment'] ) . '" type="' . $atts['video_type'] . '">
-            </video>
-          ';
-          break;
-        case 'external':
-          $output = '
-            <video id="video" class="card__object" poster="' . $atts['video_poster'] . '">
-              <source src="' . $atts['video_url'] . '" type="' . $atts['video_type'] . '">
-            </video>
-          ';
+        case 'vimeo':
+          $output .= '<a href="https://vimeo.com/' . $atts['vimeo_id'] . '" class="card__play  js-play-video"><i class="icon  icon--play"></i></a>';
+
           break;
       }
       break;

@@ -36,6 +36,18 @@ function progressive_map_media() {
           ),
         ),
         array(
+          'type' => 'checkbox',
+          'heading' => __( 'Hide outline', 'progressive' ),
+          'param_name' => 'hide_outline',
+          'value' => array(
+            "Yes" => "true"
+          ),
+          'dependency' => array(
+            'element' => 'media',
+            'value' => array( 'image' ),
+          ),
+        ),
+        array(
           'type' => 'attach_image',
           'heading' => __( 'Before Image', 'progressive' ),
           'param_name' => 'image_before',
@@ -104,6 +116,21 @@ function progressive_map_media() {
             'value' => array( 'youtube', 'vimeo' ),
           ),
         ),
+        array(
+          'type' => 'dropdown',
+          'heading' => __( 'Size', 'progressive' ),
+          'param_name' => 'video_size',
+          'description' => __( 'Only adjust for full width columns.'),
+          'admin_label' => true,
+          'value' => array(
+            'Select' => '',
+            'Large' => 'large',
+          ),
+          'dependency' => array(
+            'element' => 'media',
+            'value' => array( 'video' ),
+          ),
+        ),
 
         array(
           "type" => "dropdown",
@@ -158,7 +185,10 @@ function pd_media_func( $atts, $content = null ) {
       'vimeo_id' => '',
       'image_before' => '',
       'image_after' => '',
-      'caption_font_color' => ''
+      'caption_font_color' => '',
+      'video_size' => '',
+      'hide_outline' => '',
+      'html' => ''
   ), $atts ));
 
   global $progressive;
@@ -166,16 +196,18 @@ function pd_media_func( $atts, $content = null ) {
   switch( $media ) {
     case 'image':
       $attachemnt_alt = get_post_meta( $image, '_wp_attachment_image_alt', true);
-      $html = '
-        <div class="outline-image">
-          <img src="' . wp_get_attachment_url($image) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '">
-        </div>
-      ';
+      if( "true" != $hide_outline ) :
+        $html = '<div class="outline-image">';
+      endif;
+        $html .= '<img src="' . wp_get_attachment_url($image) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '">';
+      if( "true" != $hide_outline ) :
+        $html .= '</div>';
+      endif;
       break;
     case 'video':
       $attachemnt_alt = get_post_meta( $video_poster, '_wp_attachment_image_alt', true);
         $html = '
-          <div class="video-box">
+          <div class="video-box' . ( !empty( $video_size ) ? '  video-box--large' : '' ) . '">
             <div class="video-box__thumbnail">
               <img src="' . wp_get_attachment_url($video_poster) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '" data-mh="videobox">
               <a href="https://www.youtube.com/watch?v=' . $youtube_id . '" class="video-box__play"><i class="icon  icon--play"></i></a>

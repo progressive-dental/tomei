@@ -12,9 +12,14 @@ function progressive_map_testimonial() {
       'category' => __( 'Content', 'progressive' ),
       'params' => array(
         array(
-          'type' => 'textarea_html',
-          'heading' => __( 'Quote', 'progressive' ),
-          'param_name' => 'content'
+          'type' => 'textfield',
+          'heading' => __( 'Name', 'progressive' ),
+          'param_name' => 'name'
+        ),
+        array(
+          'type' => 'textfield',
+          'heading' => __( 'Procedure', 'progressive' ),
+          'param_name' => 'procedure'
         ),
         array(
           'type' => 'textfield',
@@ -22,61 +27,10 @@ function progressive_map_testimonial() {
           'param_name' => 'youtube_id'
         ),
         array(
-          'type' => 'dropdown',
-          'heading' => __( 'Quote type', 'progressive' ),
-          'param_name' => 'media',
-          'description' => __( 'What type of media would you like to display in quote box?', 'progressive' ),
-          'value' => array(
-            "Select type" => "",
-            "Image" => "image",
-            "Video" => "video"          
-          ),
-        ),
-        array(
           'type' => 'attach_image',
           'heading' => __( 'Quote Image', 'progressive' ),
           'param_name' => 'image',
-          'description' => __( 'Image to display. Please crop to 3x2 before uploading'),
-          'dependency' => array(
-            'element' => 'media',
-            'value' => array( 'image' ),
-          ),
-        ),
-        array(
-          'type' => 'dropdown',
-          'heading' => __( 'Quote BG', 'progressive' ),
-          'param_name' => 'quote_bg',
-          'description' => __( 'Class name for the quote background. Handles the color.'),
-          'group' => __( 'Display Options', 'progressive' ),
-          'value' => array(
-            "Select type" => "",
-            "Primary" => "primary-bg",
-            "Secondary" => "secondary-bg",
-            "Tertiary" => "tertiary-bg",
-            "Accent" => "accent-bg",
-            "Accent Dark" => "accent-dark-bg",
-            "Light" => "light-bg",
-            "Tint" => "tint-bg",
-          ),
-
-        ),
-        array(
-          'type' => 'dropdown',
-          'heading' => __( 'Container BG', 'progressive' ),
-          'param_name' => 'container_bg',
-          'description' => __( 'Class name for the container background. Handles the color.'),
-          'group' => __( 'Display Options', 'progressive' ),
-          'value' => array(
-            "Select type" => "",
-            "Primary" => "primary-bg",
-            "Secondary" => "secondary-bg",
-            "Tertiary" => "tertiary-bg",
-            "Accent" => "accent-bg",
-            "Accent Dark" => "accent-dark-bg",
-            "Light" => "light-bg",
-            "Tint" => "tint-bg",
-          ),
-
+          
         ),
       )
     ) );
@@ -86,27 +40,24 @@ function progressive_map_testimonial() {
 function pd_testimonial_func( $atts, $content = null ) {
   extract(shortcode_atts(array(
       'image' => '',
-      'media' => '',
-      'quote_bg' => '',
-      'quote_bg_custom_color' => '',
-      'container_bg' => '',
-      'container_bg_custom_color' => '',
+      'name' => '',
+      'procedure' => '',
       'youtube_id' => ''
   ), $atts ));
 
   ob_start(); ?>
-
-    <div class="box">
-      <div class="box__header  box__header--quote<?php echo ( $quote_bg != '' ? '  ' . $quote_bg : '' ); ?>">
-        <blockquote><?php echo $content; ?></blockquote>
+    <div class="testimonial">
+      <div class="testimonial__content">
+        <a class="testimonial__play" href="https://www.youtube.com/watch?v=<?php echo $youtube_id; ?>"><i class="icon  icon--play"></i></a>
+        <div class="testimonial__name"><?php echo $name; ?></div>
+        <div class="testimonial__proceedure"><?php echo $procedure; ?></div>
+         
       </div>
-      <div class="box__object   o-crop  o-crop--3:2  <?php echo ( $container_bg != '' ? '  ' . $container_bg : '' ); ?>">
-        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo wp_get_attachment_url( $image ); ?>" class="o-crop__content" alt="<?php echo get_post_meta( $image, '_wp_attachment_image_alt', true); ?>">
-        <div class="box__play">
-          <a href="http://youtube.com/watch?v=<?php echo $youtube_id; ?>" class="js-popup-video"><div class="circle  circle--accent"><i class="icon  icon--play-triangle"></i></div></a>
-        </div>
+      <div class="testimonial__image">
+        <img src="<?php echo wp_get_attachment_url( $image ); ?>" alt="<?php echo get_post_meta( $image, '_wp_attachment_image_alt', true); ?>">
       </div>
     </div>
+    
   <?php
   $output = ob_get_clean();
   return $output;

@@ -95,7 +95,8 @@ $button_classes = array(
 	'btn',
 	$size,
 	$color,
-	$outline_color
+	$outline_color,
+	$el_class
 );
 
 if( !empty($popup_video) ) {

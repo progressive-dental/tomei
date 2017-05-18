@@ -52,18 +52,22 @@ global $progressive
           </a>
         </div>
         <div class="page-head__nav">
+          <?php if( has_nav_menu( 'contact-menu' ) ) : ?>
           <ul class="site-nav__contact">
-            <li class="site-nav__item">
-              <a href="tel:1-561-600-9847" class="site-nav__link">(561) 600-9847</a>
-            </li>
-            <li class="site-nav__item">
-              <a href="" class="site-nav__link">contact us</a>
-            </li>
+            <?php wp_nav_menu( array( 'theme_location' => 'contact-menu', 'items_wrap' => '%3$s', 'container' => false, 'menu_class' => false, 'walker' => new Wpse8170_Menu_Walker() ) ); ?>
           </ul>  
+          <?php endif; ?>
+          <?php if( has_nav_menu( 'contact-menu' ) ) : ?>
           <ul class="site-nav">
-            
             <?php wp_nav_menu( array( 'theme_location' => 'primary-menu', 'items_wrap' => '%3$s', 'container' => false, 'menu_class' => false, 'walker' => new Wpse8170_Menu_Walker() ) ); ?>
           </ul>
+          <a href="#menu" class="site-nav__open">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+          <?php endif; ?>
         </div>
       </div>
     </header>

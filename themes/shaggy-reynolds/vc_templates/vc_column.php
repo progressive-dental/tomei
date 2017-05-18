@@ -40,7 +40,9 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
 $output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
+if(strpos($el_class, 'valign') !== false ) { $output .= '<div class="valign_content">'; }
 $output .= wpb_js_remove_wpautop( $content );
+if(strpos($el_class, 'valign') !== false ) { $output .= '</div>'; }
 $output .= '</div>';
 
 echo $output;

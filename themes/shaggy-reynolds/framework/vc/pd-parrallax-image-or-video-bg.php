@@ -35,6 +35,7 @@ function parallax_init() {
           "Small" => "section--small",
           "Large" => "section--large",
           "CTA" => "section--cta",
+          "Small Padding Bottom" => "section--smallbot",
           "No Padding Bottom" => "section--nobot",
           "None" => "section--nopad",
         )

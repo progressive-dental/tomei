@@ -22,6 +22,8 @@ require_once ( FRAMEWORK_ROOT . '/vc/pd-implant.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-fifty-fifty.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-block-list.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-block.php' );
+require_once ( FRAMEWORK_ROOT . '/vc/pd-t-list.php' );
+require_once ( FRAMEWORK_ROOT . '/vc/pd-t-list-item.php' );
 
 function progressive_integrate_VC() {
 
@@ -35,7 +37,18 @@ function progressive_integrate_VC() {
           "No" => "",
           "Yes" => "valign"
         )
-      )
+      ),
+    );
+
+    $inner_row_atts = array(
+      array(
+        'type' => 'checkbox',
+        'heading' => __( 'Disable row div?', 'progressive' ),
+        'param_name' => 'disable_row',
+        'value' => array(
+          "Yes" => "true"
+        ),
+      ),
     );
 
     $open_on_create = array(
@@ -152,6 +165,7 @@ function progressive_integrate_VC() {
     );
 
     vc_add_params( 'vc_row', $row_atts );
+    vc_add_params( 'vc_row_inner', $inner_row_atts );
     vc_add_params( 'vc_column_text', $text_atts );
     vc_map_update( 'vc_section', $open_on_create );
     vc_remove_param( 'vc_btn', 'style' );
@@ -210,7 +224,6 @@ function progressive_integrate_VC() {
     vc_remove_param( 'vc_row', 'video_bg' );
     vc_remove_param( 'vc_row', 'video_bg_url' );
     vc_remove_param( 'vc_row', 'content_placement' );
-    vc_remove_param( 'vc_row', 'equal_height' );
     vc_remove_param( 'vc_row', 'full_height' );
     vc_remove_param( 'vc_row', 'full_width' ); 
     vc_remove_param( 'vc_row', 'columns_placement' );

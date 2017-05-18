@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Shortcode class
  * @var $this WPBakeryShortCode_VC_Row_Inner
  */
-$el_class = $equal_height = $content_placement = $css = $el_id = '';
+$el_class = $equal_height = $content_placement = $css = $disable_row = $el_id = '';
 $disable_element = '';
 $output = $after_output = '';
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
@@ -69,9 +69,14 @@ if ( ! empty( $el_id ) ) {
 $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, implode( ' ', array_filter( array_unique( $css_classes ) ) ), $this->settings['base'], $atts ) );
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
-$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
+if( "true" != $disable_row ) {
+	$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
+}
+
 $output .= wpb_js_remove_wpautop( $content );
-$output .= '</div>';
+if( "true" != $disable_row ) {
+	$output .= '</div>';
+}
 $output .= $after_output;
 
 echo $output;

@@ -1,0 +1,110 @@
+.card {
+  position: relative;
+  max-width: 570px;
+  margin: 0 auto 40px;
+
+  .carousel & {
+    margin: 0 10px 10px;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+  /**
+   * Provide a cropping container in order to display media (usually images)
+   * cropped to certain ratios.
+   *
+   * 1. Set up a positioning context in which the image can sit.
+   * 2. This is the crucial part: where the cropping happens.
+   */
+  .card__header {
+    position: relative; /* [1] */
+    display: block;
+    overflow: hidden; /* [2] */
+
+    > .twentytwenty-wrapper {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+    /**
+     * A variety of different standard ratios to crop to.
+     *
+     * We use the `padding` trick to create a fluid-height container (`padding`s set
+     * in percentages will track the current width of the element).
+     */
+    .card__header--1\:1 {
+      padding-top: (1/1) * 100%;
+    }
+
+    .card__header--3\:2 {
+      padding-top: (2/3) * 100%;
+    }
+
+    .card__header--4\:3 {
+      padding-top: (3/4) * 100%;
+    }
+
+    .card__header--16\:9 {
+      padding-top: (9/16) * 100%;
+    }
+
+    /**
+     * Apply this class to the content (usually `img`) that needs cropping.
+     *
+     * 1. Positioning to the bottom usually gives consistently better results as
+     *    most images’ subjects are toward the bottom of the frame. Of course,
+     *    your mileage may vary.
+     * 2. Fixes video iframe and twentytwenty before & after.
+     */
+    .card__object {
+      position: absolute;
+      bottom: 0; /* [1] */
+      left:   0;
+
+      &:not(img) {
+        width: 100%; height: 100%; /* [2] */
+      }
+    }
+
+
+  .card__body {
+    padding: 30px;
+    color: $color-box-text;
+    background-color: $color-box-background-color;
+
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .card__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 142px;
+    width: 142px;
+    border-radius: 100%;
+    background-color: rgba(15,26,68,.80);
+    transition: background-color .3s ease-in-out;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    font-size: 27px;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(15,26,68,1);
+      text-decoration: none;
+      outline: none;
+    }
+  }

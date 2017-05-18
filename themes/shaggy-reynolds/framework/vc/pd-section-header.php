@@ -74,6 +74,24 @@ function progressive_map_section_header() {
           ),
         ),
         array(
+          'type' => 'checkbox',
+          'heading' => __( 'Max the width of the headline?', 'progressive' ),
+          'param_name' => 'headline_max',
+          'group' => 'Heading',
+          'value' => array(
+            "Yes" => "true"
+          ),
+        ),
+        array(
+          'type' => 'checkbox',
+          'heading' => __( 'Is this a CTA header?', 'progressive' ),
+          'param_name' => 'cta_header',
+          'group' => 'Heading',
+          'value' => array(
+            "Yes" => "true"
+          ),
+        ),
+        array(
           "type" => "dropdown",
           "class" => "",
           "heading" => "Has sub headline copy?",
@@ -144,6 +162,15 @@ function progressive_map_section_header() {
           "group" => "Heading",
           'admin_label' => true,
         ),
+        array(
+          'type' => 'checkbox',
+          'heading' => __( 'Transparent Block', 'progressive' ),
+          'param_name' => 'trans_block',
+          'group' => 'Heading',
+          'value' => array(
+            "Yes" => "true"
+          ),
+        ),
     
       )
     ) );
@@ -163,24 +190,42 @@ function pd_section_header_func( $atts, $content = null ) {
       'heading_position' => '',
       'strong_tag_color' => '',
       'font_size' => '',
-      'align_text' => ''
+      'align_text' => '',
+      'trans_block' => '',
+      'cta_header' => '',
+      'headline_max' => ''
   ), $atts ));
   ob_start(); 
 
   $strong_pattern = "/(<strong)/";
   $strong_replace = '<strong class="' . $strong_tag_color . '"';
 
-  $classes = array(
+  $headline_classes = array(
     'headline__main  headline__underline',
     $classes,
     $heading_color
   );
+  if( "true" == $cta_header ) {
+    $headline_classes = array(
+      'headline__main  headline__cta',
+      $classes,
+      $heading_color
+    );
+  }
 
-  $classes = implode( "  ", array_filter( $classes ) );
+  if( "true" == $headline_max ) {
+    $headline_classes[] = 'headline__main--max';
+  }
+
+
+  $headline_classes = implode( "  ", array_filter( $headline_classes ) );
   ?>
-  
+  <?php if( "true" == $trans_block ) : ?>
+    <div class="trans-block__header">
+  <?php endif; ?>
   <div class="headline<?php echo ( !empty( $heading_position ) ? ' ' . $heading_position : '' ); ?>">
-    <<?php echo $type; ?><?php echo ( !empty( $classes ) ? ' class="' . $classes . '"' : '' ); ?>><?php echo $text; ?></<?php echo $type; ?>>
+    <<?php echo $type; ?><?php echo ( !empty( $headline_classes ) ? ' class="' . $headline_classes . '"' : '' ); ?>><?php echo $text; ?></<?php echo $type; ?>>
+
 
     <?php if($enable_sub == "yes") : ?>
       <?php if( !empty( $font_size || !empty( $align_text ) ) ) {
@@ -208,8 +253,13 @@ function pd_section_header_func( $atts, $content = null ) {
       }
 
       ?>
+
     <?php endif; ?>
+  
   </div>
+  <?php if( "true" == $trans_block ) : ?>
+    </div>
+  <?php endif; ?>
   
    
 

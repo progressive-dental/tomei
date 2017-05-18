@@ -6,6 +6,10 @@
   line-height: 19.6px;
   font-weight: 400;
   color: #fff;
+
+  @media(max-width: $screen-sm-max) {
+    text-align: center;
+  }
 }
 
   .site-foot__reviews {
@@ -76,6 +80,10 @@
     line-height: 58.24px;
     letter-spacing: .16px;
     font-weight: 300;
+
+    @media(max-width: $screen-md-max) {
+      font-size: 35px; 
+    }
   }
 
 
@@ -101,7 +109,8 @@
     font-size: 14px;
     line-height: 25.2px;
     display: inline-block;
-    width: 30%;
+    width: 33%;
+    vertical-align: top;
 
     @media(max-width: $screen-lg-min) {
       width: 48%;
@@ -109,6 +118,10 @@
 
     @media(min-with: $screen-sm-min) and (max-width: $screen-sm-max) {
       width: 30%;
+    }
+
+    @media(max-width: $screen-md-max) {
+      width: 33%;
     }
   }
 

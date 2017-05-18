@@ -25,6 +25,7 @@
   > .container {
     max-width: 1500px;
     width: 100% !important;
+    height: 100%;
     padding-left: 0;
     padding-right: 0;
     position: relative;
@@ -36,9 +37,17 @@
     height: 100%;
     background-color: #182744;
     float: left;
+    min-width: 295px;
   }
   .page-head__nav {
     width: 75%;
     height: 100%;
     float: left;
+
+    @media( max-width: 1185px ) {
+      padding-left: 295px;
+      position: absolute;
+      right: 0;
+      width: 100%;
+    }
   }
