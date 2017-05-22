@@ -4,7 +4,7 @@
   width: 242px;
   margin-left: auto;
   margin-right: auto;
-  background: #fff;
+  background: $color-counter-bg;
   margin-bottom: 23px;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.08);
   @include display(flex);

@@ -210,7 +210,6 @@ function progressive_integrate_VC() {
     vc_remove_param( 'vc_section', 'parallax_speed_video' );
     vc_remove_param( 'vc_section', 'parallax_speed_bg' );
     vc_remove_param( 'vc_section', 'css' );
-    vc_remove_param( 'vc_section', 'full_width' );
     vc_remove_param( 'vc_section', 'full_height' );
     vc_remove_param( 'vc_section', 'content_placement' );
     vc_remove_param( 'vc_section', 'css_animation' );

@@ -19,6 +19,9 @@ extract( $atts );
   $output = '';
   $strong_pattern = "/(<strong)/";
 
+  if( !empty( $el_class ) ) :
+    $output = '<div class="' . $el_class . '">';
+  endif; 
   if( !empty( $font_size || !empty( $align_text ) ) ) {
     $classes = array(
       $font_size,
@@ -41,4 +44,7 @@ extract( $atts );
       $output .= wpb_js_remove_wpautop( $content, true );
     }
   }
+  if( !empty( $el_class ) ) :
+    $output .= '</div>';
+  endif; 
 echo $output;

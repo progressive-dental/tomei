@@ -1,11 +1,11 @@
 .site-foot {
-  background-color: #14204B;
+  background-color: $color-site-foot-bg;
   padding: 65px 0 0;
   text-align: left;
   font-size: 14px;
   line-height: 19.6px;
   font-weight: 400;
-  color: #fff;
+  color: $color-site-foot;
 
   @media(max-width: $screen-sm-max) {
     text-align: center;
@@ -19,7 +19,7 @@
     text-align: center;
 
     a {
-      color: #fff;
+      color: $color-site-foot-reviews;
       position: relative;
       font-size: 14px;
       line-height: 19.6px;
@@ -28,7 +28,7 @@
 
       &:hover {
         text-decoration: none;
-        color: #1A9CC3;
+        color: $color-site-foot-reviews-hover;
       }
     }
   }
@@ -88,13 +88,13 @@
 
 
   .site-foot__link {
-    color: #fff;
+    color: $color-site-foot-link;
     transition: .3s ease-in-out;
     font-weight: 400;
 
       &:hover {
         text-decoration: none;
-        color: #1A9CC3;
+        color: $color-site-foot-link-hover;
       }
   }
 
@@ -130,6 +130,6 @@
     line-height: 25.6px;
     font-family: 'Lato';
     font-weight: 700;
-    color: #2D90BD;
+    color: $color-site-foot-header;
     text-transform: uppercase;
   }

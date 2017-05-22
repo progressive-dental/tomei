@@ -5,7 +5,7 @@
     margin-right: auto;
     max-width: 561px;
   }
-  border-bottom: 10px solid #9DBD59;
+  border-bottom: 10px solid $color-fifty-border;
   clear: both;
   overflow: hidden;
 }
@@ -50,7 +50,7 @@
     @include justify-content(center);
     @include align-items(center);
     font-size: 27px;
-    color: #fff;
+    color: $color-fifty-play-button;
 
     &:hover,
     &:focus {

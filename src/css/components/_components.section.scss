@@ -13,25 +13,6 @@
   }
 }
 
-.section--dark {
-  background-color: #222328;
-  color: #fff;
-}
-
-.section--light {
-  background-color: $color-white;
-  color: #222328;
-}
-
-.section--tint {
-  background-color: $color-tint;
-}
-
-.section--tan {
-  background-color: #F0ECDD;
-  color: #222328;
-}
-
 .section--pattern {
   opacity: 0.92;
   background: #101A44;
@@ -53,11 +34,14 @@
   
 }
 
+.article {
+  padding-top: 0;
+}
 
 .section--list {
   position: relative;
-    border-top: 1px solid #EEEEEE;
-    border-bottom: 1px solid #EEEEEE;
+    border-top: 1px solid $color-section-list-border;
+    border-bottom: 1px solid $color-section-list-border;
     height: 100%;
     overflow: hidden;
     padding: 0 0 120px;
@@ -102,7 +86,7 @@
    
     width: 100%;
     height: 100%;
-background: rgba(47,52,53,0.70);
+    background: rgba(47,52,53,0.70);
   
 }
 
@@ -121,11 +105,11 @@ background: rgba(47,52,53,0.70);
   }
 
   .section__overlay {
-    background-color: rgba(1, 77, 101, .75);
+    background-color: $color-section-overlay-bg;
     height: 100%;
     padding-left: 70px;
     padding-right: 70px;
-    color: #fff;
+    color: $color-section-overlay;
 
     i {
       font-size: 75px;
@@ -145,7 +129,7 @@ background: rgba(47,52,53,0.70);
     padding: 130px 0 92px;
     min-height: 643px; 
     overflow: hidden;
-    color: #fff;
+    color: $color-section-bg;
 
     &.section--trans-header {
       color: inherit;

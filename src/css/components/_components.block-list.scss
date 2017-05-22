@@ -6,7 +6,7 @@
 
   .block-list__item {
     height: 271px;
-    border: 3px solid #F5F6F6;
+    border: 3px solid $color-blist-border;
     padding: 30px;
     display: table;
     width: 22%;
@@ -15,7 +15,7 @@
     margin-right: 1.5%;
 
     .block-list--secondary & {
-      border-color: $color-secondary;
+      border-color: $color-blist-border--secondary;
       width: 30%;
       margin-bottom: 3%;
 

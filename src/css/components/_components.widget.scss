@@ -1,6 +1,9 @@
 .widget {
   padding: 38px 30px;
-
+  &:last-child {
+    background: $color-secondary;
+    color: #fff;
+  }
 }
 .widget--large {
   padding: 110px 55px;

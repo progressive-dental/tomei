@@ -28,6 +28,8 @@
   border: 1px solid;
   font-size: $btn-font-size;
   font-weight: $btn-font-weight;
+  position: relative;
+  z-index: 1;
 
   @if($btn-radius != 0) {
     border-radius: $btn-radius;
@@ -55,7 +57,7 @@
 
 .btn--primary {
   background-color: $color-btn-background;
-  border-color: $color-btn-background;
+      border-color: $color-btn-background;
              color: $color-btn;
   transition: $global-transition;
 
@@ -71,25 +73,25 @@
   }
 
   .btn--outline-primary {
-    border-color: $color-primary;
+    border-color: $color-btn-outline--primary;
 
     @include hocus {
-      border-color: darken($color-primary, 9%);
+      border-color: darken($color-btn-outline--primary, 9%);
     }
   }
 
   .btn--outline-secondary {
-    border-color: $color-secondary;
+    border-color: $color-btn-outline--secondary;
 
     @include hocus {
-      border-color: darken($color-secondary, 9%);
+      border-color: darken($color-btn-outline--secondary, 9%);
     }
   }
 
   .btn--outline-accent {
-    border-color: $color-accent;
+    border-color: $color-btn-outline--accent;
     @include hocus {
-      border-color: darken($color-accent, 9%);
+      border-color: darken($color-btn-outline--accent, 9%);
     }
   }
 
@@ -99,24 +101,24 @@
 }
 
 .btn--secondary {
-  background-color: $color-secondary;
-             color: $color-white;
+  background-color: $color-btn-background--secondary;
+      border-color: $color-btn-background--secondary;
+             color: $color-btn--secondary;
   transition: all .3s;
-  border-color: $color-secondary;
 
   @include hocus() {
-    background-color: $color-primary;
-    border-color: $color-white;
+    background-color: $color-btn-background-hover--secondary;
+    border-color: $color-btn-hover--secondary;
   }
 }
 
 .btn--accent {
-  background-color: $color-accent;
-             color: $color-white;
+  background-color: $color-btn-background--accent;
+             color: $color-btn--accent;
   transition: all .3s;
 
   @include hocus() {
-    background-color: $color-secondary;
+    background-color: $color-btn-background-hover--accent;
   }
 }
 
@@ -124,13 +126,13 @@
   background-color: transparent;
 
   &.btn--primary {
-    color: $color-btn-background;
+    color: $color-btn-ghost--primary;
   }
 
   &:hover {
-    background-color: $color-btn-background-hover;
-    border-color: $color-btn-background-hover;
-    color: #fff;
+    background-color: $color-btn-ghost-bg-hover--primary;
+    border-color: $color-btn-ghost-bg-hover--primary;
+    color: $color-btn-ghost-hover--primary;
   }
 }
 

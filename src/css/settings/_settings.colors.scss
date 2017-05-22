@@ -14,6 +14,7 @@
  */
 $color-white: #fff;                   /* [1] */
 $color-light-gray: #ECECEC;           /* [1] */
+$color-lighter-gray: #F5F6F6;
 $color-gray: #696969;                 /* [1] */
 
 $color-accent: #9DBD59;               /* [2] */
@@ -23,6 +24,8 @@ $color-tertiary: #DB7D3B;             /* [2] */
 $color-tint: #EEEEEE;                 /* [2] */
 $color-highlight: #DB7D3B;
 $color-custom-one: #266AAD;
+$color-custom-two: #2D3F55;
+$color-custom-three: #14204B;
 
 $color-text: $color-gray;             /* [3] */
 $color-headlines: $color-primary;     /* [3] */
@@ -41,32 +44,124 @@ $color-page-background:                 $color-white;
 $color-links:                           $color-primary;
 $color-links-hover:                     $color-tertiary;
 
-// 3. Page Head
-$color-page-head:                       transparent;
-$color-page-head-background:            $color-secondary;
 
-$color-masthead-background:             $color-primary;
-
-$color-btn:                             #fff;
+// Buttons
+$color-btn:                             $color-white;
 $color-btn-background:                  $color-primary;
 $color-btn-background-hover:            $color-tertiary;
-$color-btn-secondary:                   #fff;
-$color-btn-secondary-background:        $color-secondary;
-$color-btn-secondary-background-hover:  $color-tertiary;
+$color-btn--secondary:                  $color-white;
+$color-btn-background--secondary:       $color-secondary;
+$color-btn-hover--secondary:            $color-white;
+$color-btn-background-hover--secondary: $color-primary;
+$color-btn--accent:                     $color-white;
+$color-btn-background--accent:          $color-accent;
+$color-btn-background-hover--accent:    $color-secondary;
+$color-btn-ghost--primary:              $color-primary;
+$color-btn-ghost-hover--primary:        $color-white;
+$color-btn-ghost-bg-hover--primary:     $color-tertiary;
+$color-btn-outline--primary:            $color-primary;
+$color-btn-outline--secondary:          $color-secondary;
+$color-btn-outline--accent:             $color-accent;
 
-$color-page-foot:                       #fff;
-$color-page-foot-background:            $color-secondary;
+$color-play-button:                     $color-white;
 
-$color-card-background:                 $color-white;
-$color-card-border:                     #979797;
+// Accordion
+$color-accordion-title-bg-color:        $color-light-gray;
+$color-accordion-title-text:            $color-custom-two;
+$color-accordion-title-active-bg-color: $color-secondary;
+$color-accordion-title-active-text:     $color-white;
+$color-accordion-content-bg-color:      $color-lighter-gray;
+$color-accordion-content-text:          $color-custom-two;
 
-$color-service-background:              $color-white;
-$color-service-border:                  #D0D1D1;
-$color-service-shadow:                  rgba(0,0,0,0.30);
+// Block list
+$color-blist-border:                    $color-lighter-gray;
+$color-blist-border--secondary:         $color-secondary;
 
-$color-play-button:                     $color-accent;
+// Cards
+$color-card:                            $color-white;
+$color-card-bg:                         $color-primary;
+$color-card-play-button:                $color-play-button;
 
-$color-box-text:                        $color-white;
-$color-box-background-color:            $color-primary;
-$color-box-border:                      $color-primary;
+// Counter
+$color-counter-bg:                      $color-white;
 
+// Fifty Fifty Module
+$color-fifty-border:                    $color-accent;
+$color-fifty-play-button:               $color-play-button;
+
+// Masthead
+$color-masthead-background:             $color-primary;
+$color-masthead:                        $color-white;
+$color-masthead-banner:                 #14204B;
+$color-masthead-banner-link:            #EF5D60;
+
+// Masthead Tabs
+$color-masthead-tab:                    $color-white;
+$color-masthead-tab-one-bg:             #182752;
+$color-masthead-tab-one-bg-hover:       rgba(24, 39, 82, 0.95);
+$color-masthead-tab-two-bg:             $color-custom-one;
+$color-masthead-tab-two-bg-hover:       rgba(38, 106, 173, 0.95);
+$color-masthead-tab-three-bg:           $color-secondary;
+$color-masthead-tab-three-bg-hover:     rgba(26, 156, 195, 0.95);
+
+// 3. Page Head
+$color-page-head:                       transparent;
+$color-page-head-background:            #f9f9f9;
+$color-page-head-logo-bg:               #182744;
+
+// Sections
+$color-section-list-border:             $color-tint;
+$color-section-overlay:                 $color-white;
+$color-section-overlay-bg:              rgba(1, 77, 101, .75);
+$color-section-bg:                      $color-white;
+
+// Site Footer
+$color-site-foot:                       $color-white;
+$color-site-foot-bg:                    $color-custom-three;
+$color-site-foot-link:                  $color-white;
+$color-site-foot-link-hover:            $color-secondary;
+$color-site-foot-header:                #2D90BD;
+$color-site-foot-reviews:               $color-white;
+$color-site-foot-reviews-hover:         $color-secondary;
+
+// Site Navigation
+$color-site-nav-contact:                $color-white;
+$color-site-nav-contact-border:         #1996bb;
+$color-site-nav-contact-bg:             $color-secondary;
+$color-site-nav-hover:                  $color-white;
+$color-site-nav-bg-hover:               #182753;
+$color-site-nav-sub:                    $color-secondary;
+$color-site-nav-sub-bg:                 #182753;
+$color-site-nav-sub-hover:              $color-white;
+$color-site-nav-sub-sub:                $color-white;
+$color-site-nav-sub-sub-border:         $color-secondary;
+$color-site-nav-sub-sub-hover:          #ccc;
+$color-site-nav-hamburger:              $color-primary;
+
+// T-List
+$color-t-list-icon:                     #979797;
+
+// Tabs
+$color-tabs-bg:                         $color-white;
+$color-tab-border-right:                $color-light-gray;
+$color-tab-active-border-top:           $color-accent;
+$color-tab-active-mobile-bg:            $color-accent;
+
+// Testimonials
+$color-testimonials-bg-hover:           rgba(157,189,89,.80);
+$color-testimonials:                    $color-white;
+$color-testimonials-play-button:        $color-play-button;
+
+// Transparent Block
+$color-transblock:                      #2796C0;
+$color-transblock-header-bg:            rgba(47,52,53,.70);
+$color-trabsblock-list-item-border:     #979797;
+
+// Video Box
+$color-video-box-caption-bg:            $color-white;
+$color-video-box-play-bg:               rgba(15,26,68,.80);
+$color-video-box-play:                  $color-white;
+$color-video-box-play-bg-hover:         rgba(15,26,68,1);
+$color-video-play:                      $color-white;
+$color-video-play-bg:                   rgba(15,26,68,.80);
+$color-video-play-bg-hover:             rgba(15,26,68,1);

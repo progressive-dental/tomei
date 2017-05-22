@@ -36,7 +36,7 @@
     position: absolute;
     left: 0;
     top: 85px;
-    background: #FFFFFF;
+    background: $color-video-box-caption-bg;
     width: calc(100% - 60px);
     margin-right: 60px;
     height: 100%;
@@ -76,9 +76,9 @@
     height: 142px;
     width: 142px;
     border-radius: 100%;
-    background-color: rgba(15,26,68,.80);
+    background-color: $color-video-box-play-bg;
     transition: background-color .3s ease-in-out;
-    color: #fff;
+    color: $color-video-box-play;
     @include display(flex);
     @include justify-content(center);
     @include align-items(center);
@@ -86,7 +86,7 @@
 
     &:hover,
     &:focus {
-      background-color: rgba(15,26,68,1);
+      background-color: $color-video-box-play-bg-hover;
       text-decoration: none;
       outline: none;
     }
@@ -97,10 +97,10 @@
     height: 142px;
     width: 142px;
     border-radius: 100%;
-    background-color: rgba(15,26,68,.80);
+    background-color: $color-video-play-bg;
     transition: background-color .3s ease-in-out;
     display: block;
-    color: #fff;
+    color: $color-video-play;
     @include display(flex);
     @include justify-content(center);
     @include align-items(center);
@@ -110,7 +110,7 @@
 
     &:hover,
     &:focus {
-      background-color: rgba(15,26,68,1);
+      background-color: $color-video-play-bg-hover;
       text-decoration: none;
       outline: none;
     }

@@ -30,7 +30,7 @@
     background-position: top center;
     @include display(flex);
     @include justify-content(center);
-    color: #fff;
+    color: $color-masthead;
 
     @media(min-width: $screen-sm-min) {
     }
@@ -49,7 +49,7 @@
       @include display(flex);
       @include justify-content(center);
       text-align: left;
-      color: #fff;
+      color: $color-masthead;
       position: relative;
       background-position: bottom center;
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
@@ -141,13 +141,13 @@
       line-height: 16.8px;
       letter-spacing: .25px;
       font-weight: 500;
-      color: #14204B;
+      color: $color-masthead-banner;
       z-index: 1;
     }
 
     .masthead__link {
       font-weight: bold;
-      color: #EF5D60;
+      color: $color-masthead-banner-link;
       text-transform: uppercase;
     }
 
@@ -176,7 +176,7 @@
       display: table;
       height: 82px;
       vertical-align: middle;
-      background-color: #182752;
+      background-color: $color-masthead-tab-one-bg;
       padding: 0;
       margin: 0;
       font-size: 11.25px;
@@ -197,21 +197,21 @@
       }
 
       &:hover {
-        background-color: rgba(24, 39, 82, 0.95);
+        background-color: $color-masthead-tab-one-bg-hover;
       }
 
       &:nth-of-type(2) {
-        background-color: #266AAD;
+        background-color: $color-masthead-tab-two-bg;
 
         &:hover {
-          background-color: rgba(38, 106, 173, 0.95);
+          background-color: $color-masthead-tab-two-bg-hover;
         }
       }
       &:last-of-type {
-        background-color: #1A9CC3;
+        background-color: $color-masthead-tab-three-bg;
 
         &:hover {
-          background-color: rgba(26, 156, 195, 0.95);
+          background-color: $color-masthead-tab-three-bg-hover;
         }
       }
 
@@ -224,7 +224,7 @@
         height: 100%;
         vertical-align: middle;
         height: 100%;
-        color: white;
+        color: $color-masthead-tab;
         text-align: center;
 
         @media(min-width: $screen-sm-min) and (max-width: $screen-sm-max) {

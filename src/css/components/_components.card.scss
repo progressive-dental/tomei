@@ -75,8 +75,8 @@
 
   .card__body {
     padding: 30px;
-    color: $color-box-text;
-    background-color: $color-box-background-color;
+    color: $color-card;
+    background-color: $color-card-bg;
 
     p {
       &:last-child {
@@ -99,7 +99,7 @@
     @include justify-content(center);
     @include align-items(center);
     font-size: 27px;
-    color: #fff;
+    color: $color-card-play-button;
 
     &:hover,
     &:focus {

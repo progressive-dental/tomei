@@ -1,5 +1,5 @@
 .trans-block__header {
-  background-color: rgba(47,52,53,.70);
+  background-color: $color-transblock-header-bg;
   padding: 40px;
 }
       
@@ -63,14 +63,14 @@
   }
 
   &:nth-of-type(2) {
-    border-left: 1px solid #979797;
-    border-right: 1px solid #979797;
+    border-left: 1px solid $color-trabsblock-list-item-border;
+    border-right: 1px solid $color-trabsblock-list-item-border;
 
     @media(max-width: $screen-md-max) {
       border-left: none;
       border-right: none;
-      border-top: 1px solid #979797;
-      border-bottom: 1px solid #979797;
+      border-top: 1px solid $color-trabsblock-list-item-border;
+      border-bottom: 1px solid $color-trabsblock-list-item-border;
     }
   }
   &:before {
@@ -79,7 +79,7 @@
 
     font-size: 79px;
     font-weight: bold;
-    color:#2796C0;
+    color: $color-transblock;
     letter-spacing: .39px;
     line-height: 95px;
     display: inline-block;

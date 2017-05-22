@@ -52,7 +52,6 @@ if( 'yes' == $enable_overlay ) {
 	$css_classes[] = 'section--overlay';
 }
 
-
 $wrapper_attributes = array();
 
 if( 'image' == $bg_type || 'video' == $bg_type) {

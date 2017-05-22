@@ -19,7 +19,7 @@
        -o-transition: all 300ms ease;
           transition: all 300ms ease;
 
-    background-color: #f9f9f9;
+    background-color: $color-page-head-background;
 
 
   > .container {
@@ -35,7 +35,7 @@
   .page-head__logo {
     width: 25%;
     height: 100%;
-    background-color: #182744;
+    background-color: $color-page-head-logo-bg;
     float: left;
     min-width: 295px;
   }
