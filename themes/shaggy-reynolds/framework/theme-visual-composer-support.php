@@ -24,6 +24,7 @@ require_once ( FRAMEWORK_ROOT . '/vc/pd-block-list.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-block.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-t-list.php' );
 require_once ( FRAMEWORK_ROOT . '/vc/pd-t-list-item.php' );
+require_once ( FRAMEWORK_ROOT . '/vc/pd-carousel-anything.php' );
 
 function progressive_integrate_VC() {
 
