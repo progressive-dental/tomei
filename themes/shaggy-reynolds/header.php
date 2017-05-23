@@ -52,11 +52,18 @@ global $progressive
           </a>
         </div>
         <div class="page-head__nav">
-          <?php if( has_nav_menu( 'contact-menu' ) ) : ?>
           <ul class="site-nav__contact">
-            <?php wp_nav_menu( array( 'theme_location' => 'contact-menu', 'items_wrap' => '%3$s', 'container' => false, 'menu_class' => false, 'walker' => new Wpse8170_Menu_Walker() ) ); ?>
+            <li class="site-nav__item">
+              <?php if( $progressive['enable-ppc'] == 1 ) : ?>
+                <a href="+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-nav__link  clickToCall" data-call-tracking-number="<?php echo $progressive['new-patient-number']; ?>" data-ppc-tracking-number="<?php echo $progressive['ppc-number']; ?>"><span class="webPpcNumber"><?php echo $progressive['ppc-number']; ?></span></a>
+              <?php else : ?>
+                <a href="+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-nav__link" ><?php echo $progressive['new-patient-number']; ?></a>
+              <?php endif; ?>
+            </li>
+            <li class="site-nav__item">
+              <a href="" class="site-nav__link"></a>
+            </li>
           </ul>  
-          <?php endif; ?>
           <?php if( has_nav_menu( 'contact-menu' ) ) : ?>
           <ul class="site-nav">
             <?php wp_nav_menu( array( 'theme_location' => 'primary-menu', 'items_wrap' => '%3$s', 'container' => false, 'menu_class' => false, 'walker' => new Wpse8170_Menu_Walker() ) ); ?>

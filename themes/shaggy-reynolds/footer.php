@@ -25,7 +25,11 @@ global $progressive; ?>
                 <?php endif; ?>
                 <?php if( $progressive['enable-new-patient-number'] == 1 ) : ?>
                 <li class="contact-list__item">
-                  New Patient: <a class="site-foot__link  site-foot__link--phone" href="tel:<?php echo preg_replace( "/[^0-9]/", "", $progressive['new-patient-number'] ); ?>"><?php echo $progressive['new-patient-number']; ?></a>
+                  <?php if( $progressive['enable-ppc'] == 1 ) : ?>
+                    New Patient: <a href="+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-foot__link  site-foot__link--phone  clickToCall" data-call-tracking-number="<?php echo $progressive['new-patient-number']; ?>" data-ppc-tracking-number="<?php echo $progressive['ppc-number']; ?>"><span class="webPpcNumber"><?php echo $progressive['ppc-number']; ?></span></a>
+                  <?php else : ?>
+                    New Patient: <a class="site-foot__link  site-foot__link--phone" href="tel:+1<?php echo preg_replace( "/[^0-9]/", "", $progressive['new-patient-number'] ); ?>"><?php echo $progressive['new-patient-number']; ?></a>
+                  <?php endif; ?>
                 </li>
                 <?php endif; ?>
                 <?php if( $progressive['enable-practice-address'] == 1 ) : ?>

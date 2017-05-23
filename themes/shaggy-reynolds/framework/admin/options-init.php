@@ -140,53 +140,6 @@
         'fields' => array(
 
             array(
-                'id'        => 'top-bar-section',
-                'type'      => 'section',
-                'title'     => 'Top Bar Options',
-                'subtitle'  => 'These options edit the themes top bar.',
-                'indent'    => true
-            ),
-            array(
-                'id'        => 'enable-new-patient-number',
-                'type'      => 'switch',
-                'title'     => 'Enable new patient number?',
-                'default'   => false,
-            ),
-            array(
-                'id'       => 'top-new-patient-text',
-                'type'     => 'text',
-                'default'  => 'NEW PATIENT:',
-                'title'    => __( 'Custom Location Text', 'progressive' ),
-                'required' => array('enable-new-patient-number','equals','1')
-            ),
-            array(
-                'id'       => 'top-new-patient-number',
-                'type'     => 'text',
-                'default'  => '123.123.1234',
-                'title'    => __( 'Custom Location Number', 'progressive' ),
-                'required' => array('enable-new-patient-number','equals','1')
-            ),
-            array(
-                'id'        => 'enable-current-patient-number',
-                'type'      => 'switch',
-                'title'     => 'Enable current patient number?',
-                'default'   => false,
-            ),
-            array(
-                'id'       => 'top-current-patient-text',
-                'type'     => 'text',
-                'default'  => 'CURRENT PATIENT:',
-                'title'    => __( 'Current Location Text', 'progressive' ),
-                'required' => array('enable-current-patient-number','equals','1')
-            ),
-            array(
-                'id'       => 'top-current-patient-number',
-                'type'     => 'text',
-                'default'  => '123.123.1234',
-                'title'    => __( 'Current Location Number', 'progressive' ),
-                'required' => array('enable-current-patient-number','equals','1')
-            ),
-            array(
                 'id'        => 'nav-bar-section',
                 'type'      => 'section',
                 'title'     => 'Navigation Bar Options',
@@ -197,6 +150,13 @@
                 'id'        => 'nav-logo',
                 'type'      => 'media',
                 'title'     => 'Logo',
+            ),
+            array(
+                'id'        => 'header-contact-us-link',
+                'type'      => 'select',
+                'data'      => 'pages',
+                'title'     => 'Contact us link?',
+                'default'   => false,
             ),
             array(
                 'id'        => 'header-scripts-section',
@@ -404,6 +364,18 @@
                 'type'      => 'text',
                 'title'     => 'New Patient Number',
             ),
+            array(
+                'id'        => 'enable-ppc',
+                'type'      => 'switch',
+                'title'     => 'Enable PPC?',
+                'default'   => false,
+            ),
+            array(
+                'id'        => 'ppc-number',
+                'type'      => 'text',
+                'title'     => 'PPC Number',
+                'required' => array('enable-ppc','equals','1')
+            ),
 
 
     )
@@ -472,6 +444,22 @@
             ),
         )
     ) );
+
+    // Redux::setSection( $opt_name, array(
+    //     'title'  => __( 'Theme Colors ( Beta )', 'progressive' ),
+    //     'id'     => 'colors',
+    //     'desc'   => __( 'Theme color options.', 'progressive' ),
+    //     'icon'   => 'el el-brush',
+    //     'fields' => array(
+    //         array(
+    //             'id'        => 'theme-color',
+    //             'type'      => 'color',
+    //             'title'     => 'Theme color',
+    //             'desc'      => 'Used for theme-color and msapplication-TileColor.'
+    //         ),
+
+    //     )
+    // ) );
 
     // Redux::setSection( $opt_name, array(
     //     'title' => __( 'Header', 'progressive' ),

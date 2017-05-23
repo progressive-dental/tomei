@@ -7,6 +7,7 @@ add_action( 'wp_enqueue_scripts', 'shaggy_reynolds_scripts', 99 );
  * Enqueue scripts and styles.
  */
 function shaggy_reynolds_scripts() {
+  global $progressive;
 
   wp_enqueue_style( 'shaggy-reynolds-mmenu', THEME_WEB_ROOT . '/assets/css/jquery.mmenu.min.css' );
   wp_enqueue_style( 'shaggy-reynolds-style', THEME_WEB_ROOT . '/assets/css/site.css' );
@@ -31,6 +32,10 @@ function shaggy_reynolds_scripts() {
   wp_enqueue_script( 'shaggy-reynolds-event-move', THEME_WEB_ROOT . '/assets/js/jquery.event.move.js', array(), '', true );
   wp_enqueue_script( 'shaggy-reynolds-accordion', THEME_WEB_ROOT . '/assets/js/jquery.accordion.min.js', array(), '', true );
   wp_enqueue_script( 'shaggy-reynolds-custom', THEME_WEB_ROOT . '/assets/js/custom.js', array(), '', true );
+
+  if( $progressive['enable-ppc'] == 1 ) {
+    wp_enqueue_script( 'shaggy-reynolds-ppc', THEME_WEB_ROOT . '/assets/js/web-ppc-call.js', array(), '', true );
+  }
 
   // deregister and dequeue plugin styles and scripts
   wp_deregister_style( 'gcp-owl-carousel-css' );
