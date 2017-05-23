@@ -20,7 +20,7 @@ global $progressive; ?>
               <ul class="contact-list">
                 <?php if( $progressive['enable-current-patient-number'] == 1 ) : ?>
                 <li class="contact-list__item">
-                  Current Patient: <a class="site-foot__link  site-foot__link--phone" href="tel:<?php echo preg_replace( "/[^0-9]/", "", $progressive['current-patient-number'] ); ?>"><?php echo $progressive['current-patient-number']; ?></a>
+                  Current Patient: <a class="site-foot__link  site-foot__link--phone" href="tel:+1<?php echo preg_replace( "/[^0-9]/", "", $progressive['current-patient-number'] ); ?>"><?php echo $progressive['current-patient-number']; ?></a>
                 </li>
                 <?php endif; ?>
                 <?php if( $progressive['enable-new-patient-number'] == 1 ) : ?>
