@@ -22,7 +22,8 @@ function pd_implant_func( $atts, $content = null ) {
 
   $html = '
     <div class="implant">
-        <img src="' . get_template_directory_uri() . '/assets/images/straumann-pure-implant.png">
+        <img src="' . get_template_directory_uri() . '/assets/images/implant.png">
+
         <div class="implant__note  implant__note--crown  wow fadeInRight">
           <div class="implant__indicator">
             <div class="plus-icon">
@@ -52,7 +53,7 @@ function pd_implant_func( $atts, $content = null ) {
             </div>
           </div>
           <div class="implant__note-name">
-            Titanium threaded
+            ceramic<br>threaded
           </div>
         </div>
       </div>
