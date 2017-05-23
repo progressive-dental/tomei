@@ -37,6 +37,12 @@ require_once ( FRAMEWORK_ROOT . '/theme-visual-composer-support.php');
 require_once ( FRAMEWORK_ROOT . '/theme-walker.php');
 
 /* ----------------------------------------------------- */
+/* Include Theme Extras
+/* ----------------------------------------------------- */
+
+require_once ( FRAMEWORK_ROOT . '/theme-extras.php');
+
+/* ----------------------------------------------------- */
 /* Include Theme Menu Edit Classes
 /* ----------------------------------------------------- */
 
