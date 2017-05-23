@@ -52,7 +52,7 @@ function pd_implant_func( $atts, $content = null ) {
             </div>
           </div>
           <div class="implant__note-name">
-            Titanium threaded
+            Ceramic<br>threaded
           </div>
         </div>
       </div>
