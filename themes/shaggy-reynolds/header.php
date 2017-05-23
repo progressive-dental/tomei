@@ -61,7 +61,7 @@ global $progressive
               <?php endif; ?>
             </li>
             <li class="site-nav__item">
-              <a href="" class="site-nav__link"></a>
+              <a href="<?php echo get_permalink( $progressive['header-contact-us-link'] ); ?>" class="site-nav__link">CONTACT US</a>
             </li>
           </ul>  
           <?php if( has_nav_menu( 'contact-menu' ) ) : ?>
