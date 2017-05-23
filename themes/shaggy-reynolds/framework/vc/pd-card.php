@@ -202,7 +202,7 @@ function get_card_header( $type, $atts ) {
       ';
       break;
     case 'video':
-      $output = '<img src="' . wp_get_attachment_url( $atts['image'] ) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '" class="card__object">';
+      $output = '<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="' . wp_get_attachment_url( $atts['image'] ) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '" class="card__object">';
       switch ( $atts['video_location'] ) {
         case 'youtube':
           $output .= '<a href="https://www.youtube.com/watch?v=' . $atts['youtube_id'] . '" class="card__play  js-play-video"><i class="icon  icon--play"></i></a>';
@@ -214,7 +214,7 @@ function get_card_header( $type, $atts ) {
       }
       break;
     case 'image':
-      $output = '<img src="' . wp_get_attachment_url( $atts['image'] ) . '" class="card__object">';
+      $output = '<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="' . wp_get_attachment_url( $atts['image'] ) . '" class="card__object">';
       break;
   }
   return $output;

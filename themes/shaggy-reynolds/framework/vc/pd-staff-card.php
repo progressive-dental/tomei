@@ -236,7 +236,7 @@ function pd_staff_card_func( $atts, $content = null ) {
       </div>
       <?php endif; ?>
       <div class="box__object o-crop  o-crop--3:2">
-        <img src="<?php echo wp_get_attachment_url( $atts['image'] ); ?>" class="o-crop__content" alt="<?php echo get_post_meta( $atts['image'], '_wp_attachment_image_alt', true); ?>">
+        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo wp_get_attachment_url( $atts['image'] ); ?>" class="o-crop__content" alt="<?php echo get_post_meta( $atts['image'], '_wp_attachment_image_alt', true); ?>">
       </div>
       <?php if( $content ) : ?>
       <div class="box__body">

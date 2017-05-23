@@ -199,7 +199,7 @@ function pd_media_func( $atts, $content = null ) {
       if( "true" != $hide_outline ) :
         $html = '<div class="outline-image">';
       endif;
-        $html .= '<img src="' . wp_get_attachment_url($image) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '">';
+        $html .= '<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="' . wp_get_attachment_url($image) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '">';
       if( "true" != $hide_outline ) :
         $html .= '</div>';
       endif;
@@ -209,7 +209,7 @@ function pd_media_func( $atts, $content = null ) {
         $html = '
           <div class="video-box' . ( !empty( $video_size ) ? '  video-box--large' : '' ) . '">
             <div class="video-box__thumbnail">
-              <img src="' . wp_get_attachment_url($video_poster) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '" data-mh="videobox">
+              <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="' . wp_get_attachment_url($video_poster) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '" data-mh="videobox">
               <a href="https://www.youtube.com/watch?v=' . $youtube_id . '" class="video-box__play"><i class="icon  icon--play"></i></a>
             </div>
             <div class="video-box__caption  ' . ( !empty( $caption_font_color ) ? $caption_font_color : '' ) . '" data-mh="videobox">

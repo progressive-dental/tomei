@@ -179,7 +179,7 @@ function pd_fifty_fifty_func( $atts, $content = null ) {
             $attachment = ( $media == "image" ? $image : $video_poster );
             $attachemnt_alt = get_post_meta( $attachment, '_wp_attachment_image_alt', true);
           ?>
-          <img src="<?php echo wp_get_attachment_url( $attachment ); ?>" alt="<?php echo ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ); ?>">
+          <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo wp_get_attachment_url( $attachment ); ?>" alt="<?php echo ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ); ?>">
           <?php if( $media == "video" ) : ?>
             <a href="https://www.youtube.com/watch?v=<?php echo $youtube_id; ?>" class="fifty__play"><i class="icon  icon--play"></i></a>
           <?php endif; ?>
@@ -190,7 +190,7 @@ function pd_fifty_fifty_func( $atts, $content = null ) {
             $attachment = ( $media == "image" ? $image : $video_poster );
             $attachemnt_alt = get_post_meta( $attachment, '_wp_attachment_image_alt', true);
           ?>
-          <img src="<?php echo wp_get_attachment_url( $attachment ); ?>" alt="<?php echo ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ); ?>">
+          <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo wp_get_attachment_url( $attachment ); ?>" alt="<?php echo ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ); ?>">
           <?php if( $media == "video" ) : ?>
             <a href="https://www.youtube.com/watch?v=<?php echo $youtube_id; ?>" class="fifty__play"><i class="icon  icon--play"></i></a>
           <?php endif; ?>
@@ -203,44 +203,5 @@ function pd_fifty_fifty_func( $atts, $content = null ) {
 
   <?php
   $output = ob_get_clean();
-  return $output;
-}
-
-function get_fifty_fifty_header( $type, $atts ) {
-  $output = '';
-  switch ( $type ) {
-    case 'comparison':
-      $output = '
-        <div class="compare  card__object">
-          <img src="' . wp_get_attachment_url( $atts['image_before'] ) . '" alt="Before">
-          <img src="' . wp_get_attachment_url( $atts['image_after'] ) . '" alt="After">
-        </div>
-      ';
-      break;
-    case 'video':
-      switch ( $atts['video_location'] ) {
-        case 'youtube':
-          $output = '<iframe class="card__object" src="https://www.youtube.com/embed/' . $atts['youtube_id']. '?rel=0&amp;showinfo=0&amp;" rel="0" showinfo="0" frameborder="0" allowfullscreen></iframe>';
-          break;
-        case 'media_library':
-          $output = '
-            <video id="video" class="card__object" poster="' . $atts['video_poster'] . '">
-              <source src="' . wp_get_attachment_url( $atts['video_attachment'] ) . '" type="' . $atts['video_type'] . '">
-            </video>
-          ';
-          break;
-        case 'external':
-          $output = '
-            <video id="video" class="card__object" poster="' . $atts['video_poster'] . '">
-              <source src="' . $atts['video_url'] . '" type="' . $atts['video_type'] . '">
-            </video>
-          ';
-          break;
-      }
-      break;
-    case 'image':
-      $output = '<img src="' . wp_get_attachment_url( $atts['image'] ) . '" class="card__object">';
-      break;
-  }
   return $output;
 }

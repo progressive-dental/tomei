@@ -22,7 +22,7 @@ function pd_implant_func( $atts, $content = null ) {
 
   $html = '
     <div class="implant">
-        <img src="' . get_template_directory_uri() . '/assets/images/straumann-pure-implant.png">
+        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="' . get_template_directory_uri() . '/assets/images/straumann-pure-implant.png">
         <div class="implant__note  implant__note--crown  wow fadeInRight">
           <div class="implant__indicator">
             <div class="plus-icon">
