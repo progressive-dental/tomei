@@ -66,7 +66,7 @@ function pd_media_object_func( $atts, $content = null ) {
   <div class="flag<?php echo ( $align != '' ? " flag--$align" : '' ); ?><?php echo ( $reverse == true ? " flag--rev" : '' ); ?>">
     <?php if( !$reverse ) : ?>
     <div class="flag__image  flag__image--max">
-      <img src="<?php echo wp_get_attachment_url( $image ); ?>" alt="">
+      <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo wp_get_attachment_url( $image ); ?>" alt="">
     </div>
     <div class="flag__body">
       <?php echo wpb_js_remove_wpautop($content, true); ?>
