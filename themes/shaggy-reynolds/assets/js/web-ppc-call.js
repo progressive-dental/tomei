@@ -2,7 +2,7 @@
 // Version 1.4 - 05/05/2017
 // Dr. Nargiz Schmidt smileinthecity.com
 /////////////////////////////////////////////////
-console.log( document.querySelector('.clickToCall').dataset.callTrackingNumber.replace(/\D/g,''));
+
 function setAdStorage(docReferrer, urlQuery) {
 	// Store
 	if((!localStorage.getItem("fromAd")) || (localStorage.getItem("fromAd") == '0')){

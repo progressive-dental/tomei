@@ -19,19 +19,7 @@ function shaggy_reynolds_scripts() {
   wp_dequeue_script( 'jquery-migrate' );
   wp_dequeue_script( 'jquery-migrate' );
 
-  wp_enqueue_script( 'jquery', THEME_WEB_ROOT . '/assets/js/vendor.min.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-webfont', THEME_WEB_ROOT . '/assets/js/webfont.min.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-slick', THEME_WEB_ROOT . '/assets/js/slick.min.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-magnific', THEME_WEB_ROOT . '/assets/js/magnific.min.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-mmenu', THEME_WEB_ROOT . '/assets/js/jquery.mmenu.min.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-pic-chart', THEME_WEB_ROOT . '/assets/js/easyPieChart.min.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-countTo', THEME_WEB_ROOT . '/assets/js/countTo.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-waypoints', THEME_WEB_ROOT . '/assets/js/waypoints.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-parallax', THEME_WEB_ROOT . '/assets/js/parallax.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-twentytwenty', THEME_WEB_ROOT . '/assets/js/jquery.twentytwenty.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-event-move', THEME_WEB_ROOT . '/assets/js/jquery.event.move.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-accordion', THEME_WEB_ROOT . '/assets/js/jquery.accordion.min.js', array(), '', true );
-  wp_enqueue_script( 'shaggy-reynolds-custom', THEME_WEB_ROOT . '/assets/js/custom.js', array(), '', true );
+  wp_enqueue_script( 'jquery', THEME_WEB_ROOT . '/assets/js/site.min.js', array(), '', true );
 
   if( $progressive['enable-ppc'] == 1 ) {
     wp_enqueue_script( 'shaggy-reynolds-ppc', THEME_WEB_ROOT . '/assets/js/web-ppc-call.js', array(), '', true );
@@ -62,6 +50,9 @@ function shaggy_reynolds_scripts() {
   wp_deregister_script( 'waypoints' );
   wp_dequeue_script( 'waypoints' );
 
+  wp_deregister_script( 'wpb_composer_front_js' );
+  wp_dequeue_script( 'wpb_composer_front_js' );
+
   wp_deregister_style( 'contact-form-7' );
   wp_dequeue_style( 'contact-form-7' );
 }
@@ -81,3 +72,25 @@ function defer_parsing_of_js ( $url ) {
   return "$url' defer onload='";
 
 }
+
+function dvk_dequeue_scripts() {
+
+    $load_scripts = false;
+
+    if( is_singular() ) {
+      $post = get_post();
+
+      if( has_shortcode($post->post_content, 'contact-form-7') ) {
+          $load_scripts = true;
+      }
+
+    }
+
+    if( ! $load_scripts ) {
+        wp_dequeue_script( 'contact-form-7' );
+        wp_dequeue_style( 'contact-form-7' );
+    }
+
+}
+
+add_action( 'wp_enqueue_scripts', 'dvk_dequeue_scripts', 99 );

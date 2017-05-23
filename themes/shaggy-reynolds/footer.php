@@ -169,12 +169,19 @@ global $progressive; ?>
   ?>
   <script>
     function init() {
-var imgDefer = document.getElementsByTagName('img');
-for (var i=0; i<imgDefer.length; i++) {
-if(imgDefer[i].getAttribute('data-src')) {
-imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
-} } }
-window.onload = init;
+      var imgDefer = document.getElementsByTagName('img');
+      for (var i=0; i<imgDefer.length; i++) {
+        if(imgDefer[i].getAttribute('data-src')) {
+          imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+          imgDefer[i].onload = function() {
+            if($(this).parents('.vc_row-o-equal-height').length) {
+              $('.vc_row-o-equal-height > div').matchHeight();
+            }
+          };
+        } 
+      } 
+    }
+    window.onload = init;
   </script>
  
 </body>

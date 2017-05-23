@@ -22,6 +22,14 @@
   "devDependencies": {
     "webfontloader": "^1.6.26",
     "jquery": "^3.2.1",
-    "matchHeight": "matchheight#^0.7.2"
+    "matchHeight": "matchheight#^0.7.2",
+    "jquery.easy-pie-chart": "^2.1.6",
+    "slick-carousel": "^1.6.0",
+    "magnific-popup": "^1.1.0",
+    "jQuery.mmenu": "^6.1.0",
+    "jquery-countTo": "^1.2.0",
+    "waypoints": "^4.0.1",
+    "twentytwenty": "https://github.com/zurb/twentytwenty.git#master",
+    "jquery.event.move": "^2.0.1"
   }
 }
