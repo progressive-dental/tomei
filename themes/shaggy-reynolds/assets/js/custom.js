@@ -1,5 +1,11 @@
 !function() {
-  
+  $("video source").each(function() {
+    var sourceFile = $(this).attr("data-src");
+    $(this).attr("src", sourceFile);
+    var video = this.parentElement;
+    video.load();
+    video.play();
+  });
   $('.implant__note .plus-icon .plus').on('click',function(){
       if($(this).parents('.implant__note').hasClass('show-cont')) {
         $(this).parents('.implant__note').removeClass('show-cont')

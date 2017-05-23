@@ -182,6 +182,7 @@ global $progressive; ?>
       } 
     }
     window.onload = init;
+    
   </script>
  
 </body>

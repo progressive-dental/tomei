@@ -364,7 +364,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
         $ret .= '
           <div class="section__video-wrap">
             <video poster="' . wp_get_attachment_url( $poster_image ) . '" preload="auto" loop="" autoplay="" muted="">
-              <source src="' . $video_url . '" type="' . $video_type . '">
+              <source data-src="' . $video_url . '" type="' . $video_type . '">
             </video>
           </div>
         ';
