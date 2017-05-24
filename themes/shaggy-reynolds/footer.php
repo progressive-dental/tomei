@@ -106,52 +106,7 @@ global $progressive; ?>
     </footer>
   </div>
   <nav id="menu">
-    <ul>
-      <li><span>SERVICES</span>
-        <ul>
-          <li><span>DENTAL IMPLANTS</span>
-            <ul>
-              <li><a href="/intro-to-implants">Intro to Dental Implants</a></li>
-              <li><a href="/teeth-today">Teeth Today</a></li>
-              <li><a href="/pro-arch">Pro Arch Dental Implants</a></li>
-              <li><a href="/failing-implants">Failing Dental Implants</a></li>
-            </ul>
-          </li>
-          <li><span>Technology</span>
-            <ul>
-              <li><a href="/iv-sedation">IV Sedation</a></li>
-              <li><a href="/regenerative">Regenerative Endoscopic Procedures</a></li>
-            </ul>
-          </li>
-          <li><span>Surgical Procedures</span>
-            <ul>
-              <li><a href="/periodontal-surgery">Periodontal Surgery</a></li>
-              <li><a href="/sinus-lift">Sinus Lift</a></li>
-              <li><a href="/bone-grafting">Bone Grafting</a></li>
-              <li><a href="/ridge-augmentation">Ridge Augmentation</a></li>
-            </ul>
-          </li>
-          <li><span>Cosmetic Procedures</span>
-            <ul>
-              <li><a href="/crown-lengthening">Crown Lengthening</a></li>
-              <li><a href="/gum-grafting">Gum Grafting</a></li>
-              <li><a href="/lip-enhancement">Lip Enhancement</a></li>
-            </ul>
-          </li>
-          <li><a href="/lanap" class="title ajax">LANAP</a></li>
-        </ul>
-      </li>
-      <li><a href="/gum-disease">Gum Disease</a></li>
-      <li><a href="/gallery">Gallery</a></li>
-      <li><span>About</span>
-        <ul>
-          <li><a href="/ganeles">Dr. Ganeles</a></li>
-          <li><a href="/norkin">Dr. Norkin</a></li>
-          <li><a href="/aranguren">Dr. Aranguren</a></li>
-          <li><a href="/zfaz">Dr. Zfaz</a></li>
-        </ul>
-      </li>
-    </ul>
+   
   </nav>
   <?php
   /**
