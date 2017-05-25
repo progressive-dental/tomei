@@ -1,10 +1,13 @@
 !function() {
-  $("video source").each(function() {
+  $("video").each(function() {
     var sourceFile = $(this).attr("data-src");
-    $(this).attr("src", sourceFile);
-    var video = this.parentElement;
-    video.load();
-    video.play();
+    var type = $(this).attr('data-type');
+    var source = document.createElement('source');
+    source.src = sourceFiile;
+    source.type = type;
+    $(this).appendChild(source);
+    $(this).load();
+    $(this).play();
   });
 
   $('.implant__note .plus-icon .plus').on('click',function(){
