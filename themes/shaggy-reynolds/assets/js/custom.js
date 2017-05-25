@@ -3,11 +3,10 @@
     var sourceFile = $(this).attr("data-src");
     var type = $(this).attr('data-type');
     var source = document.createElement('source');
-    source.src = sourceFiile;
+    source.src = sourceFile;
     source.type = type;
-    $(this).appendChild(source);
-    $(this).load();
-    $(this).play();
+    $(this).append( source );
+
   });
 
   $('.implant__note .plus-icon .plus').on('click',function(){
