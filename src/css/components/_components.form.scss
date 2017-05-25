@@ -78,7 +78,7 @@ fieldset {
 
 .form-group {
   // scss-lint:disable QualifyingElement, NestingDepth
-  input {
+  input:not([type="submit"]) {
     height: ($mf-font-size * 1.9);
   }
 
@@ -127,7 +127,7 @@ fieldset {
     }
   }
 
-  input,
+  input:not([type="submit"]),
   textarea {
     display: block;
     background: none;
