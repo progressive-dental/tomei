@@ -175,6 +175,12 @@
                 'type'      => 'textarea',
                 'title'     => 'Header styles',
             ),
+            array(
+                'id'        => 'disable-promo',
+                'type'      => 'switch',
+                'title'     => 'disable promo site wide?',
+                'default'   => false,
+            ),
         )
     ) );
 

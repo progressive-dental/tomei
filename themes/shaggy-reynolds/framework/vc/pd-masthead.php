@@ -378,7 +378,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
           </div>
         </div>';
 
-      if( "true" == $enable_promo || $progressive['enable-promo'] == "yes" ) {
+      if( "true" == $enable_promo && $progressive['disable-promo'] != "1" ) {
         $ret .= '<div class="masthead__banner"><span>' . ( $enable_promo ? $promo_text : $progressive['promo-text'] ) . '</span><a href="' . ( $enable_promo ? $promo_link : $progressive['promo-link'] ) . '" class="masthead__link">' . ( $enable_promo ? $promo_link_text : $progressive['promo-link-text'] ) . '</a></div>';
       }
 
