@@ -4,6 +4,13 @@
     background: $color-secondary;
     color: #fff;
   }
+
+  &:only-child {
+    color: inherit;
+    background-image: url(../images/patterns/cream-pixels/cream-pixels.png);
+    background-repeat: repeat;
+    background-blend-mode: color-burn;
+  }
 }
 .widget--large {
   padding: 110px 55px;
