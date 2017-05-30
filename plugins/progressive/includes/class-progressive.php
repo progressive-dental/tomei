@@ -75,6 +75,7 @@ if( ! class_exists( 'Progressive' ) ) {
       $this->dir = dirname( $this->file );
       $this->assets_dir = trailingslashit( $this->dir ) . 'assets';
       $this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/', __FILE__ ) ) );
+      $this->views_dir = trailingslashit( $this->dir ) . 'admin/views';
 
       // Load styles
       //add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
@@ -93,6 +94,7 @@ if( ! class_exists( 'Progressive' ) ) {
       include_once( 'class-progessive-post-types.php' );
       include_once( 'admin/class-progressive-admin-assets.php' );
       include_once( 'admin/class-progressive-admin-meta-boxes.php' );
+      include_once( 'admin/class-progressive-admin-url-updater.php' );
       include_once( 'progressive-template-hooks.php' );
       include_once( 'progressive-template-functions.php' );
     }

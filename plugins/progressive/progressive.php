@@ -19,6 +19,7 @@ require_once( 'includes/class-progressive.php' );
 
 define( 'PROGRESSIVE_PLUGIN_PATH', DIRNAME( __FILE__ ) );
 define( 'PROGRESSIVE_URL', trailingslashit( plugins_url( '', __FILE__ ) ) );
+define( 'PROGRESSIVE_VIEWS_DIR', plugin_dir_path(__FILE__) . 'includes/admin/views/' );
 
 /**
  * Retruns the main instance of Progressive to prevent the need to use globals.
