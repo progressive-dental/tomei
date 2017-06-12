@@ -80,7 +80,9 @@ if( $bg_type == "image_pattern" ) {
 	$output .= '<div class="section--pattern  ' . ( $pattern_bg_color != "custom" ? $pattern_bg_color : '' ) . '"' . ( $pattern_style != "" ? " " . $pattern_style : "" ) . '></div>';
 }
 if( 'image' == $bg_type || 'image_pattern' == $bg_type) {
-	$output .= '<div class="section__background--parallax  section__background" data-image="' . wp_get_attachment_url( $bg_image_new ) . '" style="background-image: url(' . wp_get_attachment_url( $bg_image_new ) . ');' . ( !empty( $opacity_counter ) ? 'opacity: ' . $opacity_counter : '') . ';"></div>';
+
+	$inline_css = 'style="background-image: url(' . wp_get_attachment_url( $bg_image_new ) . '); ' . ( !empty( $opacity_counter ) ? 'opacity: ' . $opacity_counter : '') . '; ' . ( !empty( $background_image_location ) ? 'background-position: ' . $background_image_location : '') . ';"';
+	$output .= '<div class="section__background--parallax  section__background" data-image="' . wp_get_attachment_url( $bg_image_new ) . '" ' . ( $inline_css ? $inline_css : '' ) . '></div>';
 }
 
 if( $bg_type == "video") :
