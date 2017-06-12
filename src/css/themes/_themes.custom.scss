@@ -98,10 +98,9 @@
 
 .outline-image {
   margin-right: 38px;
-  }
-
+  
   @media(min-width: $screen-sm-min) {
-    .outline-image::before {
+    &:before {
       border: 5px solid #2796C0;
       content: '';
       height: 100%;
@@ -114,6 +113,7 @@
     margin-right: 0;
     margin-bottom: 30px;
   }
+}
   .outline-image img {
     position: relative;
   }
