@@ -159,6 +159,60 @@ function progressive_map_card() {
           'group' => __( 'Body Content', 'progressive' ),
           'description' => __( 'Content for the card body.', 'progressive' ),
         ),
+        array(
+          'type' => 'dropdown',
+          'heading' => __( 'Text Color', 'js_composer' ),
+          'param_name' => 'text_color',
+          'group' => 'Colors',
+          'value' => array(
+            "Select Color" => "",
+            "Primary" => "text-primary",
+            "Secondary" => "text-secondary",
+            "Tertiary" => "text-tertiary",
+            "Light" => "text-light",
+            "Accent" => "text-accent",
+            "Hightlight" => "text-highlight",
+            "Custom 1" => "text-custom-one",
+            "Custom 2" => "text-custom-two",
+            "Custom 3" => "text-custom-three"
+          ),
+        ),
+        array(
+          'type' => 'dropdown',
+          'heading' => __( 'Headline Color', 'js_composer' ),
+          'param_name' => 'headline_color',
+          'group' => 'Colors',
+          'value' => array(
+            "Select Color" => "",
+            "Primary" => "text-primary",
+            "Secondary" => "text-secondary",
+            "Tertiary" => "text-tertiary",
+            "Light" => "text-light",
+            "Accent" => "text-accent",
+            "Hightlight" => "text-highlight",
+            "Custom 1" => "text-custom-one",
+            "Custom 2" => "text-custom-two",
+            "Custom 3" => "text-custom-three"
+          ),
+        ),
+        array(
+          'type' => 'dropdown',
+          'heading' => __( 'Background Color', 'js_composer' ),
+          'param_name' => 'bg_color',
+          'group' => 'Colors',
+          'value' => array(
+            "Select Color" => "",
+            "Primary" => "bg-primary",
+            "Secondary" => "bg-secondary",
+            "Tertiary" => "bg-tertiary",
+            "Light" => "bg-light",
+            "Accent" => "bg-accent",
+            "Hightlight" => "bg-highlight",
+            "Custom 1" => "bg-custom-one",
+            "Custom 2" => "bg-custom-two",
+            "Custom 3" => "bg-custom-three"
+          ),
+        ),
       )
     ));
   }
@@ -171,7 +225,10 @@ function pd_card_func( $atts, $content = null ) {
       'headline' => '',
       'media' => '',
       'youtube_id' => '',
-      'vimeo_id' => ''
+      'vimeo_id' => '',
+      'bg_color' => '',
+      'headline_color' => '',
+      'text_color' => ''
   ), $atts ));
   ob_start() ?>
   
@@ -179,9 +236,11 @@ function pd_card_func( $atts, $content = null ) {
       <div class="card__header  card__header--16:9">
         <?php echo get_card_header( $media, $atts ); ?>
       </div>
-      <div class="card__body">
-        <?php if( $enable_headline == "yes" && $headline_tag != '' ) : ?><<?php echo $headline_tag; ?> class="card__title"><?php echo $headline; ?></<?php echo $headline_tag; ?>><?php endif; ?>
+      <div class="card__body<?php echo ( !empty( $bg_color ) ? ' ' . $bg_color : '' ); ?>">
+        <?php if( $enable_headline == "yes" && $headline_tag != '' ) : ?><<?php echo $headline_tag; ?> class="card__title<?php echo ( !empty( $headline_color ) ? ' ' . $headline_color : '' ); ?>"><?php echo $headline; ?></<?php echo $headline_tag; ?>><?php endif; ?>
+        <?php echo '<p' . ( !empty( $text_color ) ? ' class="' . $text_color . '"' : '' ) . '>'; ?>
         <?php echo ( $content != null ? $content : '' ); ?>
+        <?php echo '</p>'; ?>
       </div>
     </div>
 
