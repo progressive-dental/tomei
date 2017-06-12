@@ -73,7 +73,7 @@ if( $section_tag != "no") {
 } else {
 	$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
 }
-if( $bg_type == "image_pattern" ) {
+if( $bg_type == "pattern" ) {
 	if( $pattern_bg_value ) {
 		$pattern_style = 'style="background-color: ' . $pattern_bg_value . '";';
 	}
