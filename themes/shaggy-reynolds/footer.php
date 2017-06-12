@@ -105,8 +105,8 @@ global $progressive; ?>
     <?php endif; ?>
     </footer>
   </div>
-  <nav id="menu">
-   
+  <nav id="menu" data-call-tracking-number="<?php echo $progressive['new-patient-number']; ?>" data-facebook-url="<?php echo $progressive['facebook-link']; ?>" data-youtube-url="<?php echo $progressive['youtube-link']; ?>">
+
   </nav>
   <?php
   /**
