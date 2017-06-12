@@ -19,6 +19,7 @@
     height: 60px;
     padding: 0 60px;
 
+
     a {
       color: #fff;
     }
@@ -34,8 +35,29 @@
   }
 
   .mm-navbars-bottom {
+    padding: 20px 0;
+    border-top: 0;
     a {
       font-weight: normal;
+      @include display(flex);
+      @include justify-content(center);
+      @include align-items(center);
+      background: $color-accent;
+      height: 80px;
+      width: 80px;
+      font-size: 30px;
+      border-radius: 100%;
+      margin: 0 auto;
+      &:focus,
+      &:active {
+        background-color: darken($color-accent, 20%);
+      }
+    }
+
+    .mm-navbar {
+      background: transparent;
+      height: 80px;
+      padding: 0 30px;
     }
   }
 } 

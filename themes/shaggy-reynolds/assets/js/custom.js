@@ -136,8 +136,6 @@
   $('#menu > .site-nav').attr('class', '');
 
   var mmenuPhone = $('#menu').data('call-tracking-number').replace(/\D/g,'');;
-  var mmenuFacebook = $('#menu').data('facebook-url');
-  var mmenuYoutube = $('#menu').data('youtube-url');
 
   $("#menu").mmenu({
     extensions  : [ 
@@ -154,9 +152,7 @@
       {
         "position": "bottom",
         "content": [
-          '<a class="icon  icon--phone" href="tel:+1' + mmenuPhone + '" target="_blank"></a>',
-          '<a class="icon  icon--youtube" href="' + mmenuYoutube + '" target="_blank"></a>',
-          '<a class="icon  icon--facebook" href="' + mmenuFacebook + '" target="_blank"></a>'
+          '<a class="icon  icon--phone" href="tel:+1' + mmenuPhone + '" target="_blank"></a>'
         ]
       }
     ]
