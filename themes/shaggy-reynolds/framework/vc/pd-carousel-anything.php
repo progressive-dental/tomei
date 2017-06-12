@@ -35,30 +35,6 @@ if ( ! class_exists( 'GambitCarouselAnything' ) ) {
       // Render shortcode for the plugin.
       add_shortcode( 'carousel_anything', array( $this, 'render_ca_shortcodes' ) );
 
-      // Enqueues scripts and styles specific for all parts of the plugin.
-      add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts_and_css' ), 5 );
-    }
-
-
-    /**
-     * Includes normal scripts and css purposed globally by the plugin.
-     *
-     * @return  void
-     * @since 1.0
-     */
-    public function enqueue_frontend_scripts_and_css() {
-
-      // Loads the general styles used by the carousel.
-      wp_enqueue_style( 'gcp-owl-carousel-css', plugins_url( 'carousel-anything/css/style.css', __FILE__ ), array(), VERSION_GAMBIT_CAROUSEL_ANYTHING );
-
-      // Loads styling specific to Owl Carousel.
-      wp_enqueue_style( 'carousel-anything-owl', plugins_url( 'carousel-anything/css/owl.carousel.theme.style.css', __FILE__ ), array(), VERSION_GAMBIT_CAROUSEL_ANYTHING );
-
-      // Loads scripts specific to Owl Carousel.
-      wp_enqueue_script( 'carousel-anything-owl', plugins_url( 'carousel-anything/js/min/owl.carousel-min.js', __FILE__ ), array( 'jquery' ), '1.3.3' );
-
-      // Loads scripts.
-      wp_enqueue_script( 'carousel-anything', plugins_url( 'carousel-anything/js/min/script-min.js', __FILE__ ), array( 'jquery', 'carousel-anything-owl' ), VERSION_GAMBIT_CAROUSEL_ANYTHING );
     }
 
 
@@ -83,10 +59,10 @@ if ( ! class_exists( 'GambitCarouselAnything' ) ) {
       // Loads fixes that makes Carousel Anything possible.
       ca_row_fixes();
       vc_map( array(
-        'name' => __( 'Card Carousel', GAMBIT_CAROUSEL_ANYTHING ),
+        'name' => __( 'Card Carousel', 'progressive' ),
         'base' => 'carousel_anything',
-        'icon' => plugins_url( 'carousel-anything/images/vc-icon.png', GAMBIT_CAROUSEL_ANYTHING_FILE ),
-        'description' => __( 'A modern and responsive content carousel system.', GAMBIT_CAROUSEL_ANYTHING ),
+        'icon' => plugins_url( 'carousel-anything/images/vc-icon.png', 'progressive' ),
+        'description' => __( 'A modern and responsive content carousel system.', 'progressive' ),
         'category' => __( 'Content', 'js_composer' ),
         'as_parent' => array( 'only' => 'vc_row,vc_row_inner,pd_card,pd_testimonial,pd_staff_card,pd_media' ),
         'js_view' => 'VcColumnView',
@@ -97,219 +73,219 @@ if ( ! class_exists( 'GambitCarouselAnything' ) ) {
         'params' => array(
           array(
             'type' => 'textfield',
-            'heading' => __( 'Items to display on screen', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Items to display on screen', 'progressive' ),
             'param_name' => 'items',
             'value' => '3',
-            'group' => __( 'General Options', GAMBIT_CAROUSEL_ANYTHING ),
-            'description' => __( 'Maximum items to display at a time.', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'General Options', 'progressive' ),
+            'description' => __( 'Maximum items to display at a time.', 'progressive' ),
           ),
           /**
            * Removed due to tablet issues.
           array(
             'type' => 'textfield',
-            'heading' => __( 'Items to display on small desktops', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Items to display on small desktops', 'progressive' ),
             'param_name' => 'items_desktop_small',
             'value' => '2',
-            'group' => __( 'General Options', GAMBIT_CAROUSEL_ANYTHING ),
-            'description' => __( 'Maximum items to display at a time for smaller screened desktops.', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'General Options', 'progressive' ),
+            'description' => __( 'Maximum items to display at a time for smaller screened desktops.', 'progressive' ),
           ),
            */
           array(
             'type' => 'textfield',
-            'heading' => __( 'Items to display on tablets', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Items to display on tablets', 'progressive' ),
             'param_name' => 'items_tablet',
             'value' => '2',
-            'group' => __( 'General Options', GAMBIT_CAROUSEL_ANYTHING ),
-            'description' => __( 'Maximum items to display at a time for tablet devices.', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'General Options', 'progressive' ),
+            'description' => __( 'Maximum items to display at a time for tablet devices.', 'progressive' ),
           ),
           array(
             'type' => 'textfield',
-            'heading' => __( 'Items to display on mobile phones', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Items to display on mobile phones', 'progressive' ),
             'param_name' => 'items_mobile',
             'value' => '1',
-            'group' => __( 'General Options', GAMBIT_CAROUSEL_ANYTHING ),
-            'description' => __( 'Maximum items to display at a time for mobile devices.', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'General Options', 'progressive' ),
+            'description' => __( 'Maximum items to display at a time for mobile devices.', 'progressive' ),
           ),
           array(
             'type' => 'dropdown',
-            'heading' => __( 'Navigation Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Navigation Thumbnails', 'progressive' ),
             'param_name' => 'thumbnails',
             'value' => array(
-              __( 'Circle', GAMBIT_CAROUSEL_ANYTHING ) => 'circle',
-              __( 'Square', GAMBIT_CAROUSEL_ANYTHING ) => 'square',
-              __( 'Arrows', GAMBIT_CAROUSEL_ANYTHING ) => 'arrows',
-              __( 'None', GAMBIT_CAROUSEL_ANYTHING ) => 'none',
+              __( 'Circle', 'progressive' ) => 'circle',
+              __( 'Square', 'progressive' ) => 'square',
+              __( 'Arrows', 'progressive' ) => 'arrows',
+              __( 'None', 'progressive' ) => 'none',
             ),
-            'description' => __( 'Select whether to display thumbnails below your carousel for navigation.<br>Selecting Arrows will display navigation arrows at each side.', GAMBIT_CAROUSEL_ANYTHING ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'Select whether to display thumbnails below your carousel for navigation.<br>Selecting Arrows will display navigation arrows at each side.', 'progressive' ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'colorpicker',
-            'heading' => __( 'Thumbnail Default Color', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Thumbnail Default Color', 'progressive' ),
             'param_name' => 'thumbnail_color',
             'value' => '#c3cbc8',
-            'description' => __( 'The color of the non-active thumbnail. Not applicable to Arrows type of navigation.', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The color of the non-active thumbnail. Not applicable to Arrows type of navigation.', 'progressive' ),
             'dependency' => array(
               'element' => 'thumbnails',
               'value' => array( 'circle', 'square' ),
             ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'colorpicker',
-            'heading' => __( 'Thumbnail Active Color', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Thumbnail Active Color', 'progressive' ),
             'param_name' => 'thumbnail_active_color',
             'value' => '#869791',
-            'description' => __( 'The color of the active / current thumbnail. Not applicable to Arrows type of navigation.', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The color of the active / current thumbnail. Not applicable to Arrows type of navigation.', 'progressive' ),
             'dependency' => array(
               'element' => 'thumbnails',
               'value' => array( 'circle', 'square' ),
             ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'checkbox',
             'heading' => '',
             'param_name' => 'thumbnail_numbers',
-            'value' => array( __( 'Check to display page numbers inside the thumbnails. Not applicable to Arrows type of navigation.', GAMBIT_CAROUSEL_ANYTHING ) => 'true' ),
+            'value' => array( __( 'Check to display page numbers inside the thumbnails. Not applicable to Arrows type of navigation.', 'progressive' ) => 'true' ),
             'description' => '',
             'dependency' => array(
               'element' => 'thumbnails',
               'value' => array( 'circle', 'square' ),
             ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'colorpicker',
-            'heading' => __( 'Thumbnail Default Page Number Color', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Thumbnail Default Page Number Color', 'progressive' ),
             'param_name' => 'thumbnail_number_color',
             'value' => '#ffffff',
-            'description' => __( 'The color of the page numbers inside non-active thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The color of the page numbers inside non-active thumbnails', 'progressive' ),
             'dependency' => array(
               'element' => 'thumbnail_numbers',
               'value' => array( 'true' ),
             ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'colorpicker',
-            'heading' => __( 'Thumbnail Active Page Number Color', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Thumbnail Active Page Number Color', 'progressive' ),
             'param_name' => 'thumbnail_number_active_color',
             'value' => '#ffffff',
-            'description' => __( 'The color of the page numbers inside active / current thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The color of the page numbers inside active / current thumbnails', 'progressive' ),
             'dependency' => array(
               'element' => 'thumbnail_numbers',
               'value' => array( 'true' ),
             ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'colorpicker',
-            'heading' => __( 'Arrows Default Color', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Arrows Default Color', 'progressive' ),
             'param_name' => 'arrows_color',
             'value' => '#c3cbc8',
-            'description' => __( 'The default color of the navigation arrow.', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The default color of the navigation arrow.', 'progressive' ),
             'dependency' => array(
               'element' => 'thumbnails',
               'value' => array( 'arrows' ),
             ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'colorpicker',
-            'heading' => __( 'Arrows Active Color', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Arrows Active Color', 'progressive' ),
             'param_name' => 'arrows_active_color',
             'value' => '#869791',
-            'description' => __( 'The color of the active / current arrows when highlighted.', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The color of the active / current arrows when highlighted.', 'progressive' ),
             'dependency' => array(
               'element' => 'thumbnails',
               'value' => array( 'arrows' ),
             ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'textfield',
-            'heading' => __( 'Arrows Size', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Arrows Size', 'progressive' ),
             'param_name' => 'arrows_size',
             'value' => '20px',
-            'description' => __( 'The size of the arrows can be customized here.', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The size of the arrows can be customized here.', 'progressive' ),
             'dependency' => array(
               'element' => 'thumbnails',
               'value' => array( 'arrows' ),
             ),
-            'group' => __( 'Thumbnails', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Thumbnails', 'progressive' ),
           ),
           array(
             'type' => 'textfield',
-            'heading' => __( 'Starting Position', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Starting Position', 'progressive' ),
             'param_name' => 'start',
             'value' => '',
-            'description' => __( 'Enter the starting position of the carousel, by slide number. Leave blank to disable this function. (eg. To start the carousel at the 4th slide, enter "4" as value.)', GAMBIT_CAROUSEL_ANYTHING ),
-            'group' => __( 'Advanced', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'Enter the starting position of the carousel, by slide number. Leave blank to disable this function. (eg. To start the carousel at the 4th slide, enter "4" as value.)', 'progressive' ),
+            'group' => __( 'Advanced', 'progressive' ),
           ),
           array(
             'type' => 'textfield',
-            'heading' => __( 'Autoplay', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Autoplay', 'progressive' ),
             'param_name' => 'autoplay',
             'value' => '5000',
-            'description' => __( 'Enter an amount in milliseconds for the carousel to move. Leave blank to disable autoplay', GAMBIT_CAROUSEL_ANYTHING ),
-            'group' => __( 'Advanced', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'Enter an amount in milliseconds for the carousel to move. Leave blank to disable autoplay', 'progressive' ),
+            'group' => __( 'Advanced', 'progressive' ),
           ),
           array(
             'type' => 'checkbox',
             'heading' => '',
             'param_name' => 'stop_on_hover',
-            'value' => array( __( 'Pause the carousel when the mouse is hovered onto it.', GAMBIT_CAROUSEL_ANYTHING ) => 'true' ),
+            'value' => array( __( 'Pause the carousel when the mouse is hovered onto it.', 'progressive' ) => 'true' ),
             'description' => '',
             'dependency' => array(
               'element' => 'autoplay',
               'not_empty' => true,
             ),
-            'group' => __( 'Advanced', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Advanced', 'progressive' ),
           ),
           array(
             'type' => 'textfield',
-            'heading' => __( 'Scroll Speed', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Scroll Speed', 'progressive' ),
             'param_name' => 'speed_scroll',
             'value' => '800',
-            'description' => __( 'The speed the carousel scrolls in milliseconds', GAMBIT_CAROUSEL_ANYTHING ),
-            'group' => __( 'Advanced', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The speed the carousel scrolls in milliseconds', 'progressive' ),
+            'group' => __( 'Advanced', 'progressive' ),
           ),
           array(
             'type' => 'textfield',
-            'heading' => __( 'Rewind Speed', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Rewind Speed', 'progressive' ),
             'param_name' => 'speed_rewind',
             'value' => '1000',
-            'description' => __( 'The speed the carousel scrolls back to the beginning after it reaches the end in milliseconds', GAMBIT_CAROUSEL_ANYTHING ),
-            'group' => __( 'Advanced', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'The speed the carousel scrolls back to the beginning after it reaches the end in milliseconds', 'progressive' ),
+            'group' => __( 'Advanced', 'progressive' ),
           ),
           array(
             'type' => 'checkbox',
             'heading' => '',
             'param_name' => 'touchdrag',
-            'value' => array( __( 'Check this box to disable touch dragging of the carousel. (Normally enabled by default)', GAMBIT_CAROUSEL_ANYTHING ) => 'true' ),
+            'value' => array( __( 'Check this box to disable touch dragging of the carousel. (Normally enabled by default)', 'progressive' ) => 'true' ),
             'description' => '',
-            'group' => __( 'Advanced', GAMBIT_CAROUSEL_ANYTHING ),
+            'group' => __( 'Advanced', 'progressive' ),
           ),
           array(
             'type' => 'dropdown',
-            'heading' => __( 'Keyboard Navigation', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Keyboard Navigation', 'progressive' ),
             'param_name' => 'keyboard',
             'value' => array(
-              __( 'Disabled', GAMBIT_CAROUSEL_ANYTHING ) => 'false',
-              __( 'Cursor keys', GAMBIT_CAROUSEL_ANYTHING ) => 'cursor',
-              __( 'A and D keys', GAMBIT_CAROUSEL_ANYTHING ) => 'fps',
+              __( 'Disabled', 'progressive' ) => 'false',
+              __( 'Cursor keys', 'progressive' ) => 'cursor',
+              __( 'A and D keys', 'progressive' ) => 'fps',
             ),
-            'description' => __( 'Select whether to enable carousel manipulation through cursor keys. Enabling this on a page with multiple carousels may give unpredictable results! Use it on a page with a single Carousel Anything element, or when there are no other scripts binding cursor or other keys present that may conflict.', GAMBIT_CAROUSEL_ANYTHING ),
-            'group' => __( 'Advanced', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'Select whether to enable carousel manipulation through cursor keys. Enabling this on a page with multiple carousels may give unpredictable results! Use it on a page with a single Carousel Anything element, or when there are no other scripts binding cursor or other keys present that may conflict.', 'progressive' ),
+            'group' => __( 'Advanced', 'progressive' ),
           ),
           array(
             'type' => 'textfield',
-            'heading' => __( 'Custom Class', GAMBIT_CAROUSEL_ANYTHING ),
+            'heading' => __( 'Custom Class', 'progressive' ),
             'param_name' => 'class',
             'value' => '',
-            'description' => __( 'Add a custom class name for the carousel here.', GAMBIT_CAROUSEL_ANYTHING ),
-            'group' => __( 'Advanced', GAMBIT_CAROUSEL_ANYTHING ),
+            'description' => __( 'Add a custom class name for the carousel here.', 'progressive' ),
+            'group' => __( 'Advanced', 'progressive' ),
           ),
         ),
       ) );

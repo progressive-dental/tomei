@@ -14,8 +14,8 @@ function parallax_init() {
         'type' => 'dropdown',
         'heading' => __( 'Text Location', 'progressive' ),
         'param_name' => 'text_location',
-        'description' => __( 'Change default text location for this section.'),
         'admin_label' => true,
+        'edit_field_class' => 'vc_col-sm-6',
         'value' => array(
           'Default' => '',
           'Left' => 'text-left',
@@ -26,10 +26,10 @@ function parallax_init() {
       array(
         "type" => "dropdown",
         "class" => "",
-        "group" => $group_name,
         "heading" => "Padding type",
         'admin_label' => true,
         "param_name" => "padding",
+        'edit_field_class' => 'vc_col-sm-6',
         "value" => array(
           "Default" => "",
           "Small" => "section--small",
@@ -43,7 +43,6 @@ function parallax_init() {
       array(
         "type" => "dropdown",
         "class" => "",
-        "group" => $group_name,
         "heading" => "Use section tag",
         "param_name" => "section_tag",
         "value" => array(
@@ -61,6 +60,7 @@ function parallax_init() {
           __( "Default", "progressive" ) => "no_bg",
           __( "Single Color", "progressive") => "bg_color",
           __( "Image / Parallax", "progressive" ) => "image",
+          __( "Image / Parallax w/Pattern", "progressive" ) => "image_pattern",
           __( "Youtube Video", "progressive" ) => "youtube",
           __( "Hosted Video", "progressive" ) => "video",
           __( "Pattern BG", "progressive" ) => "pattern"
@@ -68,13 +68,11 @@ function parallax_init() {
         "group" => $group_name,
       ),
       array(
-        'type' => 'checkbox',
-        'heading' => __( 'Add pattern BG', 'progressive' ),
-        'param_name' => 'enable_pattern',
+        'type' => 'counter',
+        'heading' => __( 'Background Opacity', 'progressive' ),
+        'param_name' => 'opacity_counter',
         "group" => $group_name,
-        'value' => array(
-          "Yes" => "true"
-        ),
+        "dependency" => array( "element" => "bg_type", "value" => array( "image_pattern" ) ),
       ),
       array(
         "type" => "dropdown",
@@ -130,21 +128,6 @@ function parallax_init() {
         "dependency" => array( "element" => "bg_class", "value" => array( "custom" ) ),
         "group" => $group_name,
       ),
-      array( 
-        "type" => "dropdown",
-        "class" => "",
-        "heading" => __( "Parallax Style","progressive" ),
-        "param_name" => "parallax_style",
-        "value" => array(
-          __( "Simple Background Image", "progressive" ) => "vcpb-default",
-          __( "Auto Moving Background", "progressive" ) => "vcpb-animated",
-          __( "Vertical Parallax On Scroll", "progressive" ) => "vcpb-vz-jquery",
-          __( "Horizontal Parallax On Scroll", "progressive" ) => "vcpb-hz-jquery",
-        ),
-        "description" => __( "Select the kind of style you like for the background.", "progressive" ),
-        "dependency" => array( "element" => "bg_type", "value" => array( "image" ) ),
-        "group" => $group_name,
-      ),
       array(
         "type" => "attach_image",
         "class" => "",
@@ -152,7 +135,7 @@ function parallax_init() {
         "param_name" => "bg_image_new",
         "value" => "",
         "description" => __( "Upload or select background image from media gallery.", "progressive" ),
-        "dependency" => array( "element" => "parallax_style", "value" => array( "vcpb-default", "vcpb-animated", "vcpb-vz-jquery", "vcpb-hz-jquery" ) ),
+        "dependency" => array( "element" => "bg_type", "value" => array( "image", "image_pattern" ) ),
         "group" => $group_name,
       ),
       array(
@@ -165,21 +148,9 @@ function parallax_init() {
             __( "Fixed at its position", "upb_parallax" ) => "fixed",
           ),
         "description" => __( "Options to set whether a background image is fixed or scroll with the rest of the page.", "upb_parallax" ),
-        "dependency" => Array( "element" => "parallax_style", "value" => array( "vcpb-default", "vcpb-animated", "vcpb-hz-jquery", "vcpb-vz-jquery" ) ),
+        "dependency" => array( "element" => "bg_type", "value" => array( "image", "image_pattern" ) ),
         "group" => $group_name,
       ),
-      // array(
-      //   "type" => "number",
-      //   "class" => "",
-      //   "heading" => __( "Parallax Speed", "upb_parallax" ),
-      //   "param_name" => "parallax_sense",
-      //   "value" =>"30",
-      //   "min"=>"1",
-      //   "max"=>"100",
-      //   "description" => __( "Control speed of parallax. Enter value between 1 to 100", "upb_parallax" ),
-      //   "dependency" => Array( "element" => "parallax_style", "value" => array( "vcpb-vz-jquery", "vcpb-animated", "vcpb-hz-jquery", "vcpb-vs-jquery", "vcpb-hs-jquery", "vcpb-fs-jquery", "vcpb-mlvp-jquery" ) ),
-      //   "group" => $group_name,
-      // ),
       array(
         "type" => "dropdown",
         "class" => "",
@@ -192,7 +163,7 @@ function parallax_init() {
             __( "Bottom to Top", "upb_parallax" ) => "bottom-animation",
 
           ),
-        "dependency" => Array( "element" => "parallax_style", "value" => array( "vcpb-animated" ) ),
+        "dependency" => array( "element" => "bg_type", "value" => array( "image", "image_pattern" ) ),
         "group" => $group_name,
       ),
       array(
@@ -246,99 +217,7 @@ function parallax_init() {
         "dependency" => Array( "element" => "bg_type", "value" => array( "video", "youtube" ) ),
         "group" => $group_name,
       ),
-      // array(
-      //   "type" => "ult_switch",
-      //   "class" => "",
-      //   "heading" => __( "Play video only when in viewport", "upb_parallax" ),
-      //   "param_name" => "viewport_vdo",
-      //   "value" => "",
-      //   "options" => array(
-      //       "viewport_play" => array(
-      //         "label" => "",
-      //         "on" => "Yes",
-      //         "off" => "No",
-      //       )
-      //     ),
-      //   "description" => __( "Video will be played only when user is on the particular screen position. Once user scroll away, the video will pause.", "upb_parallax" ),
-      //   "dependency" => Array( "element" => "bg_type", "value" => array( "video", "youtube" ) ),
-      //   "group" => $group_name,
-      // ),
-      // array(
-      //   "type" => "ult_switch",
-      //   "class" => "",
-      //   "heading" => __("Activate on Mobile", "upb_parallax"),
-      //   "param_name" => "disable_on_mobile_img_parallax",
-      //   //"admin_label" => true,
-      //   "value" => "",
-      //   "options" => array(
-      //       "disable_on_mobile_img_parallax_value" => array(
-      //         "label" => "",
-      //         "on" => "Yes",
-      //         "off" => "No",
-      //       )
-      //     ),
-      //   "group" => $group_name,
-      //   "dependency" => Array("element" => "parallax_style","value" => array("vcpb-animated","vcpb-vz-jquery","vcpb-hz-jquery","vcpb-fs-jquery","vcpb-mlvp-jquery")),
-      // ),
-      // array(
-      //   "type" => "ult_switch",
-      //   "class" => "",
-      //   "heading" => __( "Easy Parallax", "upb_parallax" ),
-      //   "param_name" => "parallax_content",
-      //   //"admin_label" => true,
-      //   "value" => "",
-      //   "options" => array(
-      //       "parallax_content_value" => array(
-      //         "label" => "",
-      //         "on" => "Yes",
-      //         "off" => "No",
-      //       )
-      //     ),
-      //   "group" => $group_effects,
-      //   'edit_field_class' => 'uvc-divider last-uvc-divider vc_column vc_col-sm-12',
-      //   "description" => __( "If enabled, the elements inside row - will move slowly as user scrolls.", "upb_parallax" )
-      // ),
-      // array(
-      //   "type" => "textfield",
-      //   "class" => "",
-      //   "heading" => __( "Parallax Speed", "upb_parallax" ),
-      //   "param_name" => "parallax_content_sense",
-      //   //"admin_label" => true,
-      //   "value" => "30",
-      //   "group" => $group_effects,
-      //   "description" => __( "Enter value between 0 to 100", "upb_parallax" ),
-      //   "dependency" => Array( "element" => "parallax_content", "value" => array( "parallax_content_value" ) )
-      // ), 
-      // array(
-      //   "type" => "ult_switch",
-      //   "class" => "",
-      //   "heading" => __( "Fade Effect on Scroll", "upb_parallax" ),
-      //   "param_name" => "fadeout_row",
-      //   //"admin_label" => true,
-      //   "value" => "",
-      //   "options" => array(
-      //       "fadeout_row_value" => array(
-      //         "label" => "",
-      //         "on" => "Yes",
-      //         "off" => "No",
-      //       )
-      //     ),
-      //   "group" => $group_effects,
-      //   'edit_field_class' => 'uvc-divider last-uvc-divider vc_column vc_col-sm-12',
-      //   "description" => __( "If enabled, the the content inside row will fade out slowly as user scrolls down.", "upb_parallax" )
-      // ),
-      // array(
-      //   "type" => "number",
-      //   "class" => "",
-      //   "heading" => __( "Viewport Position", "upb_parallax" ),
-      //   "param_name" => "fadeout_start_effect",
-      //   "suffix" => "%",
-      //   //"admin_label" => true,
-      //   "value" => "30",
-      //   "group" => $group_effects,
-      //   "description" => __( "The area of screen from top where fade out effect will take effect once the row is completely inside that area.", "upb_parallax" ),
-      //   "dependency" => Array( "element" => "fadeout_row", "value" => array( "fadeout_row_value") )
-      // ),
+
       array(
         'type' => 'dropdown',
         'heading' => __('Enable Overlay', 'upb_parallax'),

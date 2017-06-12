@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Shortcode class
  * @var $this WPBakeryShortCode_VC_Row
  */
-$el_class = $full_height = $parallax_speed_bg = $parallax_speed_video = $full_width = $flex_row = $columns_placement = $content_placement = $parallax = $parallax_image = $css = $el_id = $video_bg = $video_bg_url = $video_bg_parallax = $css_animation = $masthead = $text_location = $bg_class = $pattern_style = $pattern_bg_color = $pattern_bg_value = $enable_pattern = '';
+$el_class = $full_height = $parallax_speed_bg = $parallax_speed_video = $full_width = $flex_row = $columns_placement = $content_placement = $parallax = $parallax_image = $css = $el_id = $video_bg = $video_bg_url = $video_bg_parallax = $css_animation = $masthead = $text_location = $bg_class = $pattern_style = $pattern_bg_color = $pattern_bg_value = $opacity_counter = $enable_pattern = '';
 $disable_element = '';
 $masthead_class = '';
 $output = $after_output = '';
@@ -54,7 +54,7 @@ if( 'yes' == $enable_overlay ) {
 
 $wrapper_attributes = array();
 
-if( 'image' == $bg_type || 'video' == $bg_type) {
+if( 'image' == $bg_type || 'video' == $bg_type || 'image_pattern' == $bg_type) {
 	$css_classes[] = 'section--bg';
 }
 
@@ -73,14 +73,14 @@ if( $section_tag != "no") {
 } else {
 	$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
 }
-if( "true" == $enable_pattern ) {
+if( $bg_type == "image_pattern" ) {
 	if( $pattern_bg_value ) {
 		$pattern_style = 'style="background-color: ' . $pattern_bg_value . '";';
 	}
 	$output .= '<div class="section--pattern  ' . ( $pattern_bg_color != "custom" ? $pattern_bg_color : '' ) . '"' . ( $pattern_style != "" ? " " . $pattern_style : "" ) . '></div>';
 }
-if( 'image' == $bg_type ) {
-	$output .= '<div class="section__background--parallax  section__background" data-image="' . wp_get_attachment_url( $bg_image_new ) . '" style="background-image: url(' . wp_get_attachment_url( $bg_image_new ) . '"></div>';
+if( 'image' == $bg_type || 'image_pattern' == $bg_type) {
+	$output .= '<div class="section__background--parallax  section__background" data-image="' . wp_get_attachment_url( $bg_image_new ) . '" style="background-image: url(' . wp_get_attachment_url( $bg_image_new ) . ');' . ( !empty( $opacity_counter ) ? 'opacity: ' . $opacity_counter : '') . ';"></div>';
 }
 
 if( $bg_type == "video") :

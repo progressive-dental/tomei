@@ -1,6 +1,12 @@
 <?php
 
+/*
+ * Note: here we are using vc_after_init because WPBMap::GetParam 
+ * and mutateParame are available only when default content elements 
+ * are "mapped" into the system
+ */
 add_action( 'vc_before_init', 'progressive_integrate_VC' );
+add_action( 'vc_after_init', 'change_section_descriptions' ); 
 //add_action( 'wp_enqueue_scripts', 'remove_visual_composer_stylesheets' );
 
 require_once ( FRAMEWORK_ROOT . '/vc/pd-card.php' );
@@ -305,9 +311,33 @@ function progressive_integrate_VC() {
 
 }
 
+function change_section_descriptions() {
+  $fwparam = WPBMap::getParam( 'vc_section', 'full_width' );
+  $fwparam['description'] = '';
+  $idparam = WPBMap::getParam( 'vc_section', 'el_id' );
+  $idparam['description'] = '';
+  $idparam['edit_field_class'] = 'vc_col-sm-6';
+  $classparam = WPBMap::getParam( 'vc_section', 'el_class' );
+  $classparam['description'] = '';
+  $classparam['edit_field_class'] = 'vc_col-sm-6';
+  vc_update_shortcode_param( 'vc_section', $fwparam );
+  vc_update_shortcode_param( 'vc_section', $classparam );
+  vc_update_shortcode_param( 'vc_section', $idparam );
+}
 
+vc_add_shortcode_param( 'counter', 'custom_integer_param' );
+function custom_integer_param( $settings, $value ) {
+  return '<input name="' . esc_attr( $settings['param_name'] ) . '" class="wpb_vc_param_value wpb-textinput ' .
+    esc_attr( $settings['param_name'] ) . ' ' .
+    esc_attr( $settings['type'] ) . '_field" type="number" value="' . esc_attr( $value ) . '" />';
+}
 
 function remove_visual_composer_stylesheets() {
   wp_dequeue_style( 'js_composer_front' );
   wp_deregister_style( 'js_composer_front' );
+}
+
+add_action( 'vc_after_init', 'update_section_values' );
+function update_section_values() {
+  $param = WPBMap::getParam( 'vc_section', '');
 }
