@@ -152,6 +152,16 @@
                 'title'     => 'Logo',
             ),
             array(
+                'id'        => 'nav-logo-location',
+                'type'      => 'select',
+                'title'     => 'Logo Location',
+                'options'   => array (
+                    'left' => 'Left',
+                    'center' => 'Center'
+                ),
+                'default'   => 'center'
+            ),
+            array(
                 'id'        => 'header-contact-us-link',
                 'type'      => 'select',
                 'data'      => 'pages',

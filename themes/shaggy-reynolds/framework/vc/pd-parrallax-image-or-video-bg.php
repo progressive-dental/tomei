@@ -139,6 +139,27 @@ function parallax_init() {
         "group" => $group_name,
       ),
       array(
+        'type' => 'dropdown',
+        'heading' => __( 'Background Image Location', 'progressive' ),
+        'param_name' => 'background_image_location',
+        'admin_label' => true,
+        'description' => __( 'Background image location for masthead'),
+        "group" => $group_name,
+        "dependency" => array( "element" => "bg_type", "value" => array( "image", "image_pattern" ) ),
+        'value' => array(
+          "Select" => '',
+          "Left Top" => "",
+          "Left Center" => "left center",
+          "Left Bottom" => "left bottom",
+          "Right Top" => "right top",
+          "Right Center" => "right center",
+          "Right Bottom" => "right bottom",
+          "Center Top" => "center top",
+          "Center Center" => "center center",
+          "Center Bottom" => "center bottom"
+        ),
+      ),
+      array(
         "type" => "dropdown",
         "class" => "",
         "heading" => __( "Scroll Effect", "upb_parallax" ),

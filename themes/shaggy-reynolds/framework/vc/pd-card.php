@@ -230,6 +230,7 @@ function pd_card_func( $atts, $content = null ) {
       'headline_color' => '',
       'text_color' => ''
   ), $atts ));
+  global $progressive;
   ob_start() ?>
   
     <div class="card">
@@ -261,6 +262,7 @@ function get_card_header( $type, $atts ) {
       ';
       break;
     case 'video':
+      $attachemnt_alt = get_post_meta( $atts['image'], '_wp_attachment_image_alt', true);
       $output = '<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="' . wp_get_attachment_url( $atts['image'] ) . '" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '" class="card__object">';
       switch ( $atts['video_location'] ) {
         case 'youtube':
@@ -273,7 +275,8 @@ function get_card_header( $type, $atts ) {
       }
       break;
     case 'image':
-      $output = '<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="' . wp_get_attachment_url( $atts['image'] ) . '" class="card__object">';
+      $attachemnt_alt = get_post_meta( $atts['image'], '_wp_attachment_image_alt', true);
+      $output = '<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="' . wp_get_attachment_url( $atts['image'] ) . '" class="card__object" alt="' . ( !empty( $attachment_alt ) ? $attachment_alt : get_the_title() . ' ' . $progressive['location'] ) . '">';
       break;
   }
   return $output;

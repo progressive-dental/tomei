@@ -38,6 +38,8 @@
     background-color: $color-page-head-logo-bg;
     float: left;
     min-width: 295px;
+    position: relative;
+    z-index: 1;
   }
   .page-head__nav {
     width: 75%;

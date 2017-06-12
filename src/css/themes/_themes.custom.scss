@@ -479,11 +479,6 @@ header .container>.pull-right .tab-top {
   display: none;
 }
 
-header .container .logo {
-  @include display(flex);
-  @include align-items(center);
-  @include justify-content(center);
-}
 
 header li a {
   &:hover {
