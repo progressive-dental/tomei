@@ -99,15 +99,19 @@
 .outline-image {
   margin-right: 38px;
   }
-  .outline-image::before {
-    border: 5px solid #2796C0;
-    content: '';
-    height: 100%;
-    width: calc(100% - 68px);
-    display: block;
-    position: absolute;
-    top: 38px;
-    left: 53px;
+
+  @media(min-width: $screen-sm-min) {
+    .outline-image::before {
+      border: 5px solid #2796C0;
+      content: '';
+      height: 100%;
+      width: calc(100% - 68px);
+      display: block;
+      position: absolute;
+      top: 38px;
+      left: 53px;
+    }
+    margin-bottom: 30px;
   }
   .outline-image img {
     position: relative;
