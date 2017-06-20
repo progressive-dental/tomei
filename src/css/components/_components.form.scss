@@ -22,11 +22,11 @@ $mf-checkbox-top: 0 !default;
 $mf-radio-margin: $mf-font-size / -4 !default;
 
 // Colors
-$mf-input-color: $color-primary !default;
-$mf-border-color: #999 !default;
-$mf-label-color: lighten($mf-border-color, 10%) !default;
-$mf-active-color: darken($mf-border-color, 10%) !default;
-$mf-focus-color: $color-primary !default;
+$mf-input-color: $color-white !default;
+$mf-border-color: $color-accent !default;
+$mf-label-color: $color-white !default;
+$mf-active-color: $color-white !default;
+$mf-focus-color: $color-tertiary !default;
 $mf-error-color: #d9534f !default;
 
 // Animation
@@ -113,7 +113,7 @@ fieldset {
     position: relative;
     border-bottom: ($mf-font-size / 16) solid $mf-border-color;
     display: block;
-    
+
     &::before {
       content: '';
       height: ($mf-font-size / 8);
@@ -262,12 +262,12 @@ fieldset {
 
 .checkbox {
   // scss-lint:disable QualifyingElement
-  
+
   margin-top: ($mf-gap * 2);
   margin-bottom: $mf-font-size;
-  
+
   .helper {
-    color: $mf-border-color;
+    // color: $mf-border-color;
     position: absolute;
     top: $mf-checkbox-top;
     left: 0;
@@ -277,7 +277,7 @@ fieldset {
     border: ($mf-font-size / 8) solid currentColor;
     border-radius: ($mf-font-size / 16);
     transition: border-color $mf-transition-speed ease;
-    
+
     &::before,
     &::after {
       position: absolute;
@@ -291,7 +291,7 @@ fieldset {
       transition: opacity $mf-transition-speed ease, height 0s linear $mf-transition-speed;
       opacity: 0;
     }
-    
+
     &::before {
       top: ($mf-font-size * 0.65);
       left: ($mf-font-size * 0.38);
@@ -305,15 +305,15 @@ fieldset {
       transform: rotate(-45deg);
     }
   }
-  
+
   label:hover .helper {
     color: $mf-focus-color;
   }
-  
+
   input:checked {
     ~ .helper {
       color: $mf-focus-color;
-      
+
       &::after,
       &::before {
         opacity: 1;
@@ -343,7 +343,7 @@ fieldset {
     // Prevent !importantRule
     color: $mf-error-color;
   }
-  
+
   &.form-group,
   &.checkbox,
   &.radio,
@@ -353,7 +353,7 @@ fieldset {
       color: $mf-error-color;
     }
   }
-  
+
   .bar {
     &::before {
       background: $mf-error-color;
@@ -375,13 +375,13 @@ fieldset {
   transition: background-color $mf-transition-speed ease, color $mf-transition-speed ease, box-shadow $mf-transition-speed ease;
   overflow: hidden;
   box-shadow: $shadow-2;
-  
+
   span {
     color: #fff;
     position: relative;
     z-index: 1;
   }
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -397,12 +397,12 @@ fieldset {
     opacity: 1;
     transform: translate(-50%, -50%) scale(0);
   }
-  
+
   &:hover {
     color: $mf-focus-color;
     box-shadow: $shadow-6;
   }
-  
+
   &:active,
   &:focus {
     &::before {
@@ -411,7 +411,7 @@ fieldset {
       opacity: 0;
     }
   }
-  
+
   &:focus {
     outline: none;
   }

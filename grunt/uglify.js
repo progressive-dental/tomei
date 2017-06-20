@@ -18,7 +18,7 @@ module.exports = function () {
     },
     min: {
       files: {
-        '<%= config.html %>/<%= config.destination.js %>/site.min.js': ['<%= config.html %>/<%= config.destination.js %>/vendor.js', '<%= config.html %>/<%= config.destination.js %>/parallax.js', '<%= config.html %>/<%= config.destination.js %>/jquery.accordion.min.js', '<%= config.html %>/<%= config.destination.js %>/custom.js']
+        '<%= config.html %>/<%= config.destination.js %>/site.min.js': ['<%= config.html %>/<%= config.destination.js %>/vendor.js', '<%= config.html %>/<%= config.destination.js %>/parallax.js', '<%= config.html %>/<%= config.destination.js %>/jquery.widowfix.min.js', '<%= config.html %>/<%= config.destination.js %>/jquery.accordion.min.js', '<%= config.html %>/<%= config.destination.js %>/custom.js']
       }
     }
   };

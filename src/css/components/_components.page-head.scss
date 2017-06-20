@@ -1,6 +1,6 @@
 .page-head {
   height: 100px;
-  background-color: transparent;
+  // background-color: transparent;
 
   position: fixed;
   top: 0;
@@ -35,16 +35,17 @@
   .page-head__logo {
     width: 25%;
     height: 100%;
+    position: relative;
+    z-index: 1;
     background-color: $color-page-head-logo-bg;
     float: left;
     min-width: 295px;
-    position: relative;
-    z-index: 1;
   }
   .page-head__nav {
     width: 75%;
     height: 100%;
     float: left;
+    background-color: $color-page-head-nav-background;
 
     @media( max-width: 1185px ) {
       padding-left: 295px;

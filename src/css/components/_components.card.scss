@@ -83,6 +83,31 @@
         margin-bottom: 0;
       }
     }
+
+    h3 {
+        margin-bottom: 0;
+          }
+  }
+
+  .card-white {
+    .card__body {
+      color: $color-tertiary;
+      background-color: $color-white;
+    }
+
+    .slick-dots {
+      li {
+        button {
+          background: $color-gray;
+          &:hover, &:focus {
+              background: $color-white;
+          }
+        }
+        &.slick-active button {
+            background: $color-white;
+        }
+      }
+    }
   }
 
   .card__play {

@@ -19,7 +19,7 @@
   .section--cta & {
     margin-bottom: 0;
   }
-  
+
   span {
     font-weight: 700;
   }
@@ -99,12 +99,18 @@
     left: 0;
     width: 100px;
     height: 4px;
-    background: #9DBD59;
+    background: $color-headlines-underline;
     .headline--center & {
       left: 50%;
     transform: translateX(-50%);
     }
   }
+}
+
+.headline__underline-white {
+    &:after {
+      background: $color-white;
+    }
 }
 
 .headline__eyebrow {

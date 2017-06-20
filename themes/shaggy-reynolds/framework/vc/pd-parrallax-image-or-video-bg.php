@@ -81,7 +81,7 @@ function parallax_init() {
         "heading" => "Pattern BG Color",
         'admin_label' => true,
         "param_name" => "pattern_bg_color",
-        "dependency" => array( "element" => "enable_pattern", "value" => array( "true" ) ),
+        "dependency" => array( "element" => "bg_type", "value" => array( "pattern", "image_pattern" ) ),
         "value" => array(
           "Default" => "",
           "Primary" => "bg-primary",

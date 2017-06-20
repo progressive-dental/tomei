@@ -18,6 +18,10 @@
     position: relative;
     text-align: center;
 
+    .section--pattern {
+      background-color: $color-site-foot-reviews-bg;
+    }
+
     a {
       color: $color-site-foot-reviews;
       position: relative;
@@ -38,7 +42,7 @@
     margin-bottom: 50px;
     @media(max-width: $screen-sm-max) {
       padding: 0 80px;
-      
+
     }
 
     @media(max-width: $screen-xs-max) {
@@ -74,15 +78,19 @@
   .site-foot__header {
     padding-bottom: 20px;
     display: block;
-    border-bottom: 1px solid #2796C0;
+    border-bottom: 1px solid $color-site-foot-header-border;
     margin-bottom: 25px;
     font-size: 41px;
     line-height: 58.24px;
     letter-spacing: .16px;
     font-weight: 300;
 
+    img {
+      max-height: 54px;
+    }
+
     @media(max-width: $screen-md-max) {
-      font-size: 35px; 
+      font-size: 35px;
     }
   }
 

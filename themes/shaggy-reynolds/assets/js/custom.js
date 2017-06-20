@@ -9,6 +9,8 @@
 
   });
 
+  $('h1,h2,h3,h4,h5,h6').widowFix({linkFix:true});
+
   $('.implant__note .plus-icon .plus').on('click',function(){
       if($(this).parents('.implant__note').hasClass('show-cont')) {
         $(this).parents('.implant__note').removeClass('show-cont')

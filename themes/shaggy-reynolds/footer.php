@@ -92,7 +92,7 @@ global $progressive; ?>
           <div class="col-md-3">
             <div class="site-foot__column  site-foot__column--right">
               <span class="site-foot__header">Get In Touch</span>
-              <a href="<?php echo get_permalink( $progressive['contact-us-link'] ); ?>" class="btn  btn--secondary  btn--small">CONTACT US</a>
+              <a href="<?php echo get_permalink( $progressive['contact-us-link'] ); ?>" class="btn  btn--accent  btn--small">CONTACT US</a>
             </div>
           </div>
         </div>  

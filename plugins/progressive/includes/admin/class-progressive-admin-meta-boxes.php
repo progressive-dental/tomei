@@ -25,9 +25,9 @@ class Progressive_Meta_Boxes {
    * Constructor
    */
   public function __construct() {
-    add_action( 'add_meta_boxes', array( $this, 'pd_add_meta_boxes' ), 1 );
-    add_action( 'save_post', array( $this, 'pd_save_meta_boxes' ), 1, 2 );
-    add_action( 'edit_form_before_permalink', array( $this, 'pd_move_meta_boxes' ) );
+    //add_action( 'add_meta_boxes', array( $this, 'pd_add_meta_boxes' ), 1 );
+    //add_action( 'save_post', array( $this, 'pd_save_meta_boxes' ), 1, 2 );
+    //add_action( 'edit_form_before_permalink', array( $this, 'pd_move_meta_boxes' ) );
   }
 
   /**

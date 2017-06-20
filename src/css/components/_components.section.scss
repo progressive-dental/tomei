@@ -15,7 +15,6 @@
 
 .section--pattern {
   opacity: 0.92;
-  background: #101A44;
   position: absolute;
   left: 0;
   top: 0;
@@ -31,7 +30,6 @@
   background-image: url(../images/patterns/cream-pixels/cream-pixels.png);
   background-repeat: repeat;
   background-blend-mode: color-burn;
-  
 }
 
 .article {
@@ -53,7 +51,7 @@
     height: 100%;
     position: absolute;
     left: 36%;
-    background-color: white;
+    // background-color: white;
     top: 0;
 
     @media(min-width: $screen-md-min) and (max-width: $screen-md-max) {
@@ -83,11 +81,11 @@
 }
 
 .section__side-overlay {
-   
+
     width: 100%;
     height: 100%;
     background: rgba(47,52,53,0.70);
-  
+
 }
 
 .section__background {
@@ -127,7 +125,7 @@
     @include align-items(center);
     @include justify-content(center);
     padding: 130px 0 92px;
-    min-height: 643px; 
+    min-height: 643px;
     overflow: hidden;
     color: $color-section-bg;
 
@@ -136,7 +134,7 @@
     }
   }
 
- 
+
 
   .section--nobot {
     padding-bottom: 0;
@@ -158,4 +156,3 @@
     background-repeat: no-repeat;
     padding: 50px 0;
   }
-

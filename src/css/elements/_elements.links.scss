@@ -14,5 +14,12 @@ a {
   @include hocus() {
     text-decoration: underline;
   }
+}
 
+.link-dark {
+  color: $color-custom-one;
+}
+
+.link-tertiary {
+  color: $color-tertiary;
 }

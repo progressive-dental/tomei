@@ -1,16 +1,22 @@
 .widget {
   padding: 38px 30px;
-  &:last-child {
-    background: $color-secondary;
+  color: $color-white;
+  background: $color-secondary;
+  background-image: url(../images/patterns/cream-pixels/cream-pixels.png);
+  background-repeat: repeat;
+  background-blend-mode: color-burn;
+
+  &:nth-child(2) {
+    background: $color-tertiary;
     color: #fff;
   }
 
   &:only-child {
-    color: inherit;
+    color: $color-white;
     background-image: url(../images/patterns/cream-pixels/cream-pixels.png);
     background-repeat: repeat;
     background-blend-mode: color-burn;
-    background-color: inherit;
+    // background-color: inherit;
   }
 }
 .widget--large {

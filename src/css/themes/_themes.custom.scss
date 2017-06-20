@@ -1,42 +1,42 @@
 /*------------------------------------*\
-  #CUSTOM
+#CUSTOM
 \*------------------------------------*/
 
 /**
- * This file contains any additional or override CSS for the Custom theme: any
- * customisations that can’t be handled by `_settings.custom.scss`.
- */
+* This file contains any additional or override CSS for the Custom theme: any
+* customisations that can’t be handled by `_settings.custom.scss`.
+*/
 
 @font-face {
-    font-family: 'proxima nova';
-    src: url('../fonts/proxima_nova_light-webfont.woff2') format('woff2'),
-         url('../fonts/proxima_nova_light-webfont.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
+  font-family: 'proxima nova';
+  src: url('../fonts/proxima_nova_light-webfont.woff2') format('woff2'),
+  url('../fonts/proxima_nova_light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'proxima nova';
-    src: url('../fonts/proxima_nova_reg-webfont.woff2') format('woff2'),
-         url('../fonts/proxima_nova_reg-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'proxima nova';
+  src: url('../fonts/proxima_nova_reg-webfont.woff2') format('woff2'),
+  url('../fonts/proxima_nova_reg-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'proxima nova';
-    src: url('../fonts/proxima_nova_black-webfont.woff2') format('woff2'),
-         url('../fonts/proxima_nova_black-webfont.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
+  font-family: 'proxima nova';
+  src: url('../fonts/proxima_nova_black-webfont.woff2') format('woff2'),
+  url('../fonts/proxima_nova_black-webfont.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'proxima nova';
-    src: url('../fonts/proxima_nova_bold-webfont.woff2') format('woff2'),
-         url('../fonts/proxima_nova_bold-webfont.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
+  font-family: 'proxima nova';
+  src: url('../fonts/proxima_nova_bold-webfont.woff2') format('woff2'),
+  url('../fonts/proxima_nova_bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
 }
 
 
@@ -97,10 +97,15 @@
 }
 
 .outline-image {
-  margin-right: 38px;
-  
+
+  @media(max-width: $screen-sm-max) {
+    margin-bottom: 30px;
+  }
+
   @media(min-width: $screen-sm-min) {
-    &:before {
+    margin-right: 38px;
+
+    &::before {
       border: 5px solid #2796C0;
       content: '';
       height: 100%;
@@ -110,16 +115,21 @@
       top: 38px;
       left: 53px;
     }
-    margin-right: 0;
-    margin-bottom: 30px;
   }
 }
-  .outline-image img {
-    position: relative;
+
+.outline-image img {
+  position: relative;
+}
+
+.outline-border-white {
+  .outline-image:before {
+    border-color: $color-white;
   }
+}
 
 
-  .implant {
+.implant {
   text-align: center;
 }
 
@@ -244,17 +254,17 @@
 }
 
 .plus-icon:before {
-    content: '';
-    width: 49px;
-    height: 49px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 2px solid;
-    border-radius: 100%;
-    -webkit-animation: doublePulse 1.5s ease infinite;
-    animation: doublePulse 1.5s ease infinite;
-    z-index: 0;
+  content: '';
+  width: 49px;
+  height: 49px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid;
+  border-radius: 100%;
+  -webkit-animation: doublePulse 1.5s ease infinite;
+  animation: doublePulse 1.5s ease infinite;
+  z-index: 0;
 }
 .plus-icon {
   float: left;
@@ -294,28 +304,28 @@
   transition: all 300ms linear 0s;
 }
 @-webkit-keyframes doublePulse {
-    0% {
-        -webkit-transform: scale(0.6);
-        transform: scale(0.6);
-        opacity: 1;
-    }
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        opacity: 0;
-    }
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 @keyframes doublePulse {
-    0% {
-        -webkit-transform: scale(0.6);
-        transform: scale(0.6);
-        opacity: 1;
-    }
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        opacity: 0;
-    }
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
 .implant__note.show-cont .implant__note-name {
@@ -326,8 +336,8 @@
   transform: scaleY(1);
   float: left;
   position: absolute;
-    right: -34px;
-    top: 0px;
+  right: -34px;
+  top: 0px;
 }
 
 .implant__note.show-cont .implant__indicator .plus-icon:after {
@@ -355,9 +365,9 @@
 .implant__note--post.show-cont .implant__note-name {
   right: -88px;
   top: 22px;
-    transform-origin: top;
-    -moz-transform-origin: top;
-    -webkit-transform-origin: top;
+  transform-origin: top;
+  -moz-transform-origin: top;
+  -webkit-transform-origin: top;
 }
 
 .implant__note--abutment {
@@ -472,7 +482,7 @@ header .container .pull-right .tab-bottom>li:nth-child(1) {
     height: 70px !important;
     width: 100%;
     max-width: 636px;
-}
+  }
 }
 
 header .container>.pull-right .tab-top {
@@ -484,6 +494,13 @@ header .container>.pull-right .tab-top {
   display: none;
 }
 
+header .container .logo {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+
+  padding: 10px 30px;
+}
 
 header li a {
   &:hover {

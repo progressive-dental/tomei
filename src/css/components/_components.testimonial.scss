@@ -10,7 +10,7 @@
 
   &:hover {
     .testimonial__content {
-      @include display(flex);
+      opacity: 1;
     }
 
     .testimonial__image {
@@ -36,7 +36,8 @@
     transform: translate(-50%,-50%);
     height: 92%;
     width: 92%;
-    display: none;
+    @include display(flex);
+    opacity: 0;
     text-align: center;
     background: $color-testimonials-bg-hover;
     @include align-items(center);
