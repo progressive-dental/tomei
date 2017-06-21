@@ -48,7 +48,7 @@ global $progressive
       <div class="container">
         <div class="page-head__logo">
           <a href="<?php echo esc_url( home_url() ); ?>" class="logo  logo--header  logo--<?php echo $progressive['nav-logo-location']; ?>">
-            <img src="<?php echo $progressive['nav-logo']['url']; ?>" alt="<?php echo $progressive['site-name']; ?>">
+            <img src="<?php echo $progressive['nav-logo']['url']; ?>" alt="<?php echo get_bloginfo('name'); ?>">
           </a>
         </div>
         <div class="page-head__nav">

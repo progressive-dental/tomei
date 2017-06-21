@@ -16,7 +16,7 @@ global $progressive; ?>
         <div class="row">
           <div class="col-md-3">
             <div class="site-foot__column">
-              <a href="<?php echo esc_url( home_url() ); ?>" class="site-foot__header"><img src="<?php echo $progressive['footer-logo']['url']; ?>" alt=""></a>
+              <a href="<?php echo esc_url( home_url() ); ?>" class="site-foot__header"><img src="<?php echo $progressive['footer-logo']['url']; ?>" alt="<?php echo get_bloginfo('name'); ?>"></a>
               <ul class="contact-list">
                 <?php if( $progressive['enable-current-patient-number'] == 1 ) : ?>
                 <li class="contact-list__item">
