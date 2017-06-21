@@ -252,6 +252,7 @@ function pd_card_func( $atts, $content = null ) {
 
 function get_card_header( $type, $atts ) {
   $output = '';
+  global $progressive;
   switch ( $type ) {
     case 'comparison':
       $output = '
