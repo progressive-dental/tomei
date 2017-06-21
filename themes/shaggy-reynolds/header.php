@@ -55,9 +55,9 @@ global $progressive
           <ul class="site-nav__contact">
             <li class="site-nav__item">
               <?php if( $progressive['enable-ppc'] == 1 ) : ?>
-                <a href="+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-nav__link  clickToCall" data-call-tracking-number="<?php echo $progressive['new-patient-number']; ?>" data-ppc-tracking-number="<?php echo $progressive['ppc-number']; ?>"><span class="webPpcNumber"><?php echo $progressive['ppc-number']; ?></span></a>
+                <a href="tel:+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-nav__link  clickToCall" data-call-tracking-number="<?php echo $progressive['new-patient-number']; ?>" data-ppc-tracking-number="<?php echo $progressive['ppc-number']; ?>"><span class="webPpcNumber"><?php echo $progressive['ppc-number']; ?></span></a>
               <?php else : ?>
-                <a href="+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-nav__link" ><?php echo $progressive['new-patient-number']; ?></a>
+                <a href="tel:+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-nav__link" ><?php echo $progressive['new-patient-number']; ?></a>
               <?php endif; ?>
             </li>
             <li class="site-nav__item">
