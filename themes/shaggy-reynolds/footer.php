@@ -100,7 +100,7 @@ global $progressive; ?>
       <?php if( $progressive['enable-google-reviews'] == 1 ) : ?>
       <div class="site-foot__reviews">
         <div class="section--pattern"></div>
-        <a href="<?php echo $progressive['google-reviews-link']; ?>">See Our Reviews on Google</a>
+        <a href="<?php echo $progressive['google-reviews-link']; ?>" target="_blank">See Our Reviews on Google</a>
       </div>
     <?php endif; ?>
     </footer>
