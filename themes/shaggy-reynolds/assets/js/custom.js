@@ -53,7 +53,16 @@
     mainClass: 'mfp-fade',
     removalDelay: 160,
     preloader: false,
-    fixedContentPos: false
+    fixedContentPos: false,
+    iframe: {
+      patterns: {
+        youtube: {
+          index: 'youtube.com',
+          id: 'v=',
+          src: '//www.youtube.com/embed/%id%?autoplay=1&rel=0&modestbranding=1&autohide=1&showinfo=0'
+        }
+      }
+    }
   });
 
   $('.testimonial-slider').slick({
