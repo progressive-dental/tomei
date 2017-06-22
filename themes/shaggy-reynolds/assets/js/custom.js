@@ -9,6 +9,19 @@
 
   });
 
+  $('.wpcf7').on('mailsent.wpcf7', function( event ) {
+    if ( typeof ga === 'function' ) {
+      if( localStorage.getItem( "fromAd" ) == '1' ) {
+        // PPC user form fill goals
+        ga('send', 'event', 'Form - PPC Contact Form', 'Submit', 'Home');
+        ga('send', 'pageview', '/goals/PPC-Contact-Form');
+      } else {
+        var goal = $(this).find('[data-goal]').data('goal');
+        ga('send', 'pageview', goal);
+      }
+    }
+  });
+
   $('h1,h2,h3,h4,h5,h6').widowFix({linkFix:true});
 
   $('.implant__note .plus-icon .plus').on('click',function(){
