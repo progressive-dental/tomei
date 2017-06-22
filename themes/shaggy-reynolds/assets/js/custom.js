@@ -54,6 +54,7 @@
     removalDelay: 160,
     preloader: false,
     fixedContentPos: false,
+    disableOn: 0,
     iframe: {
       patterns: {
         youtube: {
