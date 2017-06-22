@@ -146,6 +146,25 @@ function progressive_map_section_header() {
           ),
         ),
         array(
+          "type" => "dropdown",
+          "class" => "",
+          "heading" => "Text color?",
+          'group' => 'Sub Heading',
+          "param_name" => "text_color",
+          "value" => array(
+            "Select Color" => "",
+            "Primary" => "text-primary",
+            "Secondary" => "text-secondary",
+            "Tertiary" => "text-tertiary",
+            "Light" => "text-light",
+            "Accent" => "text-accent",
+            "Hightlight" => "text-highlight",
+            "Custom 1" => "text-custom-one",
+            "Custom 2" => "text-custom-two",
+            "Custom 3" => "text-custom-three"
+          ),
+        ),
+        array(
           'type' => 'textarea_html',
           'heading' => __( 'Sub Headline Content', 'progressive' ),
           'param_name' => 'content',
@@ -171,7 +190,7 @@ function progressive_map_section_header() {
             "Yes" => "true"
           ),
         ),
-    
+
       )
     ) );
 
@@ -193,9 +212,10 @@ function pd_section_header_func( $atts, $content = null ) {
       'align_text' => '',
       'trans_block' => '',
       'cta_header' => '',
-      'headline_max' => ''
+      'headline_max' => '',
+      'text_color' => ''
   ), $atts ));
-  ob_start(); 
+  ob_start();
 
   $strong_pattern = "/(<strong)/";
   $strong_replace = '<strong class="' . $strong_tag_color . '"';
@@ -228,10 +248,11 @@ function pd_section_header_func( $atts, $content = null ) {
 
 
     <?php if($enable_sub == "yes") : ?>
-      <?php if( !empty( $font_size || !empty( $align_text ) ) ) {
+      <?php if( !empty( $font_size ) || !empty( $align_text ) || !empty( $text_color ) ) {
         $classes = array(
           $font_size,
-          $align_text
+          $align_text,
+          $text_color
         );
         $classes = implode( "  ", array_filter( $classes ) );
         $pattern = "/(<p)/";
@@ -255,13 +276,13 @@ function pd_section_header_func( $atts, $content = null ) {
       ?>
 
     <?php endif; ?>
-  
+
   </div>
   <?php if( "true" == $trans_block ) : ?>
     </div>
   <?php endif; ?>
-  
-   
+
+
 
   <?php
   $output = ob_get_clean();
