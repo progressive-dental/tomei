@@ -148,13 +148,14 @@ $color-site-foot-reviews-hover:         $color-accent;
 $color-site-nav-contact:                $color-white;
 $color-site-nav-contact-border:         $color-dark-accent;
 $color-site-nav-contact-bg:             $color-accent;
-$color-site-nav-contact-bg-hover:       $color-tertiary;
+$color-site-nav-contact-hover:          $color-white;
+$color-site-nav-contact-bg-hover:       darken($color-accent, 3%);
 $color-site-nav:                        $color-white;
 $color-site-nav-hover:                  $color-white;
 $color-site-nav-bg-hover:               $color-light-primary;
-$color-site-nav-sub:                    $color-accent;
+$color-site-nav-sub:                    $color-white;
 $color-site-nav-sub-bg:                 $color-light-primary;
-$color-site-nav-sub-hover:              $color-white;
+$color-site-nav-sub-hover:              $color-accent;
 $color-site-nav-sub-sub:                $color-white;
 $color-site-nav-sub-sub-border:         $color-accent;
 $color-site-nav-sub-sub-hover:          $color-text-hover;
@@ -163,6 +164,8 @@ $color-site-mobile-nav-bg:              $color-primary;
 $color-site-mobile-nav-border:          $color-light-gray;
 $color-site-mobile-nav-menu:            $color-tertiary;
 $color-site-mobile-nav-menu-bottom:     $color-accent;
+$color-site-nav-link:                   $color-white;
+$color-site-nav-link-hover:             $color-accent;
 
 // T-List
 $color-t-list-icon:                     #979797;
