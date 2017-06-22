@@ -179,42 +179,7 @@ if ( ! class_exists( 'GambitCarouselAnything' ) ) {
             ),
             'group' => __( 'Thumbnails', 'progressive' ),
           ),
-          array(
-            'type' => 'colorpicker',
-            'heading' => __( 'Arrows Default Color', 'progressive' ),
-            'param_name' => 'arrows_color',
-            'value' => '#c3cbc8',
-            'description' => __( 'The default color of the navigation arrow.', 'progressive' ),
-            'dependency' => array(
-              'element' => 'thumbnails',
-              'value' => array( 'arrows' ),
-            ),
-            'group' => __( 'Thumbnails', 'progressive' ),
-          ),
-          array(
-            'type' => 'colorpicker',
-            'heading' => __( 'Arrows Active Color', 'progressive' ),
-            'param_name' => 'arrows_active_color',
-            'value' => '#869791',
-            'description' => __( 'The color of the active / current arrows when highlighted.', 'progressive' ),
-            'dependency' => array(
-              'element' => 'thumbnails',
-              'value' => array( 'arrows' ),
-            ),
-            'group' => __( 'Thumbnails', 'progressive' ),
-          ),
-          array(
-            'type' => 'textfield',
-            'heading' => __( 'Arrows Size', 'progressive' ),
-            'param_name' => 'arrows_size',
-            'value' => '20px',
-            'description' => __( 'The size of the arrows can be customized here.', 'progressive' ),
-            'dependency' => array(
-              'element' => 'thumbnails',
-              'value' => array( 'arrows' ),
-            ),
-            'group' => __( 'Thumbnails', 'progressive' ),
-          ),
+          
           array(
             'type' => 'textfield',
             'heading' => __( 'Starting Position', 'progressive' ),
