@@ -44,7 +44,7 @@
     height: 142px;
     width: 142px;
     border-radius: 100%;
-    background-color: rgba(15,26,68,.80);
+    background-color: $color-fifty-play-button-bg;
     transition: background-color .3s ease-in-out;
     @include display(flex);
     @include justify-content(center);
@@ -54,7 +54,7 @@
 
     &:hover,
     &:focus {
-      background-color: rgba(15,26,68,1);
+      background-color: $color-fifty-play-button-bg-hover;
       text-decoration: none;
       outline: none;
     }

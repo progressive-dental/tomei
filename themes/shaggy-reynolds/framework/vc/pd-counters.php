@@ -83,7 +83,7 @@ function progressive_map_counter() {
           'description' => __( 'Speed of javascript countTo plugin. ( Text )'),
           'group' => __( 'Display Options', 'progressive' )
         ),
-        
+
       )
     ) );
   }
@@ -106,7 +106,7 @@ function pd_counter_func( $atts ) {
 
   ob_start(); ?>
     <div class="counter" data-percent="<?php echo $count; ?>" data-bar-color="<?php echo $bar_color; ?>" data-bar-width="<?php echo $bar_width; ?>" data-speed="<?php echo $counter_speed; ?>" >
-      <div class="counter__content  text-primary">
+      <div class="counter__content">
         <span class="counter__count" data-from="0" data-to="<?php echo $count; ?>">0</span><?php echo ( $type == 'percent' ? '%' : '' ); ?>
       </div>
     </div>

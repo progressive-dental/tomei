@@ -107,13 +107,13 @@
 
 .btn--accent {
   background-color: $color-btn-background--accent;
-      border-color: $color-btn-background--accent;
+      border-color: $color-btn-border--accent;
              color: $color-btn--accent;
   transition: all .3s;
 
   @include hocus() {
     background-color: $color-btn-background-hover--accent;
-    border-color: $color-btn-hover--accent;
+    border-color: $color-btn-border-hover--accent;
   }
 }
 

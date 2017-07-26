@@ -19,7 +19,7 @@ $color-lighter-gray: #F5F6F6;
 $color-gray: #adadad;                                 /* [1] */
 
 $color-accent: #02A765;                               /* [2] */
-$color-dark-accent: darken($color-accent, 7%);        /* [2] */
+$color-dark-accent: darken($color-accent, 3%);        /* [2] */
 $color-darker-accent: darken($color-accent,20%);      /* [2] */
 $color-light-accent: lighten($color-accent, 7%);      /* [2] */
 
@@ -29,7 +29,8 @@ $color-light-primary: lighten(#202326, 4%);             /* [2] */
 $color-light-secondary: transparentize(#202427, .9);  /* [2] */
 $color-secondary: #484B4E;                            /* [2] */
 $color-tertiary: #058ED9;                             /* [2] */
-$color-dark-tertiary: darken(#2796c0, 30%);            /* [2] */
+$color-dark-tertiary: darken($color-tertiary, 30%);            /* [2] */
+$color-transparent-tertiary: transparentize($color-tertiary, .4);                             /* [2] */
 $color-tint: #EEEEEE;                                 /* [2] */
 $color-highlight: #DB7D3B;
 $color-custom-one: $color-light-primary;
@@ -65,8 +66,10 @@ $color-btn-hover--secondary:            $color-white;
 $color-btn-background-hover--secondary: $color-primary;
 $color-btn--accent:                     $color-white;
 $color-btn-background--accent:          $color-accent;
+$color-btn-border--accent:              $color-dark-accent;
 $color-btn-hover--accent:               $color-white;
-$color-btn-background-hover--accent:    $color-light-primary;
+$color-btn-background-hover--accent:    $color-dark-accent;
+$color-btn-border-hover--accent:        $color-dark-accent;
 $color-btn-ghost--primary:              $color-primary;
 $color-btn-ghost-hover--primary:        $color-white;
 $color-btn-ghost-bg-hover--primary:     $color-tertiary;
@@ -101,6 +104,8 @@ $color-counter-bg:                      transparent;
 // Fifty Fifty Module
 $color-fifty-border:                    $color-tertiary;
 $color-fifty-play-button:               $color-play-button;
+$color-fifty-play-button-bg:            transparentize($color-tertiary, .3);;
+$color-fifty-play-button-bg-hover:      $color-tertiary;
 
 // Implant
 $color-implant:                         $color-secondary;
@@ -130,7 +135,7 @@ $color-page-head-logo-bg:               $color-light-primary;
 $color-section-list-border:             $color-tint;
 $color-section-overlay:                 $color-white;
 $color-section-overlay-bg:              rgba(1, 77, 101, .75);
-$color-section-bg:                      $color-white;
+$color-section-bg:                      $color-primary;
 $color-section-pattern-bg:              $color-primary;
 
 // Site Footer
@@ -138,7 +143,7 @@ $color-site-foot:                       $color-white;
 $color-site-foot-bg:                    $color-primary;
 $color-site-foot-link:                  $color-white;
 $color-site-foot-link-hover:            $color-accent;
-$color-site-foot-header:                lighten($color-site-foot-bg, 25%);
+$color-site-foot-header:                $color-white;
 $color-site-foot-header-border:         lighten($color-site-foot-bg, 25%);
 $color-site-foot-reviews-bg:            darken($color-site-foot-bg, 2%);
 $color-site-foot-reviews:               $color-white;
@@ -149,7 +154,7 @@ $color-site-nav-contact:                $color-white;
 $color-site-nav-contact-border:         $color-dark-accent;
 $color-site-nav-contact-bg:             $color-accent;
 $color-site-nav-contact-hover:          $color-white;
-$color-site-nav-contact-bg-hover:       darken($color-accent, 3%);
+$color-site-nav-contact-bg-hover:       $color-dark-accent;
 $color-site-nav:                        $color-white;
 $color-site-nav-hover:                  $color-white;
 $color-site-nav-bg-hover:               $color-light-primary;
@@ -177,7 +182,7 @@ $color-tab-active-border-top:           $color-accent;
 $color-tab-active-mobile-bg:            $color-accent;
 
 // Testimonials
-$color-testimonials-bg-hover:           rgba(157,189,89,.80);
+$color-testimonials-bg-hover:           $color-transparent-tertiary;
 $color-testimonials:                    $color-white;
 $color-testimonials-play-button:        $color-play-button;
 

@@ -86,7 +86,7 @@
 }
 
 .article__content {
-  padding: 110px 100px 171px;
+  padding: 110px 100px 0 100px;
 
   @media(max-width: $screen-sm-max) {
     padding: 0 60px 30px;
@@ -106,7 +106,7 @@
     margin-right: 38px;
 
     &::before {
-      border: 5px solid #2796C0;
+      border: 5px solid $color-outline-image-border;
       content: '';
       height: 100%;
       width: calc(100% - 68px);

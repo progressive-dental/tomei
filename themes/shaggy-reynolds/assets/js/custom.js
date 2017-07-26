@@ -22,7 +22,7 @@
     }
   });
 
-  $('h1,h2,h3,h4,h5,h6').widowFix({linkFix:true});
+  // $('h1,h2,h3,h4,h5,h6').widowFix({linkFix:true});
 
   $('.implant__note .plus-icon .plus').on('click',function(){
       if($(this).parents('.implant__note').hasClass('show-cont')) {
@@ -47,7 +47,7 @@
     $(this).parent().text(linkText);
     $(this).remove();
   });
-  
+
   $('.fifty__play, .video-box__play, .testimonial__play, .video-play, .js-play-video').magnificPopup({
     type: 'iframe',
     mainClass: 'mfp-fade',
@@ -70,7 +70,7 @@
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
-    
+
   });
   var cardCarousel = $('.carousel');
   cardCarousel.each(function() {
@@ -121,8 +121,8 @@
         locked = false;
       }
     });
-    
-    
+
+
   });
 
   $.extend({
@@ -163,11 +163,11 @@
   var mmenuPhone = $('#menu').data('call-tracking-number').replace(/\D/g,'');;
 
   $("#menu").mmenu({
-    extensions  : [ 
-      "fx-menu-slide", 
-      "border-offset", 
-      "fx-menu-zoom", 
-      "fx-panels-zoom" 
+    extensions  : [
+      "fx-menu-slide",
+      "border-offset",
+      "fx-menu-zoom",
+      "fx-panels-zoom"
     ],
     "offCanvas": {
       "position": "right"
@@ -211,7 +211,7 @@
         scrollTop: target.offset().top
       }, 1000);
       return false;
-      
+
     }
   });
 
@@ -222,7 +222,7 @@
     speed: 500,
     arrows: false
   });
-  
+
   WebFont.load({
     google: {
       families: [ 'Lato:300,400,700,900' ]
@@ -244,13 +244,13 @@ if( $('.counter').length ) {
     element: counter[0],
       handler: function(direction) {
         $('.counter__count').countTo({ speed: counter.data('speed')});
-        $('.counter').easyPieChart(options);        
+        $('.counter').easyPieChart(options);
         this.destroy();
       },
       offset: '100%'
     });
 
   });
-  
+
 }
 }();
