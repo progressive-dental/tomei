@@ -20,7 +20,7 @@ global $progressive; ?>
               <ul class="contact-list">
                 <?php if( $progressive['enable-current-patient-number'] == 1 ) : ?>
                 <li class="contact-list__item">
-                  Current Patient: <a class="site-foot__link  site-foot__link--phone" href="tel:+1<?php echo preg_replace( "/[^0-9]/", "", $progressive['current-patient-number'] ); ?>"><?php echo $progressive['current-patient-number']; ?></a>
+                  Current Patient: <a class="site-foot__link  site-foot__link--phone" href="tel:+1-<?php echo localize_us_number( $progressive['current-patient-number'] ); ?>"><?php echo $progressive['current-patient-number']; ?></a>
                 </li>
                 <?php endif; ?>
                 <?php if( $progressive['enable-new-patient-number'] == 1 ) : ?>
@@ -28,7 +28,7 @@ global $progressive; ?>
                   <?php if( $progressive['enable-ppc'] == 1 ) : ?>
                     New Patient: <a href="+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-foot__link  site-foot__link--phone  clickToCall" data-call-tracking-number="<?php echo $progressive['new-patient-number']; ?>" data-ppc-tracking-number="<?php echo $progressive['ppc-number']; ?>"><span class="webPpcNumber"><?php echo $progressive['ppc-number']; ?></span></a>
                   <?php else : ?>
-                    New Patient: <a class="site-foot__link  site-foot__link--phone" href="tel:+1<?php echo preg_replace( "/[^0-9]/", "", $progressive['new-patient-number'] ); ?>"><?php echo $progressive['new-patient-number']; ?></a>
+                    New Patient: <a class="site-foot__link  site-foot__link--phone" href="tel:+1-<?php echo localize_us_number( $progressive['new-patient-number'] ); ?>"><?php echo $progressive['new-patient-number']; ?></a>
                   <?php endif; ?>
                 </li>
                 <?php endif; ?>
@@ -61,7 +61,7 @@ global $progressive; ?>
           <div class="col-md-6">
             <div class="site-foot__column  site-foot__column--center">
               <span class="site-foot__header">Our Dentistry</span>
-              <?php 
+              <?php
                 wp_nav_menu(
                   array(
                     'theme_location' => 'footer-menu-1',
@@ -69,7 +69,7 @@ global $progressive; ?>
                     'menu_class' => 'site-foot__list',
                     'fallback_cb' => 'default_header_nav',
                   )
-                ); 
+                );
                 wp_nav_menu(
                   array(
                     'theme_location' => 'footer-menu-2',
@@ -77,7 +77,7 @@ global $progressive; ?>
                     'menu_class' => 'site-foot__list',
                     'fallback_cb' => 'default_header_nav',
                   )
-                ); 
+                );
                 wp_nav_menu(
                   array(
                     'theme_location' => 'footer-menu-3',
@@ -85,7 +85,7 @@ global $progressive; ?>
                     'menu_class' => 'site-foot__list',
                     'fallback_cb' => 'default_header_nav',
                   )
-                ); 
+                );
               ?>
             </div>
           </div>
@@ -95,7 +95,7 @@ global $progressive; ?>
               <a href="<?php echo get_permalink( $progressive['contact-us-link'] ); ?>" class="btn  btn--accent  btn--small">CONTACT US</a>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
       <?php if( $progressive['enable-google-reviews'] == 1 ) : ?>
       <div class="site-foot__reviews">
@@ -112,11 +112,11 @@ global $progressive; ?>
   /**
    * The template for displaying the footer
    */
-  wp_footer(); 
+  wp_footer();
 
   if( $progressive['footer-scripts'] ) :
     echo $progressive['footer-scripts'];
-  endif; 
+  endif;
   if( $progressive['footer-styles'] ) :
     echo $progressive['footer-styles'];
   endif;
@@ -133,12 +133,12 @@ global $progressive; ?>
               $('.vc_row-o-equal-height > div').matchHeight();
             }
           };
-        } 
-      } 
+        }
+      }
     }
     window.onload = init;
-    
+
   </script>
- 
+
 </body>
 </html>

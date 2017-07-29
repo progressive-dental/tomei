@@ -6,5 +6,10 @@ function progressive_wpcf7_form_elements( $content ) {
   $content = str_replace('aria-required="true"', 'aria-required="true" required', $content );
   $content = str_replace('wpcf7-form-control wpcf7-submit', 'wpcf7-form-control wpcf7-submit btn btn--default btn--outline-accent contact__btn', $content );
   $content = str_replace('rows="10"', 'rows="5"', $content );
-  return $content;  
+  return $content;
+}
+
+function localize_us_number($phone) {
+  $numbers_only = preg_replace("/[^\d]/", "", $phone);
+  return preg_replace("/^1?(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $numbers_only);
 }

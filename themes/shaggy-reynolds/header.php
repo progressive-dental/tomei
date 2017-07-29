@@ -33,10 +33,10 @@ global $progressive
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <?php 
+  <?php
   if( $progressive['header-scripts'] ) :
     echo $progressive['header-scripts'];
-  endif; 
+  endif;
   if( $progressive['header-styles'] ) :
     echo $progressive['header-styles'];
   endif;
@@ -55,15 +55,15 @@ global $progressive
           <ul class="site-nav__contact">
             <li class="site-nav__item">
               <?php if( $progressive['enable-ppc'] == 1 ) : ?>
-                <a href="tel:+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-nav__link  clickToCall" data-call-tracking-number="<?php echo $progressive['new-patient-number']; ?>" data-ppc-tracking-number="<?php echo $progressive['ppc-number']; ?>"><span class="webPpcNumber"><?php echo $progressive['ppc-number']; ?></span></a>
+                <a href="tel:+1-<?php echo localize_us_number( $progressive['new-patient-number'] ); ?>" class="site-nav__link  clickToCall" data-call-tracking-number="<?php echo $progressive['new-patient-number']; ?>" data-ppc-tracking-number="<?php echo $progressive['ppc-number']; ?>"><span class="webPpcNumber"><?php echo $progressive['ppc-number']; ?></span></a>
               <?php else : ?>
-                <a href="tel:+1<?php echo preg_replace("/[^0-9]/","", $progressive['new-patient-number'] ); ?>" class="site-nav__link" ><?php echo $progressive['new-patient-number']; ?></a>
+                <a href="tel:+1-<?php echo localize_us_number( $progressive['new-patient-number'] ); ?>" class="site-nav__link" ><?php echo $progressive['new-patient-number']; ?></a>
               <?php endif; ?>
             </li>
             <li class="site-nav__item">
               <a href="<?php echo get_permalink( $progressive['header-contact-us-link'] ); ?>" class="site-nav__link">CONTACT US</a>
             </li>
-          </ul>  
+          </ul>
           <?php if( has_nav_menu( 'contact-menu' ) ) : ?>
           <ul class="site-nav">
             <?php wp_nav_menu( array( 'theme_location' => 'primary-menu', 'items_wrap' => '%3$s', 'container' => false, 'menu_class' => false, 'walker' => new Wpse8170_Menu_Walker() ) ); ?>
