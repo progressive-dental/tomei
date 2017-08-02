@@ -93,15 +93,18 @@ $color-blist-border--secondary:         $color-secondary;
 
 // Cards
 $color-card:                            $color-white;
-$color-card-bg:                         $color-tertiary;
+$color-card-bg:                         $color-primary;
 $color-card-play-button:                $color-play-button;
 $color-card-dot:                        $color-gray;
 $color-card-dot-active:                 $color-tertiary;
 
 // Counter
+$color-counter:                         $color-primary;
 $color-counter-bg:                      transparent;
 
 // Fifty Fifty Module
+$color-fifty:                           $color-white;
+$color-fifty-bg:                        $color-primary;
 $color-fifty-border:                    $color-tertiary;
 $color-fifty-play-button:               $color-play-button;
 $color-fifty-play-button-bg:            transparentize($color-tertiary, .3);;

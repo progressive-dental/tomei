@@ -27,6 +27,8 @@
     @include display(flex);
     @include align-items(center);
     padding: 70px;
+    color: $color-fifty;
+    background-color: $color-fifty-bg;
 
     @media(max-width: $screen-xs-max) {
       padding: 30px;

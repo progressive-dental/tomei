@@ -24,25 +24,43 @@
   background-repeat: repeat;
   background-blend-mode: color-burn;
   zoom: 138%;
+
+  .mobile & {
+    background-image: none;
+    background-blend-mode: inherit;
+  }
 }
 
 .section--pattern-bg {
   background-image: url(../images/patterns/cream-pixels/cream-pixels.png);
   background-repeat: repeat;
   background-blend-mode: color-burn;
+
+  .mobile & {
+    background-image: none;
+    background-blend-mode: inherit;
+  }
 }
 
 .article {
   padding-top: 0;
+
+  &.section--trans-header {
+    color: inherit;
+  }
+
+  @media(max-width: $screen-xs-max) {
+    display: block;
+  }
 }
 
 .section--list {
   position: relative;
-    border-top: 1px solid $color-section-list-border;
-    border-bottom: 1px solid $color-section-list-border;
-    height: 100%;
-    overflow: hidden;
-    padding: 0 0 120px;
+  border-top: 1px solid $color-section-list-border;
+  border-bottom: 1px solid $color-section-list-border;
+  height: 100%;
+  overflow: hidden;
+  padding: 60px 0 60px;
 
   &:after {
     content: '';
@@ -82,77 +100,79 @@
 
 .section__side-overlay {
 
-    width: 100%;
-    height: 100%;
-    background: rgba(47,52,53,0.70);
+  width: 100%;
+  height: 100%;
+  background: rgba(47,52,53,0.70);
 
 }
 
 .section__background {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section__overlay {
+  background-color: $color-section-overlay-bg;
+  height: 100%;
+  padding-left: 70px;
+  padding-right: 70px;
+  color: $color-section-overlay;
+
+  i {
+    font-size: 75px;
+    margin-bottom: 45px;
+    display: block;
   }
 
-  .section__overlay {
-    background-color: $color-section-overlay-bg;
-    height: 100%;
-    padding-left: 70px;
-    padding-right: 70px;
-    color: $color-section-overlay;
+  .headline__main {
+    margin-bottom: 30px;
+  }
+}
 
-    i {
-      font-size: 75px;
-      margin-bottom: 45px;
-      display: block;
-    }
+.section--bg {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  padding: 130px 0 92px;
+  min-height: 643px;
+  overflow: hidden;
+  color: $color-section-bg;
 
-    .headline__main {
-      margin-bottom: 30px;
-    }
+  &.section--trans-header {
+    color: inherit;
   }
 
-  .section--bg {
-    @include display(flex);
-    @include align-items(center);
-    @include justify-content(center);
-    padding: 130px 0 92px;
-    min-height: 643px;
-    overflow: hidden;
-    color: $color-section-bg;
-
-    &.section--trans-header {
-      color: inherit;
-    }
+  @media(max-width: $screen-xs-max) {
+    display: block;
   }
+}
+
+.section--nobot {
+  padding-bottom: 0;
+}
+
+.section--cta {
+  padding: 65px 0;
 
 
+}
 
-  .section--nobot {
-    padding-bottom: 0;
-  }
+.section--page {
+  padding-top: 30px;
+}
 
-  .section--cta {
-    padding: 65px 0;
-
-
-  }
-
-  .section--page {
-    padding-top: 30px;
-  }
-
-  .section--trans-header {
-    background-size: cover;
-    background-position: right center;
-    background-repeat: no-repeat;
-    padding: 50px 0;
-  }
+.section--trans-header {
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding: 50px 0;
+}

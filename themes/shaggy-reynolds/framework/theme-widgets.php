@@ -90,19 +90,19 @@ function shaggy_reynolds_widgets_init() {
     ) );
 }
 
-// Creating the widget 
+// Creating the widget
 class headline_widget extends WP_Widget {
 
   function __construct() {
     parent::__construct(
 // Base ID of your widget
-      'headline_widget', 
+      'headline_widget',
 
 // Widget name will appear in UI
-      __('Headline Widget', 'wpb_widget_domain'), 
+      __('Headline Widget', 'wpb_widget_domain'),
 
 // Widget description
-      array( 'description' => __( 'Does headlines on pages', 'wpb_widget_domain' ), ) 
+      array( 'description' => __( 'Does headlines on pages', 'wpb_widget_domain' ), )
       );
   }
 
@@ -113,14 +113,14 @@ class headline_widget extends WP_Widget {
 
     echo '<section class="widget  widget--large  section--pattern-bg">';
     echo '<div class="headline">';
-    echo '<h2 class="widget__title widget__headline  headline__main  headline__underline  text-primary">' . $title . '</h2>';
+    echo '<h2 class="widget__title widget__headline  headline__main  headline__underline">' . $title . '</h2>';
     echo '</div>';
 
 // This is where you run the code and display the output
     echo '</section>';
   }
 
-// Widget Backend 
+// Widget Backend
   public function form( $instance ) {
     if ( isset( $instance[ 'title' ] ) ) {
       $title = $instance[ 'title' ];
@@ -131,12 +131,12 @@ class headline_widget extends WP_Widget {
 // Widget admin form
     ?>
     <p>
-      <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+      <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
     </p>
-    <?php 
+    <?php
   }
-  
+
 // Updating widget replacing old instances with new
   public function update( $new_instance, $old_instance ) {
     $instance = array();

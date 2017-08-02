@@ -11,15 +11,46 @@
   margin-right: auto;
   overflow: hidden;
 
+  @include display(flex);
+    @include justify-content(center);
+    color: $color-masthead;
+
   .btn {
     margin-top: 10px;
+   background-color: $color-accent;
   }
 
     @media(max-width: $screen-xs-max) {
-      height: inherit;
+      // height: inherit;
+      color: $color-primary;
+      @include flex-direction(column-reverse);
+      height: auto;
     }
 
 }
+
+  .masthead__image {
+    position: relative;
+    width: 100%;
+    height: 652px;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+
+    @media(min-width: $screen-sm-min) {
+      position: absolute;
+    }
+
+    @media(max-width: $screen-xs-max) {
+      padding-bottom: 46.7%;
+      height: 0;
+    }
+  }
 
   .masthead--home {
 
@@ -28,9 +59,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-    @include display(flex);
-    @include justify-content(center);
-    color: $color-masthead;
 
     @media(min-width: $screen-sm-min) {
     }
@@ -55,6 +83,17 @@
 
     }
 
+    .section__video-wrap {
+      @media(max-width: $screen-xs-max) {
+        display: none;
+      }
+    }
+
+    .masthead__image--mobile-video {
+      @media(min-width: $screen-sm-min) {
+        display: none;
+      }
+    }
     .section__video-wrap video {
     position: absolute;
     bottom: 0;
@@ -69,16 +108,19 @@
   }
     .masthead--overlay {
       position: relative;
-      &:after {
-        background-color: $color-masthead-background;
-        content: '';
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+
+      @media(min-width: $screen-sm-min) {
+        &:after {
+          background-color: $color-masthead-background;
+          content: '';
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
       }
     }
 
@@ -88,7 +130,7 @@
       z-index: 1;
 
       @media(max-width: $screen-sm-max) {
-      padding: 100px 0;
+        padding: 50px 0;
 
 
      }
@@ -114,15 +156,16 @@
     }
 
     .masthead__headline {
-      font-size: 72px;
-      line-height: 60px;
+      font-size: 48px;
+      line-height: 54px;
       letter-spacing: 1.28px;
       font-weight: 700;
       text-transform: uppercase;
 
       @media(max-width: $screen-xs-max) {
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 28px;
+        line-height: 30px;
+    letter-spacing: 0.28px;
       }
     }
 

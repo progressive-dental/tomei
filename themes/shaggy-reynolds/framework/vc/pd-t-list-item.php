@@ -125,7 +125,7 @@ function pd_t_list_item_func( $atts, $content = null ) {
     <li class="t-list__item">
       <div class="pull-left">
         <<?php echo $type; ?><?php echo ( !empty( $classes ) ? ' class="' . $classes . '"' : '' ); ?>><?php echo $text; ?></<?php echo $type; ?>>
-        <?php 
+        <?php
         if( !empty( $strong_tag_color ) ) {
           $strong_replace = '<strong class="' . $strong_tag_color . '"';
           echo preg_replace( $strong_pattern, $strong_replace, preg_replace( $pattern, $replace, wpb_js_remove_wpautop ( $content, true ) ) );

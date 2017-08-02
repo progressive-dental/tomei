@@ -2,6 +2,14 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 70%;
+  @media(max-width: 1200px) {
+    width: 65%;
+  }
+
+  @media(max-width: $screen-sm-max) {
+    width: 100%;
+  }
 }
 
   .t-list__item {
@@ -9,7 +17,6 @@
     padding: 60px 0;
     clear: both;
     z-index: 1;
-    max-width: 666px;
 
     @media(max-width: $screen-sm-max) {
       max-width: 100%;
@@ -24,32 +31,55 @@
 
   .t-list__title {
     text-transform: uppercase;
-    width: 290px;
-    margin-left: -430px;
+    width: 190px;
+    margin-left: -320px;
     position: absolute;
     left: 0;
     text-align: right;
-    font-size: 30px;
+    font-size: 28px;
     line-height: 34px;
     letter-spacing: .32px;
-    word-spacing: 9000000px;
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(flex-end);
+    min-height: 75px;
+
+    @media(max-width: $screen-sm-max) {
+      margin-bottom: 30px;
+      @include justify-content(center);
+    }
 
     &:before,
     &:after {
       content: '';
-    display: block;
-    position: absolute;
-    right: -102px;
-    top: 0px;
-    width: 80px;
-    height: 75px;
-    border-right: 1px solid $color-t-list-icon;
+      display: block;
+      position: absolute;
+      right: -102px;
+      top: 0px;
+      width: 80px;
+      height: 75px;
+      border-right: 2px solid $color-t-list-icon;
+
+      @media(max-width: $screen-sm-max) {
+        right: 50%;
+        margin-right: -2px;
+        bottom: -16px;
+        height: 12px;
+        top: auto;
+      }
     }
 
     &:before {
       top: 35px;
       height: 0px;
-      border-top: 1px solid $color-t-list-icon;
+      border-top: 2px solid $color-t-list-icon;
+
+      @media(max-width: $screen-sm-max) {
+        right: 50%;
+        bottom: -16px;
+        top: auto;
+        margin-right: -40px;
+      }
     }
 
     @media(max-width: $screen-sm-max) {
@@ -58,11 +88,6 @@
       word-spacing: inherit;
       text-align: center;
       margin-left: 0;
-
-      &:before,
-      &:after {
-        display: none;
-      }
     }
   }
 

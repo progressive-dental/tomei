@@ -186,14 +186,14 @@ function progressive_map_masthead_headline() {
           'value' => array( 'true' ),
         ),
       ),
-      
+
     )
   ) );
 
 }
 
 function pd_masthead_headline_func( $atts ) {
-  global $progressive; 
+  global $progressive;
   extract(shortcode_atts(array(
     'enable_h1' => '',
     'default_h1' => '',
@@ -234,7 +234,7 @@ function pd_masthead_headline_func( $atts ) {
   }
 
   $ret = '';
-  
+
   if( "true" == $enable_h1 ) {
     $ret .= '<h1 class="' . $h1_css_classes . '">' . $text_h1 . '</h1>';
   }

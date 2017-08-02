@@ -298,6 +298,18 @@
                 'required' => array('enable-youtube','equals','1')
             ),
             array(
+                'id'        => 'enable-instagram',
+                'type'      => 'switch',
+                'title'     => 'Enable Instagram?',
+                'default'   => false,
+            ),
+            array(
+                'id'        => 'instagram-link',
+                'type'      => 'text',
+                'title'     => 'Instagram URL',
+                'required' => array('enable-instagram','equals','1')
+            ),
+            array(
                 'id'        => 'footer-scripts-section',
                 'type'      => 'section',
                 'title'     => 'Inline scripts & Styles',
@@ -330,12 +342,81 @@
                 'title'     => 'Favicon',
             ),
             array(
+                'id'        => 'enable-location-alt',
+                'type'      => 'switch',
+                'title'     => 'Enable Location for Alt Tags?',
+                'default'   => false,
+            ),
+            array(
                 'id'        => 'location',
                 'type'      => 'text',
-                'title'     => 'Location',
+                'title'     => 'Alt Tag Location',
+                'required' => array('enable-location-alt','equals','1')
             ),
-
-
+            array(
+                'id'        => 'location-one-name',
+                'type'      => 'text',
+                'title'     => 'First Location Name',
+            ),
+            array(
+                'id'        => 'location-one-link',
+                'type'      => 'text',
+                'title'     => 'First Location Link',
+            ),
+            array(
+                'id'        => 'enable-location-two',
+                'type'      => 'switch',
+                'title'     => 'Enable Second Location?',
+                'default'   => false,
+            ),
+            array(
+                'id'        => 'location-two-name',
+                'type'      => 'text',
+                'title'     => 'Second Location Name',
+                'required' => array('enable-location-two','equals','1')
+            ),
+            array(
+                'id'        => 'location-two-link',
+                'type'      => 'text',
+                'title'     => 'Second Location Link',
+                'required' => array('enable-location-two','equals','1')
+            ),
+            array(
+                'id'        => 'enable-location-three',
+                'type'      => 'switch',
+                'title'     => 'Enable Third Location?',
+                'required' => array('enable-location-two','equals','1')
+            ),
+            array(
+                'id'        => 'location-three-name',
+                'type'      => 'text',
+                'title'     => 'Third Location Name',
+                'required' => array('enable-location-three','equals','1')
+            ),
+            array(
+                'id'        => 'location-three-link',
+                'type'      => 'text',
+                'title'     => 'Third Location Link',
+                'required' => array('enable-location-three','equals','1')
+            ),
+            array(
+                'id'        => 'enable-location-four',
+                'type'      => 'switch',
+                'title'     => 'Enable Fourh Location?',
+                'required' => array('enable-location-three','equals','1')
+            ),
+            array(
+                'id'        => 'location-four-name',
+                'type'      => 'text',
+                'title'     => 'Fourth Location Name',
+                'required' => array('enable-location-four','equals','1')
+            ),
+            array(
+                'id'        => 'location-four-link',
+                'type'      => 'text',
+                'title'     => 'Fourth Location Link',
+                'required' => array('enable-location-four','equals','1')
+            )
     )
     ) );
 

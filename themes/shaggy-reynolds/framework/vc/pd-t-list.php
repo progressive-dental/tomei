@@ -90,7 +90,7 @@ if ( ! class_exists( 'PdTList' ) ) {
       }
       $ret = '';
       // Carousel html.
-      $ret .= '<ul class="t-list">';
+      $ret .= '<ul class="t-list  pull-right">';
       $ret .= do_shortcode( $content ) . '</ul>';
 
       return $ret;

@@ -45,6 +45,12 @@
 
     }
 
+    @media(min-width: $screen-md-min) {
+      .site-foot__list:not(:last-child) {
+        margin-right: 3px;
+      }
+    }
+
     @media(max-width: $screen-xs-max) {
       padding: 0 30px;
     }
@@ -128,8 +134,8 @@
       width: 30%;
     }
 
-    @media(max-width: $screen-md-max) {
-      width: 33%;
+    @media(max-width: $screen-sm-max) {
+      width: 100%;
     }
   }
 

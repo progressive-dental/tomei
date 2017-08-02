@@ -1,6 +1,7 @@
 .page-head {
   height: 100px;
   // background-color: transparent;
+  will-change: transform;
 
   position: fixed;
   top: 0;
@@ -40,6 +41,10 @@
     background-color: $color-page-head-logo-bg;
     float: left;
     min-width: 295px;
+
+    .logo img {
+      max-height: 100% !important;
+    }
   }
   .page-head__nav {
     width: 75%;

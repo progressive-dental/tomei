@@ -334,6 +334,7 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
         'background_image_location' => '',
         'type' => '',
         'poster_image' => '',
+        'poster_image_mobile_video' => '',
         'youtube_id' => '',
         'vimeo_id' => '',
         'video_url' => '',
@@ -359,7 +360,14 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
       }
 
       $ret = '';
-      $ret .= '<section class="masthead  masthead--' . $location . $overlay . '" ' . ( $inline_css ? $inline_css : '' ) . '>';
+
+      $ret .= '<section class="masthead' . $overlay . '">';
+
+      if( $background_image ) {
+        $ret .= '<div class="masthead__image" ' . ( $inline_css ? $inline_css : '' ) . '></div>';
+      }
+
+
       if( $type == 'video' ) :
         $ret .= '
           <div class="section__video-wrap">
@@ -367,7 +375,11 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
             </video>
           </div>
         ';
+        $inline_css = 'style="background-image: url(' . wp_get_attachment_url( $poster_image ) . ');"';
+        $ret .= '<div class="masthead__image  masthead__image--mobile-video ' . $overlay . '" ' . ( $inline_css ? $inline_css : '' ) . '></div>';
       endif;
+
+
 
       $ret .= '
         <div class="masthead__content">

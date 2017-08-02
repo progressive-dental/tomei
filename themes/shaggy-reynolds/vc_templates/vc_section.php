@@ -40,11 +40,11 @@ if( $bg_type == "pattern" ) {
 }
 $css_classes = array(
 	'section',
-	$el_class,
 	$masthead_class,
 	$bg_class,
 	$padding,
 	$text_location,
+	$el_class,
 	vc_shortcode_custom_css_class( $css ),
 );
 
@@ -73,6 +73,7 @@ if( $section_tag != "no") {
 } else {
 	$output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
 }
+
 if( $bg_type == "image_pattern" || $bg_type == "pattern" ) {
 	if( $pattern_bg_value ) {
 		$pattern_style = 'style="background-color: ' . $pattern_bg_value . '";';
@@ -88,7 +89,7 @@ if( 'image' == $bg_type || 'image_pattern' == $bg_type) {
 if( $bg_type == "video") :
 $output .= '<div class="section__video-wrap"><video poster="" preload="auto" loop="" autoplay="" muted=""><source src="' . $video_url . '" type="video/mp4"></video></div>';
 endif;
-$output .= '<div class="container">';
+$output .= '<div class="' . ( $full_width == 'stretch_row' ? 'container-fluid' : 'container' ) . '">';
 $output .= wpb_js_remove_wpautop( $content );
 $output .= '</div>';
 if( $section_tag != "no") {
