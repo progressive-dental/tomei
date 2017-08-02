@@ -12,32 +12,33 @@
  * 2. Theme Colors
  * 3. Text Colors
  */
-$color-white: #fff;                                   /* [1] */
-$color-dark-gray: darken(#adadad, 25%);               /* [1] */
-$color-light-gray: #ECECEC;                           /* [1] */
-$color-lighter-gray: #F5F6F6;
+$color-white: #fff;
 $color-gray: #adadad;                                 /* [1] */
+$color-dark-gray: darken($color-gray, 15%);           /* [1] */
+$color-light-gray: lighten($color-gray, 20%);         /* [1] */
+$color-lighter-gray: lighten($color-gray, 28%);       /* [1] */
 
-$color-accent: #02A765;                               /* [2] */
-$color-dark-accent: darken($color-accent, 3%);        /* [2] */
+$color-accent: #ff82ca;                               /* [2] */
+$color-dark-accent: darken($color-accent, 6%);        /* [2] */
 $color-darker-accent: darken($color-accent,20%);      /* [2] */
 $color-light-accent: lighten($color-accent, 7%);      /* [2] */
 
-$color-primary: #2A2D34;                              /* [2] */
-$color-dark-primary: darken(#202326, 2%);             /* [2] */
-$color-light-primary: lighten(#202326, 4%);             /* [2] */
-$color-light-secondary: transparentize(#202427, .9);  /* [2] */
+$color-primary: #1c1b2b;                              /* [2] */
+$color-dark-primary: darken($color-primary, 2%);      /* [2] */
+$color-light-primary: lighten($color-primary, 4%);    /* [2] */
 $color-secondary: #484B4E;                            /* [2] */
-$color-tertiary: #058ED9;                             /* [2] */
-$color-dark-tertiary: darken($color-tertiary, 30%);            /* [2] */
+$color-light-secondary: transparentize($color-secondary, .9);  /* [2] */
+
+$color-tertiary: #8783d1;                             /* [2] */
+$color-dark-tertiary: darken($color-tertiary, 30%);   /* [2] */
 $color-transparent-tertiary: transparentize($color-tertiary, .4);                             /* [2] */
 $color-tint: #EEEEEE;                                 /* [2] */
-$color-highlight: #DB7D3B;
-$color-custom-one: $color-light-primary;
-$color-custom-two: #2D3F55;
-$color-custom-three: #14204B;
+$color-highlight: #DB7D3B;                            /* [2] */
+$color-custom-one: $color-light-primary;              /* [2] */
+$color-custom-two: #2D3F55;                           /* [2] */
+$color-custom-three: #14204B;                         /* [2] */
 
-$color-text: #696969;                            /* [3] */
+$color-text: #696969;                                 /* [3] */
 $color-text-hover: #ccc;                              /* [3] */
 $color-headlines: $color-white;                       /* [3] */
 $color-headlines-underline: $color-tertiary;          /* [3] */
@@ -54,6 +55,9 @@ $color-page-background:                 $color-white;
 // 2. Links
 $color-links:                           $color-accent;
 $color-links-hover:                     $color-accent;
+
+// Strong tags
+$color-strong-tag:                      $color-primary;
 
 
 // Buttons
@@ -76,13 +80,14 @@ $color-btn-ghost-bg-hover--primary:     $color-tertiary;
 $color-btn-outline--primary:            $color-primary;
 $color-btn-outline--secondary:          $color-secondary;
 $color-btn-outline--accent:             $color-accent;
+$color-btn-view-more:                   $color-primary;
 
 $color-play-button:                     $color-white;
 
 // Accordion
 $color-accordion-title-bg-color:        $color-light-gray;
 $color-accordion-title-text:            $color-custom-two;
-$color-accordion-title-active-bg-color: $color-secondary;
+$color-accordion-title-active-bg-color: $color-tertiary;
 $color-accordion-title-active-text:     $color-white;
 $color-accordion-content-bg-color:      $color-lighter-gray;
 $color-accordion-content-text:          $color-custom-two;
@@ -107,11 +112,16 @@ $color-fifty:                           $color-white;
 $color-fifty-bg:                        $color-primary;
 $color-fifty-border:                    $color-tertiary;
 $color-fifty-play-button:               $color-play-button;
-$color-fifty-play-button-bg:            transparentize($color-tertiary, .3);;
+$color-fifty-play-button-bg:            transparentize($color-tertiary, .3);
 $color-fifty-play-button-bg-hover:      $color-tertiary;
 
+// Widgets
+$color-widget:                          $color-white;
+$color-widget-bg:                       $color-primary;
+
+
 // Implant
-$color-implant:                         $color-secondary;
+$color-implant:                         $color-tertiary;
 
 // Masthead
 $color-masthead-background:             $color-light-secondary;
@@ -122,9 +132,9 @@ $color-masthead-banner-link:            #EF5D60;
 // Masthead Tabs
 $color-masthead-tab:                    $color-white;
 $color-masthead-tab-one-bg:             $color-darker-accent;
-$color-masthead-tab-one-bg-hover:       lighten($color-darker-accent, 7%);
+$color-masthead-tab-one-bg-hover:       lighten($color-darker-accent, 6%);
 $color-masthead-tab-two-bg:             $color-dark-accent;
-$color-masthead-tab-two-bg-hover:       lighten($color-dark-accent, 4%);
+$color-masthead-tab-two-bg-hover:       lighten($color-dark-accent, 0.5%);
 $color-masthead-tab-three-bg:           $color-accent;
 $color-masthead-tab-three-bg-hover:     lighten($color-accent, 4%);
 
@@ -190,8 +200,8 @@ $color-testimonials:                    $color-white;
 $color-testimonials-play-button:        $color-play-button;
 
 // Transparent Block
-$color-transblock:                      #2796C0;
-$color-transblock-header-bg:            rgba(47,52,53,.70);
+// $color-transblock:                      #2796C0;
+$color-transblock-header-bg:            transparentize($color-primary, .3);
 $color-trabsblock-list-item-border:     #979797;
 
 // Video Box

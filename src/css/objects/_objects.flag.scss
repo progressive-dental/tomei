@@ -39,4 +39,8 @@
 
 .flag__body {
   width: 100%;
+
+  strong {
+    color: $color-strong-tag;
+  }
 }
