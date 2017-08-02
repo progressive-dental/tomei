@@ -135,7 +135,7 @@
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 30px;
-  font-family: 'Lato';
+  // font-family: 'Lato';
   font-weight: 700;
   color: $color-site-nav-link;
 
@@ -193,7 +193,7 @@
         text-transform: capitalize;
         font-weight: normal;
         line-height: 18px;
-        font-family: "proxima nova";
+        // font-family: "proxima nova";
 
         @media(max-width: 1500px) {
           font-size: 16px;
