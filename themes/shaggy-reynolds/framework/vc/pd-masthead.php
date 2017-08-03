@@ -390,9 +390,10 @@ if ( ! class_exists( 'PD_Masthead' ) ) {
           </div>
         </div>';
 
-      if( "true" == $enable_promo && $progressive['disable-promo'] != "1" ) {
-        $ret .= '<div class="masthead__banner"><span>' . ( $enable_promo ? $promo_text : $progressive['promo-text'] ) . '</span><a href="' . ( $enable_promo ? $promo_link : $progressive['promo-link'] ) . '" class="masthead__link">' . ( $enable_promo ? $promo_link_text : $progressive['promo-link-text'] ) . '</a></div>';
-      }
+        if( "true" == $enable_promo && $progressive['disable-promo'] != "1" ) {
+          $promo_link = vc_build_link( $promo_link );
+          $ret .= '<div class="masthead__banner"><a href="' . ( $enable_promo ? $promo_link['url'] : $progressive['promo-link'] ) . '" class="text-uppercase">' . ( $enable_promo ? $promo_text : $progressive['promo-text'] ) . " " . ( $enable_promo ? $promo_link_text : $progressive['promo-link-text'] ) . '</a></div>';
+        }
 
       $ret .= '</section>';
 
