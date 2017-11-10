@@ -32,11 +32,23 @@
 .accordion__content {
   padding: 40px;
   border-top: 0;
+  opacity: 0.85;
   overflow: auto;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background: $color-accordion-content-bg-color;
   color: $color-accordion-content-text;
+
+  img {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+
+  .flag,
+  .flag__body {
+    display: block;
+  }
 
   @media(max-width: $screen-xs-max) {
     padding: 25px 20px;

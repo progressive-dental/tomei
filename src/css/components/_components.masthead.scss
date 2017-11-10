@@ -1,288 +1,330 @@
 /*------------------------------------*\
-  #MASTHEAD
+#MASTHEAD
 \*------------------------------------*/
 
 .masthead {
   position: relative;
   width: 100%;
-  height: 652px;
-  max-width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
+  height: calc(100vh - 100px);
+  // max-width: 1500px;
+  // margin-left: auto;
+  // margin-right: auto;
   overflow: hidden;
 
   @include display(flex);
-    @include justify-content(center);
-    color: $color-masthead;
+  @include justify-content(center);
+  color: $color-masthead;
 
   .btn {
     margin-top: 10px;
-   background-color: $color-accent;
+    // background-color: $color-accent;
   }
 
-    @media(max-width: $screen-xs-max) {
-      // height: inherit;
-      color: $color-primary;
-      @include flex-direction(column-reverse);
-      height: auto;
-    }
+  @media(max-width: $screen-xs-max) {
+    // height: inherit;
+    color: $color-primary;
+    @include flex-direction(column-reverse);
+    height: auto;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -100px;
+    overflow: visible;
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    z-index: 11;
+    -webkit-transform: skewY(3deg);
+    -moz-transform: skewY(3deg);
+    -ms-transform: skewY(3deg);
+    -o-transform: skewY(3deg);
+    transform: skewY(3deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: initial;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -100px;
+    overflow: visible;
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    z-index: 11;
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+    -o-transform: skewY(-3deg);
+    transform: skewY(-3deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: initial;
+  }
 
 }
 
-  .masthead__image {
-    position: relative;
-    width: 100%;
-    height: 652px;
-    max-width: 1500px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
+.masthead__image {
+  position: relative;
+  width: 100%;
+  height: inherit;
+  // max-width: 1500px;
+  // margin-left: auto;
+  // margin-right: auto;
+  overflow: hidden;
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
 
-    @media(min-width: $screen-sm-min) {
-      position: absolute;
-    }
-
-    @media(max-width: $screen-xs-max) {
-      padding-bottom: 46.7%;
-      height: 0;
-    }
+  @media(min-width: $screen-sm-min) {
+    position: absolute;
   }
 
-  .masthead--home {
+  @media(max-width: $screen-xs-max) {
+    padding-bottom: 46.7%;
+    height: 0;
+  }
+}
 
-    //     -webkit-filter: brightness(1.2) contrast(.9) saturate(1.1);
-    // filter: brightness(1.2) contrast(.9) saturate(1.1);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
+.masthead--home {
 
-    @media(min-width: $screen-sm-min) {
-    }
+  //     -webkit-filter: brightness(1.2) contrast(.9) saturate(1.1);
+  // filter: brightness(1.2) contrast(.9) saturate(1.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
 
-    @media(min-width: $screen-lg-min) {
-    }
+  @media(min-width: $screen-sm-min) {
   }
 
-    .masthead--inner {
-      min-height: 540px;
-      padding: 0 0px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      @include display(flex);
-      @include justify-content(center);
-      text-align: left;
-      color: $color-masthead;
-      position: relative;
-      background-position: bottom center;
-      -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  @media(min-width: $screen-lg-min) {
+  }
+}
+
+.masthead--inner {
+  min-height: 540px;
+  padding: 0 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include display(flex);
+  @include justify-content(center);
+  text-align: left;
+  color: $color-masthead;
+  position: relative;
+  background-position: bottom center;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
 
-    }
+}
 
-    .section__video-wrap {
-      @media(max-width: $screen-xs-max) {
-        display: none;
-      }
-    }
-
-    .masthead__image--mobile-video {
-      @media(min-width: $screen-sm-min) {
-        display: none;
-      }
-    }
-    .section__video-wrap video {
-    position: absolute;
-    bottom: 0;
-    height: auto;
-    min-height: 100%;
-    min-width: 100%;
-    overflow: hidden;
-    right: 0;
-    width: auto;
-    top: 0;
-    max-width: 1500px;
+.section__video-wrap {
+  @media(max-width: $screen-xs-max) {
+    display: none;
   }
-    .masthead--overlay {
-      position: relative;
+}
 
-      @media(min-width: $screen-sm-min) {
-        &:after {
-          background-color: $color-masthead-background;
-          content: '';
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-        }
-      }
-    }
+.masthead__image--mobile-video {
+  @media(min-width: $screen-sm-min) {
+    display: none;
+  }
+}
+.section__video-wrap video {
+  position: absolute;
+  bottom: 0;
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+  right: 0;
+  width: auto;
+  top: 0;
+  max-width: 1500px;
+}
+.masthead--overlay {
+  position: relative;
 
-    .masthead__content {
-      @include align-self(center);
+  @media(min-width: $screen-sm-min) {
+    &:after {
+      background-color: $color-masthead-background;
+      content: '';
+      height: 100%;
       width: 100%;
-      z-index: 1;
-
-      @media(max-width: $screen-sm-max) {
-        padding: 50px 0;
-
-
-     }
-    }
-
-    .masthead__subheadline.u-h1 {
-      margin-bottom: 0;
-    }
-
-
-    .masthead__eyebrow {
-      font-size: 20px;
-      letter-spacing: 1.07px;
-      line-height: 24px;
-      margin-bottom: 13px;
-      font-weight: 400;
-      text-transform: uppercase;
-
-        @media(max-width: $screen-xs-max) {
-          font-size: 16px;
-          margin-bottom: 0;
-        }
-    }
-
-    .masthead__headline {
-      font-size: 72px;
-      line-height: 60px;
-      letter-spacing: 1.28px;
-      font-weight: 700;
-      text-transform: uppercase;
-
-      @media(max-width: $screen-xs-max) {
-        font-size: 28px;
-        line-height: 30px;
-    letter-spacing: 0.28px;
-      }
-    }
-
-    .masthead__banner {
-      background-color: rgba(255,255,255,.65);
-      padding: 13px 20px 12px;
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      text-align: center;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
 
-      font-size: 14px;
-      line-height: 16.8px;
-      letter-spacing: .25px;
-      font-weight: 500;
-      color: $color-masthead-banner;
-      z-index: 1;
+.masthead__content {
+  @include align-self(center);
+  width: 100%;
+  z-index: 1;
+
+  @media(max-width: $screen-sm-max) {
+    padding: 50px 0;
+
+
+  }
+}
+
+.masthead__subheadline.u-h1 {
+  margin-bottom: 0;
+}
+
+
+.masthead__eyebrow {
+  font-size: 20px;
+  letter-spacing: 1.07px;
+  line-height: 24px;
+  margin-bottom: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  @media(max-width: $screen-xs-max) {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.masthead__headline {
+  font-size: 72px;
+  line-height: 75px;
+  letter-spacing: 1.28px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @media(max-width: $screen-xs-max) {
+    font-size: 28px;
+    line-height: 30px;
+    letter-spacing: 0.28px;
+  }
+}
+
+.masthead__banner {
+  background-color: rgba(255,255,255,.65);
+  padding: 13px 20px 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+
+  font-size: 14px;
+  line-height: 16.8px;
+  letter-spacing: .25px;
+  font-weight: 500;
+  color: $color-masthead-banner;
+  z-index: 1;
+}
+
+.masthead__link {
+  font-weight: bold;
+  color: $color-masthead-banner-link;
+  text-transform: uppercase;
+}
+
+.masthead__tab-wrap {
+  @media(min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    width: 100%;
+  }
+}
+
+.masthead__tabs {
+  height: 82px;
+  width: 90%;
+  max-width: 1185px;
+  margin: 0 auto !important;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+
+  @media (max-width: 767px) {
+    height: auto;
+    width: 100%
+  }
+}
+
+.masthead__tab-content {
+  display: table;
+  height: 82px;
+  vertical-align: middle;
+  background-color: $color-masthead-tab-one-bg;
+  padding: 0;
+  margin: 0;
+  font-size: 11.25px;
+  font-size: 1.125rem;
+  width: 33.33333333%;
+  -moz-transition: all 200ms ease 0ms;
+  -o-transition: all 200ms ease 0ms;
+  -webkit-transition: all 200ms ease;
+  -webkit-transition-delay: 0ms;
+  -webkit-transition: all 200ms ease 0ms;
+  transition: all 200ms ease 0ms;
+  float: left;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  &:hover {
+    background-color: $color-masthead-tab-one-bg-hover;
+  }
+
+  &:nth-of-type(2) {
+    background-color: $color-masthead-tab-two-bg;
+
+    &:hover {
+      background-color: $color-masthead-tab-two-bg-hover;
+    }
+  }
+  &:last-of-type {
+    background-color: $color-masthead-tab-three-bg;
+
+    &:hover {
+      background-color: $color-masthead-tab-three-bg-hover;
+    }
+  }
+
+  a {
+    text-transform: uppercase;
+    font-weight: bold;
+    display: table-cell;
+    font-size: 18px;
+    letter-spacing: .32px;
+    height: 100%;
+    vertical-align: middle;
+    height: 100%;
+    color: $color-masthead-tab;
+    text-align: center;
+
+    @media(min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      font-size: 16px;
+      .icon {
+        display: none;
+      }
     }
 
-    .masthead__link {
-      font-weight: bold;
-      color: $color-masthead-banner-link;
-      text-transform: uppercase;
+    &:hover {
+      text-decoration: none;
     }
 
-    .masthead__tab-wrap {
-      @media(min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-        width: 100%;
-      }
+    .icon {
+      position: relative;
+      top: 0.15em;
+      left: .1em;
     }
+  }
+}
 
-    .masthead__tabs {
-      height: 82px;
-      width: 90%;
-      max-width: 1185px;
-      margin: 0 auto !important;
-      padding: 0;
-      display: block;
-      overflow: hidden;
-
-      @media (max-width: 767px) {
-        height: auto;
-        width: 100%
-      }
-    }
-
-    .masthead__tab-content {
-      display: table;
-      height: 82px;
-      vertical-align: middle;
-      background-color: $color-masthead-tab-one-bg;
-      padding: 0;
-      margin: 0;
-      font-size: 11.25px;
-      font-size: 1.125rem;
-      width: 33.33333333%;
-      -moz-transition: all 200ms ease 0ms;
-      -o-transition: all 200ms ease 0ms;
-      -webkit-transition: all 200ms ease;
-      -webkit-transition-delay: 0ms;
-      -webkit-transition: all 200ms ease 0ms;
-      transition: all 200ms ease 0ms;
-      float: left;
-
-      @media (max-width: 767px) {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      &:hover {
-        background-color: $color-masthead-tab-one-bg-hover;
-      }
-
-      &:nth-of-type(2) {
-        background-color: $color-masthead-tab-two-bg;
-
-        &:hover {
-          background-color: $color-masthead-tab-two-bg-hover;
-        }
-      }
-      &:last-of-type {
-        background-color: $color-masthead-tab-three-bg;
-
-        &:hover {
-          background-color: $color-masthead-tab-three-bg-hover;
-        }
-      }
-
-      a {
-        text-transform: uppercase;
-        font-weight: bold;
-        display: table-cell;
-        font-size: 18px;
-        letter-spacing: .32px;
-        height: 100%;
-        vertical-align: middle;
-        height: 100%;
-        color: $color-masthead-tab;
-        text-align: center;
-
-        @media(min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-          font-size: 16px;
-          .icon {
-            display: none;
-          }
-        }
-
-        &:hover {
-          text-decoration: none;
-        }
-
-        .icon {
-          position: relative;
-          top: 0.15em;
-          left: .1em;
-        }
-      }
-    }
+.masthead--logo img {
+  margin-bottom: 20px;
+}

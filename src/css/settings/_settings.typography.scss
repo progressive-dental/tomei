@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 // Typography - others found in global settings
-$sans-serif-font-family:  'Proxima Nova';
+$sans-serif-font-family:  'Open Sans';
 $serif-font-family:       'Georgia';
-$headings-font-family:    'Lato';
-$headings-small:          'Montserrat';
+$headings-font-family:    'Julius Sans One';
+$headings-small:          'Julius Sans One';
 $font-family-base:        $sans-serif-font-family;
 
 // Base typographical styles and baseline grid.
@@ -17,7 +17,7 @@ $global-font-weight:      400 !default;
 
 // Headings - Font Size
 $font-size-h1:  72px !default;
-$font-size-h2:  28px !default;
+$font-size-h2:  45px !default;
 $font-size-h3:  19px !default;
 $font-size-h4:  18px !default;
 $font-size-h5:  12px !default;
@@ -25,15 +25,15 @@ $font-size-h6:  16px !default;
 
 // Headings - Line Height
 $h1-line-height: 60px !default;
-$h2-line-height: 39.2px !default;
+$h2-line-height: 50px !default;
 $h3-line-height: 34px !default;
 $h4-line-height: 22px !default;
 $h5-line-height: 12px !default;
 $h6-line-height: 17px !default;
 
 // Headings - Letter Spacing
-$h1-letter-spacing: 1.28px !default;
-$h2-letter-spacing: default !default;
+$h1-letter-spacing: 2px !default;
+$h2-letter-spacing: 2px !default;
 $h3-letter-spacing: default !default;
 $h4-letter-spacing: default !default;
 $h5-letter-spacing: default !default;

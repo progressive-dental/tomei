@@ -25,21 +25,23 @@
   // $('h1,h2,h3,h4,h5,h6').widowFix({linkFix:true});
 
   $('.implant__note .plus-icon .plus').on('click',function(){
-      if($(this).parents('.implant__note').hasClass('show-cont')) {
-        $(this).parents('.implant__note').removeClass('show-cont')
-      } else {
-        console.log('here');
-        $(this).parents('.implant__note').addClass('show-cont')
-      }
-    });
+    if($(this).parents('.implant__note').hasClass('show-cont')) {
+      $(this).parents('.implant__note').removeClass('show-cont')
+    } else {
+      console.log('here');
+      $(this).parents('.implant__note').addClass('show-cont')
+    }
+  });
   $('.vc_row-o-equal-height > div').matchHeight();
   // accordion plugin
   $( '[data-plugin="collapse"]').accordion({
     heightStyle: "content",
     animate: 300
   });
-
-  $('.compare').twentytwenty();
+  
+  $(window).on('load', function() {
+    $('.compare').twentytwenty();
+  });
 
   var footLinkHeader = $('.site-foot__item--header .site-foot__link');
   footLinkHeader.each(function() {
@@ -130,10 +132,10 @@
       var $currentElem = $(currentElem);
       var i, $newTag = $(newTagObj).clone();
       if (keepProps) {//{{{
-          newTag = $newTag[0];
-          newTag.className = currentElem.className;
-          $.extend(newTag.classList, currentElem.classList);
-          $.extend(newTag.attributes, currentElem.attributes);
+        newTag = $newTag[0];
+        newTag.className = currentElem.className;
+        $.extend(newTag.classList, currentElem.classList);
+        $.extend(newTag.attributes, currentElem.attributes);
       }//}}}
       $currentElem.wrapAll($newTag);
       $currentElem.contents().unwrap();
@@ -217,7 +219,7 @@
 
 
   $('.product__images').slick({
-     dots: false,
+    dots: false,
     infinite: true,
     speed: 500,
     arrows: false
@@ -225,32 +227,32 @@
 
   WebFont.load({
     google: {
-      families: [ 'Lato:300,400,700,900' ]
+      families: [ 'Julius+Sans+One', 'Open+Sans:300,600' ]
     }
   });
 
-if( $('.counter').length ) {
-  $('.counter').each(function() {
-    var counter = $(this);
-    var options = {
-      scaleColor: false,
-      trackColor: 'rgba(255,255,255,0.3)',
-      barColor: counter.data('bar-color'),
-      lineWidth: counter.data('bar-width'),
-      lineCap: 'butt',
-      size: 242
-    };
-    var waypoint = new Waypoint({
-    element: counter[0],
-      handler: function(direction) {
-        $('.counter__count').countTo({ speed: counter.data('speed')});
-        $('.counter').easyPieChart(options);
-        this.destroy();
-      },
-      offset: '100%'
+  if( $('.counter').length ) {
+    $('.counter').each(function() {
+      var counter = $(this);
+      var options = {
+        scaleColor: false,
+        trackColor: 'rgba(255,255,255,0.3)',
+        barColor: counter.data('bar-color'),
+        lineWidth: counter.data('bar-width'),
+        lineCap: 'butt',
+        size: 242
+      };
+      var waypoint = new Waypoint({
+        element: counter[0],
+        handler: function(direction) {
+          $('.counter__count').countTo({ speed: counter.data('speed')});
+          $('.counter').easyPieChart(options);
+          this.destroy();
+        },
+        offset: '100%'
+      });
+
     });
 
-  });
-
-}
+  }
 }();

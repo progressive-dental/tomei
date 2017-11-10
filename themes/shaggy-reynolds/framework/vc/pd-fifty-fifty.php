@@ -166,16 +166,16 @@ function pd_fifty_fifty_func( $atts, $content = null ) {
 
   $classes = array( 'fifty__content', $text_location, $bg_color, $text_color );
   $classes = implode( " ", array_filter( $classes ) );
-  
+
   ?>
-  
+
     <div class="fifty">
       <?php if( "true" == $reverse ) : ?>
         <div class="<?php echo $classes; ?>"  data-mh="fifty">
-          <?php echo ( $content != null ? wpautop( $content ) : '' ); ?>
+          <?php echo ( $content != null ? $content : '' ); ?>
         </div>
         <div class="fifty__object" data-mh="fifty">
-          <?php 
+          <?php
             $attachment = ( $media == "image" ? $image : $video_poster );
             $attachemnt_alt = get_post_meta( $attachment, '_wp_attachment_image_alt', true);
           ?>
@@ -186,7 +186,7 @@ function pd_fifty_fifty_func( $atts, $content = null ) {
         </div>
       <?php else : ?>
         <div class="fifty__object" data-mh="fifty">
-           <?php 
+           <?php
             $attachment = ( $media == "image" ? $image : $video_poster );
             $attachemnt_alt = get_post_meta( $attachment, '_wp_attachment_image_alt', true);
           ?>
@@ -196,7 +196,7 @@ function pd_fifty_fifty_func( $atts, $content = null ) {
           <?php endif; ?>
         </div>
         <div class="<?php echo $classes; ?>"  data-mh="fifty">
-          <?php echo ( $content != null ? wpautop( $content ) : '' ); ?>
+          <?php echo ( $content != null ? $content : '' ); ?>
         </div>
       <?php endif; ?>
     </div>

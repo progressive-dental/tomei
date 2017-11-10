@@ -89,22 +89,11 @@
           }
   }
 
-  .card-white {
-    .card__body {
-      color: $color-tertiary;
-      background-color: $color-white;
-    }
-
+  .card--primary {
     .slick-dots {
       li {
-        button {
-          background: $color-gray;
-          &:hover, &:focus {
-              background: $color-white;
-          }
-        }
         &.slick-active button {
-            background: $color-white;
+            background: $color-primary;
         }
       }
     }
@@ -118,17 +107,17 @@
     height: 142px;
     width: 142px;
     border-radius: 100%;
-    background-color: rgba(15,26,68,.80);
+    background-color: $color-fifty-play-button-bg;
     transition: background-color .3s ease-in-out;
     @include display(flex);
     @include justify-content(center);
     @include align-items(center);
     font-size: 27px;
-    color: $color-card-play-button;
+    color: $color-fifty-play-button;
 
     &:hover,
     &:focus {
-      background-color: rgba(15,26,68,1);
+      background-color: $color-fifty-play-button-bg-hover;
       text-decoration: none;
       outline: none;
     }

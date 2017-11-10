@@ -100,7 +100,7 @@ $button_classes = array(
 );
 
 if( !empty($popup_video) ) {
-	$button_classes[] = 'js-popup-video';
+	$button_classes[] = 'js-play-video';
 }
 
 $button_html = $a_title;

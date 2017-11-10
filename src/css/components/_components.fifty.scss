@@ -1,11 +1,15 @@
 .fifty {
   width: 100%;
+  // -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  //   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  //   -ms-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  //   box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
   @media(max-width: $screen-md-max) {
     margin-left: auto;
     margin-right: auto;
     max-width: 561px;
   }
-  border-bottom: 10px solid $color-fifty-border;
+  border-bottom: 5px solid $color-fifty-border;
   clear: both;
   overflow: hidden;
 }
@@ -14,6 +18,7 @@
   .fifty__content {
     width: 50%;
     min-height: 397px;
+    max-height: 397px;
     display: inline-block;
     float: left;
 
@@ -26,6 +31,8 @@
   .fifty__content  {
     @include display(flex);
     @include align-items(center);
+    @include flex-direction(column);
+    @include justify-content(center);
     padding: 70px;
     color: $color-fifty;
     background-color: $color-fifty-bg;

@@ -97,16 +97,17 @@
 }
 
 .outline-image {
+  text-align: center;
 
   @media(max-width: $screen-sm-max) {
-    margin-bottom: 30px;
+    margin: 30px 0;
   }
 
-  @media(min-width: $screen-sm-min) {
+  @media(min-width: $screen-md-min) {
     margin-right: 38px;
 
     &::before {
-      border: 5px solid $color-outline-image-border;
+      border: 3px solid $color-outline-image-border;
       content: '';
       height: 100%;
       width: calc(100% - 68px);
@@ -114,6 +115,18 @@
       position: absolute;
       top: 38px;
       left: 53px;
+    }
+  }
+}
+
+.outline-image--primary {
+
+  .outline-image {
+    @media(min-width: 992px) {
+
+      &::before {
+        border-color: $color-primary;
+      }
     }
   }
 }
@@ -499,7 +512,7 @@ header .container .logo {
   @include align-items(center);
   @include justify-content(center);
 
-  padding: 10px 30px;
+  padding: 10px;
 }
 
 header .container .logo--left {
@@ -530,4 +543,8 @@ header li a {
   @media(max-width: 1185px) {
     left: initial;
   }
+}
+
+.main {
+  overflow-x: hidden;
 }

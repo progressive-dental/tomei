@@ -1,5 +1,10 @@
 .trans-block__header {
   background-color: $color-transblock-header-bg;
+
+  h2 {
+    color: $color-transblock-header;
+  }
+
   padding: 40px;
 }
 
@@ -9,6 +14,7 @@
 
 .trans-block__content {
   padding: 35px;
+  opacity: 0.85;
 }
 
 .trans-block__flag {

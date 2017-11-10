@@ -57,11 +57,14 @@
 
 .btn--primary {
   background-color: $color-btn-background;
-      border-color: $color-btn-background;
+      border-color: $color-btn-background-border;
              color: $color-btn;
   transition: $global-transition;
 
-
+  @include hocus() {
+    background-color: $color-btn-background-hover--primary;
+    border-color: $color-btn-border-hover--primary;
+  }
   /*.t-red & {
     background-color: $color-theme-red; // todo: introduce themes
   } */
@@ -73,6 +76,7 @@
   }
 
   .btn--outline-primary {
+    background-color: transparent;
     border-color: $color-btn-outline--primary;
 
     @include hocus {
@@ -97,7 +101,18 @@
   }
 }
 
+.btn--outline-light {
+  background-color: transparent;
+  color: $color-btn-outline--light;
+  border-color: $color-btn-border-outline--light;
+
+  @include hocus {
+    border-color: darken($color-btn-border-outline--light, 9%);
+  }
+}
+
 .btn--outline-secondary {
+  background-color: transparent;
   border-color: $color-btn-outline--secondary;
 
   @include hocus {
@@ -108,7 +123,7 @@
 .btn--accent {
   background-color: $color-btn-background--accent;
       border-color: $color-btn-border--accent;
-             color: $color-btn--accent;
+             color: $color-btn--accent !important;
   transition: all .3s;
 
   @include hocus() {
@@ -118,9 +133,13 @@
 }
 
 .btn--outline-accent {
+  background-color: transparent;
+  color: $color-primary;
   border-color: $color-btn-outline--accent;
   @include hocus {
     border-color: darken($color-btn-outline--accent, 9%);
+    background-color: darken($color-btn-outline--accent, 9%);
+    color: $color-white;
   }
 }
 
@@ -143,6 +162,6 @@
 }
 
 .btn--view-more {
-  color: $color-btn-view-more;
-  margin-top: 70px;
+  // color: $color-btn-view-more;
+  margin-top: 50px;
 }

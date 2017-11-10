@@ -1,15 +1,53 @@
 .site-foot {
   background-color: $color-site-foot-bg;
-  padding: 65px 0 0;
+  position: relative;
+  margin-top: 150px;
+  padding: 0;
   text-align: left;
   font-size: 14px;
   line-height: 19.6px;
-  font-weight: 400;
-  color: $color-site-foot;
+  font-weight: 700;
+  color: #fff;
 
-  @media(max-width: $screen-sm-max) {
-    text-align: center;
-  }
+  background-image: url("/wp-content/uploads/2017/10/footer-background-1.jpg");
+
+  &:before {
+    content: '';
+  position: absolute;
+  left: 0;
+  top: -100px;
+  overflow: visible;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  z-index: 11;
+  -webkit-transform: skewY(3deg);
+  -moz-transform: skewY(3deg);
+  -ms-transform: skewY(3deg);
+  -o-transform: skewY(3deg);
+  transform: skewY(3deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: initial;
+}
+
+&:after {
+  content: '';
+position: absolute;
+left: 0;
+top: -100px;
+overflow: visible;
+width: 100%;
+height: 100px;
+background: #fff;
+z-index: 11;
+-webkit-transform: skewY(-3deg);
+-moz-transform: skewY(-3deg);
+-ms-transform: skewY(-3deg);
+-o-transform: skewY(-3deg);
+transform: skewY(-3deg);
+-webkit-backface-visibility: hidden;
+backface-visibility: initial;
+}
 }
 
   .site-foot__reviews {
@@ -17,15 +55,12 @@
     padding: 19px 0;
     position: relative;
     text-align: center;
-
-    .section--pattern {
-      background-color: $color-site-foot-reviews-bg;
-    }
+    background-color: $color-site-foot-reviews-bg;
 
     a {
       color: $color-site-foot-reviews;
       position: relative;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 19.6px;
       letter-spacing: .29px;
       transition: .3s ease-in-out;
@@ -82,11 +117,11 @@
   }
 
   .site-foot__header {
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
     display: block;
-    border-bottom: 1px solid $color-site-foot-header-border;
+    // border-bottom: 1px solid $color-site-foot-header-border;
     margin-bottom: 25px;
-    font-size: 41px;
+    font-size: 50px;
     line-height: 58.24px;
     letter-spacing: .16px;
     font-weight: 300;
@@ -100,11 +135,17 @@
     }
   }
 
+  .site-foot__header--logo {
+    border: none;
+    img {
+      max-height: 100px;
+    }
+  }
 
   .site-foot__link {
     color: $color-site-foot-link;
     transition: .3s ease-in-out;
-    font-weight: 400;
+    font-weight: 700;
 
       &:hover {
         text-decoration: none;
@@ -146,4 +187,45 @@
     font-weight: 700;
     color: $color-site-foot-header;
     text-transform: uppercase;
+  }
+
+  .site-foot__img-wrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 285px;
+    text-align: center;
+    line-height: 0;
+
+    @media (min-width: 330px) {
+      bottom: 250px;
+    }
+
+    @media(min-width: 485px) {
+      bottom: 205px;
+    }
+
+    @media(min-width: 535px) {
+      bottom: 160px;
+    }
+
+    @media(min-width: 1950px) {
+      bottom: -85px;
+    }
+
+    > img {
+      width: inherit;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .site-foot__cta {
+    position: relative;
+    padding: 150px 0 100px;
+
+    @media(max-width: $screen-sm-max) {
+      padding: 60px 0;
+    }
+
+
   }

@@ -41,6 +41,8 @@ global $progressive
     echo $progressive['header-styles'];
   endif;
   ?>
+
+  <script src="https://use.fontawesome.com/19a16e8b22.js"></script>
 </head>
 <body <?php body_class(); ?>>
   <div id="page">

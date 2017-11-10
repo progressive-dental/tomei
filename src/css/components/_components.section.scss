@@ -13,6 +13,10 @@
   }
 }
 
+// .section__background--parallax {
+//     opacity: 0.5;
+// }
+
 .section--pattern {
   opacity: 0.92;
   position: absolute;
@@ -20,7 +24,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../images/patterns/cream-pixels/cream-pixels.png);
+  // background-image: url(../images/patterns/cream-pixels/cream-pixels.png);
   background-repeat: repeat;
   background-blend-mode: color-burn;
   zoom: 138%;
@@ -142,7 +146,7 @@
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
-  padding: 130px 0 92px;
+  padding: 130px 0;
   min-height: 643px;
   overflow: hidden;
   color: $color-section-bg;
