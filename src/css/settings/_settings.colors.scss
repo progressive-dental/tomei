@@ -18,7 +18,7 @@ $color-dark-gray: darken($color-gray, 15%);           /* [1] */
 $color-light-gray: lighten($color-gray, 20%);         /* [1] */
 $color-lighter-gray: lighten($color-gray, 28%);       /* [1] */
 
-$color-accent: #C8AE75;                               /* [2] */
+$color-accent: #7dcdcd;                               /* [2] */
 $color-dark-accent: darken($color-accent, 6%);        /* [2] */
 $color-darker-accent: darken($color-accent,20%);      /* [2] */
 $color-light-accent: lighten($color-accent, 7%);      /* [2] */
@@ -33,7 +33,7 @@ $color-dark-secondary: darken($color-secondary, 2%);  /* [2] */
 $color-darker-secondary: darken($color-secondary, 5%);/* [2] */
 $color-light-secondary: lighten($color-secondary, 4%);/* [2] */
 
-$color-tertiary: #C8AE75;                             /* [2] */
+$color-tertiary: #7dcdcd;                             /* [2] */
 $color-dark-tertiary: darken($color-tertiary, 30%);   /* [2] */
 $color-transparent-tertiary: transparentize($color-tertiary, .4);                             /* [2] */
 $color-tint: #EEEEEE;                                 /* [2] */
@@ -45,7 +45,7 @@ $color-test: #aaaaaa;
 
 $color-text: $color-light-primary;                                 /* [3] */
 $color-text-hover: #ccc;                              /* [3] */
-$color-headlines: $color-primary;                       /* [3] */
+$color-headlines: $color-white;                       /* [3] */
 $color-headlines-underline: $color-accent;          /* [3] */
 
 
