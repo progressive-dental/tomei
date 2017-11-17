@@ -227,7 +227,7 @@
 
   WebFont.load({
     google: {
-      families: [ 'Julius+Sans+One', 'Open+Sans:300,600' ]
+      families: [ 'Julius+Sans+One', 'Open+Sans:300,600' ,'Arapey:300,400,700' , 'Poppins:300,400'  ]
     }
   });
 

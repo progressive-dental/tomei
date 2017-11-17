@@ -5,8 +5,8 @@
 // Typography - others found in global settings
 $sans-serif-font-family:  'Open Sans';
 $serif-font-family:       'Georgia';
-$headings-font-family:    'Julius Sans One';
-$headings-small:          'Julius Sans One';
+$headings-font-family:    'Arapey';
+$headings-small:          'Arapey';
 $font-family-base:        $sans-serif-font-family;
 
 // Base typographical styles and baseline grid.
@@ -17,7 +17,7 @@ $global-font-weight:      400 !default;
 
 // Headings - Font Size
 $font-size-h1:  72px !default;
-$font-size-h2:  45px !default;
+$font-size-h2:  46px !default;
 $font-size-h3:  19px !default;
 $font-size-h4:  18px !default;
 $font-size-h5:  12px !default;
@@ -25,7 +25,7 @@ $font-size-h6:  16px !default;
 
 // Headings - Line Height
 $h1-line-height: 60px !default;
-$h2-line-height: 50px !default;
+$h2-line-height: 43.2px !default;
 $h3-line-height: 34px !default;
 $h4-line-height: 22px !default;
 $h5-line-height: 12px !default;
@@ -41,7 +41,7 @@ $h6-letter-spacing: default !default;
 
 // Headings - Font Weight
 $h1-font-weight: bold !default;
-$h2-font-weight: bold !default;
+$h2-font-weight: normal !default;
 $h3-font-weight: bold !default;
 $h4-font-weight: bold !default;
 $h5-font-weight: normal !default;
