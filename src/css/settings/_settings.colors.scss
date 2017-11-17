@@ -167,7 +167,7 @@ $color-site-foot-bg:                    $color-primary;
 $color-site-foot-link:                  $color-secondary;
 $color-site-foot-link-hover:            $color-darker-secondary;
 $color-site-foot-header:                $color-white;
-$color-site-foot-header-border:         lighten($color-site-foot-bg, 25%);
+$color-site-foot-header-border:         $color-accent;
 $color-site-foot-reviews-bg:            $color-light-primary;
 $color-site-foot-reviews:               $color-white;
 $color-site-foot-reviews-hover:         $color-darker-secondary;

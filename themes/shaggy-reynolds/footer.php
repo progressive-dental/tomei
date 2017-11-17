@@ -45,7 +45,7 @@ global $progressive; ?>
                     <li class="social-list__item"><a href="<?php echo $progressive['facebook-link']; ?>" class="site-foot__link" target="_blank"><i class="icon  icon--facebook"></i></a></li>
                   <?php endif; ?>
                   <?php if( $progressive['enable-google-plus'] == 1 ) : ?>
-                    <li class="social-list__item"><a href="https://plus.google.com/+ChapelHillFamilyDentistryDouglasville?hl=en" class="site-foot__link" target="_blank"><i class="icon  icon--google-plus"></i></a></li>
+                    <li class="social-list__item"><a href="https://www.google.com/search?q=luxadent&rlz=1C1CHBF_enUS746US746&oq=luxadent++&aqs=chrome..69i57j69i60j69i61l2j0l2.4655j0j7&sourceid=chrome&ie=UTF-8#lrd=0x8640c0f9bae3cd93:0x9403a4b6a051a3a5,1,,," class="site-foot__link" target="_blank"><i class="icon  icon--google-plus"></i></a></li>
                   <?php endif; ?>
                   <?php if( $progressive['enable-twitter'] == 1 ) : ?>
                     <li class="social-list__item"><a href="<?php echo $progressive['twitter-link']; ?>" class="site-foot__link" target="_blank"><i class="icon  icon--twitter"></i></a></li>
