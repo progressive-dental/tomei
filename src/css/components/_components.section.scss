@@ -181,6 +181,16 @@
   padding: 50px 0;
 }
 
+.section--boxed-parallax {
+  background-color: $color-tertiary;
+  padding: 50px;
+  opacity: 0.9;
+
+  @media(max-width: $screen-xs-max) {
+    padding: 20px;
+  }
+}
+
 .section--bg-size .section__background {
   background-size: inherit;
 }
