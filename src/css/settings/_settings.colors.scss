@@ -25,7 +25,7 @@ $color-light-accent: lighten($color-accent, 7%);      /* [2] */
 
 $color-primary: #181914;                              /* [2] */
 $color-dark-primary: darken($color-primary, 2%);      /* [2] */
-$color-light-primary: lighten($color-primary, 2%);   /* [2] */
+$color-light-primary: #222d2f;   /* [2] */
 $color-lighter-primary: lighten($color-primary, 50%); /* [2] */
 
 $color-secondary: $color-white;                            /* [2] */
@@ -36,7 +36,7 @@ $color-light-secondary: lighten($color-secondary, 4%);/* [2] */
 $color-tertiary: #1cb9d4;                              /* [2] */
 $color-dark-tertiary: darken($color-tertiary, 30%);   /* [2] */
 $color-transparent-tertiary: transparentize($color-tertiary, .4);                             /* [2] */
-$color-tint: #EEEEEE;                                 /* [2] */
+$color-tint: #222d2f;                                 /* [2] */
 $color-highlight: #DB7D3B;                            /* [2] */
 $color-custom-one: $color-light-primary;              /* [2] */
 $color-custom-two: #2D3F55;                           /* [2] */
