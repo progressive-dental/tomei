@@ -21,7 +21,7 @@ global $progressive; ?>
             <h2 class="headline__main  headline__cta  text-light">
               Contact Our Team
             </h2>
-            <a class="btn btn--accent" href="/contact-us-peachtree-city-ga" title="Schedule Consultation">
+            <a class="btn btn--accent" href="/contact-us-houston-tx" title="Schedule Consultation">
               Schedule Consultation
             </a>
           </div>
