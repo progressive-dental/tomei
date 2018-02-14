@@ -97,6 +97,20 @@ global $progressive; ?>
             <?php endif; ?>
           </div>
         </div>
+        
+        <!-- new footer code -->
+   <div class="col-sm-12 text-center">  
+   <?php if ( is_front_page() ) { ?>
+         
+        <small><a class="site-foot__link" href="https://www.progressivedentalmarketing.com/dental-website-design/" target="_blank">Dental Website</a> by <a class="site-foot__link" href="https://www.progressivedentalmarketing.com/" target="_blank">Progressive Dental Marketing</a></small>
+        <?php } else { ?>
+        <span class="site-foot__link" ><small>Dental Website by Progressive Dental Marketing</small></span>
+               
+   <?php } ?>
+   </div>
+   <!-- end new footer code -->
+
+        
       </div>
     </div>
   </section>
