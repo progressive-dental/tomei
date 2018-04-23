@@ -43,6 +43,11 @@ global $progressive
   ?>
 
   <script src="https://use.fontawesome.com/19a16e8b22.js"></script>
+  	<script type="text/javascript" >
+				window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-116872610-1', 'auto');		
+				ga('send', 'pageview');
+			</script>
 </head>
 <body <?php body_class(); ?>>
   <div id="page">
